@@ -5,28 +5,37 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.net.DatagramSocket;
+import java.net.SocketException;
 import java.util.Timer;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.locks.ReentrantLock;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import projetocomunicacao.rede.Transporte;
 
 public class ServidorUDP extends HostUDP implements Transporte {	
 	
 	public ServidorUDP(int porta) {
-		while(true){
-			try{
-				this.socketReceber = new DatagramSocket(porta);
-				this.porta = porta;
-				this.portaEnviar = porta;
-				break;
-			} catch(Exception e){
-				++porta;
-			}
-		}
-		enviando = new AtomicBoolean(false);
-		recebendo = new AtomicBoolean(false);
+            try {
+                while(true){
+                        try{
+                                this.socketReceber = new DatagramSocket(porta);
+                                this.porta = porta;
+                                this.portaEnviar = porta;
+                                break;
+                        } catch(Exception e){
+                                ++porta;
+                        }
+                }
+                this.socket = new DatagramSocket();
+                this.socketReceber = new DatagramSocket(this.porta);
+                enviando = new AtomicBoolean(false);
+                recebendo = new AtomicBoolean(false);
+            } catch (SocketException ex) {
+               ex.printStackTrace();
+            }
 	}
 	
 	private void reset() throws Exception{
@@ -40,7 +49,7 @@ public class ServidorUDP extends HostUDP implements Transporte {
 		buffer = new ConcurrentHashMap<Integer, PacketData>();
 		mutexEnviar = new ReentrantLock();
 		
-		if (this.socketReceber == null || this.socketReceber.isClosed()) this.socketReceber = new DatagramSocket(this.porta);	
+		//if (this.socketReceber == null || this.socketReceber.isClosed()) this.socketReceber = new DatagramSocket(this.porta);	
 		
 	}
 	
@@ -50,7 +59,7 @@ public class ServidorUDP extends HostUDP implements Transporte {
 			bufferAck = new ConcurrentHashMap<Integer, PacketACK>();
 			
 			ip = this.ipEnviar;
-			socket = new DatagramSocket();
+			//socket = new DatagramSocket();
 			byte[] serializado = Serializer.serialize(objeto);
 			stream = new BufferedInputStream(new ByteArrayInputStream(serializado));
 			qntTotalPacotes = (int) Math.ceil(((double)serializado.length)/PacketData.tamanhoDados);

@@ -6,21 +6,30 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
+import java.net.SocketException;
 import java.util.Timer;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.locks.ReentrantLock;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import projetocomunicacao.rede.Transporte;
 
 public class ClienteUDP extends HostUDP implements Transporte {
 	
 	public ClienteUDP(String ipServidor, int porta) {
-		this.ipServidor = ipServidor;
-		this.porta = porta;
-		this.portaEnviar = porta;
-		enviando = new AtomicBoolean(false);
-		recebendo = new AtomicBoolean(false);
+            try {
+                this.ipServidor = ipServidor;
+                this.porta = porta;
+                this.portaEnviar = porta;
+                enviando = new AtomicBoolean(false);
+                recebendo = new AtomicBoolean(false);
+                this.socket = new DatagramSocket();
+                this.socketReceber = new DatagramSocket(this.porta);
+            } catch (SocketException ex) {
+                ex.printStackTrace();
+            }
 	}
 	
 	private void reset() throws Exception{
@@ -34,7 +43,7 @@ public class ClienteUDP extends HostUDP implements Transporte {
 		buffer = new ConcurrentHashMap<Integer, PacketData>();
 		mutexEnviar = new ReentrantLock();
 		
-		if (this.socketReceber == null || this.socketReceber.isClosed()) this.socketReceber = new DatagramSocket(this.porta);	
+		//if (this.socketReceber == null || this.socketReceber.isClosed()) this.socketReceber = new DatagramSocket(this.porta);	
 	}
 	
 	private void reset(Object objeto) {
@@ -43,7 +52,7 @@ public class ClienteUDP extends HostUDP implements Transporte {
 			bufferAck = new ConcurrentHashMap<Integer, PacketACK>();
 			
 			ipEnviar = InetAddress.getByName(this.ipServidor);
-			socket = new DatagramSocket();
+			//socket = new DatagramSocket();
 			byte[] serializado = Serializer.serialize(objeto);
 			stream = new BufferedInputStream(new ByteArrayInputStream(serializado));
 			qntTotalPacotes = (int) Math.ceil(((double)serializado.length)/PacketData.tamanhoDados);

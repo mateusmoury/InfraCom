@@ -22,14 +22,14 @@ public class WaitACK extends Thread {
 				try {
 					cliente.socket.receive(p);
 				} catch (IOException e) {
-					cliente.socket.close();
+					//cliente.socket.close();
 					cliente.enviando.set(false);
 					break;
 				}
 				
 				if (!ModuloEspecial.descarta()) {
 					PacketACK pacote = new PacketACK(p.getData());
-                                        System.out.println(">>>>>>> Recebeu ACK num " + pacote.getNumSeq() + " " + p.getAddress() + " " + p.getPort());
+                                        System.out.println(">>>>>>> Recebeu ACK num " + pacote.getNumSeq() + " de " + p.getAddress() + " " + p.getPort());
 					if (pacote.getIsLast()) {
 						cliente.enviando.set(false);
 						break;
@@ -70,6 +70,6 @@ public class WaitACK extends Thread {
 				e.printStackTrace();
 			}
 		}
-		cliente.socket.close();
+		//cliente.socket.close();
 	}
 }

@@ -45,8 +45,9 @@ public class WriteData extends Thread {
 	public synchronized void envia(PacketData packet) {
 		byte[] pacote = packet.montaPacote();
 		try {
-                    System.out.println(">>>>>> Enviando pacote num " + packet.getNumSeq() + " " + cliente.ipEnviar + " " + cliente.portaEnviar);
+                    System.out.println(">>>>>> Enviando pacote num " + packet.getNumSeq() + " pra " + cliente.ipEnviar + " " + cliente.portaEnviar);
 			cliente.socket.send(new DatagramPacket(pacote, pacote.length, cliente.ipEnviar, cliente.portaEnviar));
+                        System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Eu to escutando na porta " + cliente.socket.getLocalPort());
 			cliente.timer.schedule(new Reenvia(packet.getNumSeq(), cliente.ipEnviar, cliente.portaEnviar), cliente.packetTimeout);
 		} catch (IOException e) {
 			e.printStackTrace();

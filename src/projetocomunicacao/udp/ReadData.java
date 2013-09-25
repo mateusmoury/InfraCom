@@ -24,15 +24,15 @@ public class ReadData extends Thread {
 					servidor.socketReceber.receive(datagrama);
 					servidor.ipEnviar = datagrama.getAddress();
 				} catch (IOException e) {
-					servidor.socketReceber.close();
-					this.objeto = Serializer.deserialize(servidor.baos.toByteArray());
-					servidor.recebendo.set(false);
+					//servidor.socketReceber.close();
+					//this.objeto = Serializer.deserialize(servidor.baos.toByteArray());
+					//servidor.recebendo.set(false);
 					break;
 				}
 				
 				if (!ModuloEspecial.descarta()) {
 					PacketData pacote = new PacketData(datagrama.getData(), datagrama.getLength());
-					System.out.println(">>>>>> Recebeu pacote num " + pacote.getNumSeq());
+					System.out.println(">>>>>> Recebeu pacote num " + pacote.getNumSeq() + " de " + datagrama.getAddress() + " " + datagrama.getPort());
 					if (pacote.getNumSeq() >= servidor.windowBaseRecebe && !servidor.buffer.containsKey(pacote.getNumSeq())) {
 						servidor.buffer.put(pacote.getNumSeq(), pacote);
 						qntRecebido.incrementAndGet();
@@ -43,14 +43,14 @@ public class ReadData extends Thread {
 					
 					servidor.socketReceber.send(dat);
                                         
-                                        System.out.println(">>>>>> Envia ack num " + pacote.getNumSeq() + " " + datagrama.getAddress() + " " + datagrama.getPort());
+                                        System.out.println(">>>>>> Envia ack num " + pacote.getNumSeq() + " para " + datagrama.getAddress() + " " + datagrama.getPort());
 					
 					if (pacote.getIsLast()) {
 						for (int i = 0; i < 3; ++i) {
 							Thread.sleep(servidor.packetTimeout);
 							servidor.socketReceber.send(dat);
 						}
-						servidor.socketReceber.close();
+						//servidor.socketReceber.close();
 						this.objeto = Serializer.deserialize(servidor.baos.toByteArray());
 						servidor.recebendo.set(false);
 						break;
