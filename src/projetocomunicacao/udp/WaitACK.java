@@ -60,7 +60,9 @@ public class WaitACK extends Thread {
 	
 	
 					if (this.pacotesConfirmados.get() == cliente.qntTotalPacotes) {
-						this.write.envia(new PacketData(-1,true));
+						//this.write.envia(new PacketData(-1,true));
+                                                byte[] dados = new PacketData(-1, true).montaPacote();
+                                                this.cliente.socket.send(new DatagramPacket(dados, dados.length, cliente.ipEnviar, cliente.portaEnviar));
 						this.cliente.socket.setSoTimeout(cliente.socketTimeout);
 					}
 				}
