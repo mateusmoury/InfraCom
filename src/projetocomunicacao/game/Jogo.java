@@ -42,7 +42,7 @@ public class Jogo implements Serializable{
 		this.estaPausado = false;
                 this.toque=false;
 	}
-
+        
         public int getIndInicial() {
             return indInicial;
         }

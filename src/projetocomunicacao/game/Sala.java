@@ -20,6 +20,14 @@ public class Sala implements Serializable{
                 this.seqNumber=-1;
 	}
         
+        public boolean isStatus(int ind){
+           return this.jogo.getJogadores()[ind].isStatus();
+        }
+        
+        public void setStatus(int ind, boolean status){
+            this.jogo.getJogadores()[ind].setStatus(status);
+        }
+        
         public int getIndInicial(){
             return this.jogo.getIndInicial();
         }

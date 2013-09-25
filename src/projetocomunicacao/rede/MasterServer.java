@@ -22,10 +22,10 @@ public class MasterServer extends Thread {
 				e.printStackTrace();
 			}
 			int id = 1;
-			DatagramSocket aux;
+			ServerSocket aux;
 			while(true){
 				try {
-					aux = new DatagramSocket(this.portNumber+id);
+					aux = new ServerSocket(this.portNumber+id);
 					System.out.println("PORTA DISPONIVEL EH " + (this.portNumber+id));
 					break;
 				} catch (Exception e) {

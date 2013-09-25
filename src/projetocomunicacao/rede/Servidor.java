@@ -13,6 +13,7 @@ public class Servidor {
 	ThreadServidor[] threads;
 	private Lock lock;
 	private Condition cv;
+        private boolean[] caiu;
 	
 	public Servidor(Lock lock, Condition cv){
 		this.lock = lock;
@@ -22,7 +23,12 @@ public class Servidor {
 		this.mudou = new boolean[100];
                 this.alocado = new boolean[100];
 		this.threads = new ThreadServidor[1000];
+                this.caiu = new boolean[25];
 	}
+
+        public boolean[] isCaiu() {
+            return this.caiu;
+        }
 
         public boolean[] getAlocado() {
             return alocado;

@@ -11,6 +11,7 @@ public class Jogador implements Serializable {
         private boolean[] usadas;
 	private LinkedList<Peca> pecas;
 	private boolean querSair;
+        private boolean status;
 	private int id;
 	private int numPausas;
         private String IP;
@@ -21,8 +22,17 @@ public class Jogador implements Serializable {
                 this.usadas = new boolean[6];
                 Arrays.fill(this.usadas,false);
 		this.querSair = false;
+                this.status = true;
 		this.numPausas = 3;
                 this.IP = IP;
+        }
+
+        public void setStatus(boolean status) {
+            this.status = status;
+        }
+
+        public boolean isStatus() {
+            return this.status;
         }
 
         public String getIP() {
