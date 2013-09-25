@@ -1772,7 +1772,7 @@ public class Game extends javax.swing.JFrame {
         }
     }
 
-    private void eraseContour() {
+    public void eraseContour() {
         
         javax.swing.JLabel last_piece_right = last_right_contour();
         javax.swing.JLabel last_piece_left = last_left_contour();

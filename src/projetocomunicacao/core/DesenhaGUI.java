@@ -25,6 +25,7 @@ public class DesenhaGUI extends Thread {
             }
 
             if (this.fachada.isAlterou()) {
+                this.game.eraseContour();
                 this.fachada.setAlterou(false);
                 System.out.println("Dentro do isAlterou");
                 if (this.fachada.isEmAndamento()) {
