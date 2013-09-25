@@ -43,7 +43,7 @@ public class ReadData extends Thread {
 					
 					servidor.socketReceber.send(dat);
                                         
-                                        System.out.println(">>>>>> Envia ack num " + pacote.getNumSeq() + " " + dat.getAddress() + " " + dat.getPort());
+                                        System.out.println(">>>>>> Envia ack num " + pacote.getNumSeq() + " " + datagrama.getAddress() + " " + datagrama.getPort());
 					
 					if (pacote.getIsLast()) {
 						for (int i = 0; i < 3; ++i) {
