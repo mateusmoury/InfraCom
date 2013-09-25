@@ -100,5 +100,6 @@ public class ClienteUDP extends HostUDP implements Transporte {
         
         public void setPortNumber(int portNumber) {
 		this.porta = this.portaEnviar = portNumber;
+                System.out.println("SETEI NOVA PORTA PARA " + portNumber);
 	}
 }
