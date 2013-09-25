@@ -24,7 +24,7 @@ public class ReadData extends Thread {
 					servidor.socketReceber.receive(datagrama);
 					servidor.ipEnviar = datagrama.getAddress();
 				} catch (IOException e) {
-					//servidor.socketReceber.close();
+					servidor.socketReceber.close();
 					this.objeto = Serializer.deserialize(servidor.baos.toByteArray());
 					servidor.recebendo.set(false);
 					break;
@@ -50,7 +50,7 @@ public class ReadData extends Thread {
 							Thread.sleep(servidor.packetTimeout);
 							servidor.socketReceber.send(dat);
 						}
-						//servidor.socketReceber.close();
+						servidor.socketReceber.close();
 						this.objeto = Serializer.deserialize(servidor.baos.toByteArray());
 						servidor.recebendo.set(false);
 						break;
