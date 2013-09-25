@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.net.BindException;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
+import java.net.Socket;
 import java.net.SocketException;
 import java.util.Timer;
 import java.util.concurrent.ConcurrentHashMap;
@@ -115,4 +116,8 @@ public class ClienteUDP extends HostUDP implements Transporte {
 		this.porta = this.portaEnviar = portNumber;
                 System.out.println("SETEI NOVA PORTA PARA " + portNumber);
 	}
+        
+        public Socket getSocket(){
+            return new Socket();
+        }
 }

@@ -59,8 +59,7 @@ public class ServidorTCP implements Transporte {
 	
 	public void setPortNumber(int PortNumber){}
 
-	/*@Override
 	public Socket getSocket() {
 		return this.sock;
-	}*/
+	}
 }

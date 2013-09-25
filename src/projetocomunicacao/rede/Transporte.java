@@ -1,6 +1,7 @@
 package projetocomunicacao.rede;
 
 import java.io.IOException;
+import java.net.Socket;
 
 public interface Transporte {
 	void iniciarConexao() throws IOException;
@@ -13,4 +14,6 @@ public interface Transporte {
 	
 	void setPortNumber(int PortNumber);
 	//Socket getSocket();
+
+        public Socket getSocket();
 }

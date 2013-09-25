@@ -5,6 +5,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
 import java.net.UnknownHostException;
+import projetocomunicacao.core.PingadorCliente;
 
 public class ClienteTCP implements Transporte {
 	private Socket sock;
@@ -12,6 +13,7 @@ public class ClienteTCP implements Transporte {
 	private ObjectOutputStream socketOut;
 	private ObjectInputStream socketIn;
 	private int portNumber;
+        
 	public ClienteTCP(String IPServidor, int port) {
 		this.ip = IPServidor;
 		this.portNumber = port;
@@ -19,12 +21,13 @@ public class ClienteTCP implements Transporte {
 	
 	@Override
 	public void iniciarConexao() throws UnknownHostException, IOException{
-		this.sock = new Socket(this.ip, this.portNumber);	
+		this.sock = new Socket(this.ip, this.portNumber);
 	}
 
 	@Override
 	public void encerrarConexao() throws IOException {
 		this.sock.close();
+                
 	}
 
 	@Override
@@ -51,9 +54,7 @@ public class ClienteTCP implements Transporte {
 	}
 	
 	
-
-	/*@Override
 	public Socket getSocket() {
 		return this.sock;
-	}*/
+	}
 }

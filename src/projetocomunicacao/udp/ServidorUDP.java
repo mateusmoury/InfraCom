@@ -6,6 +6,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.net.BindException;
 import java.net.DatagramSocket;
+import java.net.Socket;
 import java.net.SocketException;
 import java.util.Timer;
 import java.util.concurrent.ConcurrentHashMap;
@@ -124,4 +125,8 @@ public class ServidorUDP extends HostUDP implements Transporte {
         
         public void setPortNumber(int portNumber) {
 	}
+        
+        public Socket getSocket(){
+            return new Socket();
+        }
 }

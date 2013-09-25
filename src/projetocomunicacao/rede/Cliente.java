@@ -2,6 +2,7 @@ package projetocomunicacao.rede;
 
 import java.io.IOException;
 
+import projetocomunicacao.core.PingadorCliente;
 import projetocomunicacao.udp.ClienteUDP;
 import projetocomunicacao.udp.ModuloEspecial;
 
@@ -22,7 +23,7 @@ public class Cliente {
                 //ModuloEspecial.setNumero(0);
 		System.out.println("oi, eu sou um cliente");
 		final int portNumber = 3030;
-		Transporte protocolo = new ClienteUDP(this.IP,portNumber);
+		Transporte protocolo = new ClienteTCP(this.IP,portNumber);
 		System.out.println("cliente contata master server");
 		protocolo.iniciarConexao();
 		int newPort = (Integer) protocolo.receber();
@@ -32,6 +33,8 @@ public class Cliente {
 		protocolo.setPortNumber(newPort+3030);
 		System.out.println("vou me contatar com servidor nessa porta ai que eu recebi");
 		protocolo.iniciarConexao();
+                PingadorCliente pg = new PingadorCliente(protocolo.getSocket(),this.IP, newPort+3030);
+                pg.start();
 		this.writeCliente = new WriteCliente(protocolo);
 		this.readCliente = new ReadCliente(writeCliente,protocolo);
 		this.writeCliente.start();
