@@ -29,6 +29,7 @@ public class WaitACK extends Thread {
 				
 				if (!ModuloEspecial.descarta()) {
 					PacketACK pacote = new PacketACK(p.getData());
+                                        System.out.println(">>>>>>> Recebeu ACK num " + pacote.getNumSeq());
 					if (pacote.getIsLast()) {
 						cliente.enviando.set(false);
 						break;

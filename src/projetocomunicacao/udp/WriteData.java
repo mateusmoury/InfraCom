@@ -44,6 +44,7 @@ public class WriteData extends Thread {
 	public synchronized void envia(PacketData packet) {
 		byte[] pacote = packet.montaPacote();
 		try {
+                    System.out.println(">>>>>> Enviando pacote num " + packet.getNumSeq());
 			cliente.socket.send(new DatagramPacket(pacote, pacote.length, cliente.ipEnviar, cliente.portaEnviar));
 			cliente.timer.schedule(new Reenvia(packet.getNumSeq()), cliente.packetTimeout);
 		} catch (IOException e) {
@@ -64,6 +65,7 @@ public class WriteData extends Thread {
 			synchronized (cliente.bufferDado) {
 				PacketData pacote = cliente.bufferDado.get(numSeq);
 				if (pacote != null) {
+                                        System.out.println(">>>>>> Vai reenviar o pacote num " + numSeq);
 					envia(pacote);;
 				}
 			}

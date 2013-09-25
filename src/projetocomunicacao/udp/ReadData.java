@@ -32,7 +32,7 @@ public class ReadData extends Thread {
 				
 				if (!ModuloEspecial.descarta()) {
 					PacketData pacote = new PacketData(datagrama.getData(), datagrama.getLength());
-					
+					System.out.println(">>>>>> Recebeu pacote num " + pacote.getNumSeq());
 					if (pacote.getNumSeq() >= servidor.windowBaseRecebe && !servidor.buffer.containsKey(pacote.getNumSeq())) {
 						servidor.buffer.put(pacote.getNumSeq(), pacote);
 						qntRecebido.incrementAndGet();
@@ -42,6 +42,8 @@ public class ReadData extends Thread {
 					DatagramPacket dat = new DatagramPacket(ack, ack.length, datagrama.getAddress(), datagrama.getPort());
 					
 					servidor.socketReceber.send(dat);
+                                        
+                                        System.out.println(">>>>>> Envia ack num " + pacote.getNumSeq());
 					
 					if (pacote.getIsLast()) {
 						for (int i = 0; i < 3; ++i) {
