@@ -1,16 +1,19 @@
 package projetocomunicacao.udp;
 import java.io.IOException;
 import java.net.DatagramPacket;
+import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class ReadData extends Thread {
 	private HostUDP servidor;
 	private AtomicInteger qntRecebido; 
+        private AtomicBoolean recebeuDados;
 	Object objeto;
 
 	public ReadData(HostUDP servidor) {
 		this.servidor = servidor;
-		this.qntRecebido = new AtomicInteger(0);		
+		this.qntRecebido = new AtomicInteger(0);
+                this.recebeuDados = new AtomicBoolean(false);
 	}
 
 	public void run() {
@@ -32,6 +35,9 @@ public class ReadData extends Thread {
 				
 				if (!ModuloEspecial.descarta()) {
 					PacketData pacote = new PacketData(datagrama.getData(), datagrama.getLength());
+                                        if (pacote.getIsLast() && !recebeuDados.get()) {
+                                            continue;
+                                        }
 					System.out.println(">>>>>> Recebeu pacote num " + pacote.getNumSeq() + " de " + datagrama.getAddress() + " " + datagrama.getPort());
 					if (pacote.getNumSeq() >= servidor.windowBaseRecebe && !servidor.buffer.containsKey(pacote.getNumSeq())) {
 						servidor.buffer.put(pacote.getNumSeq(), pacote);
@@ -53,6 +59,7 @@ public class ReadData extends Thread {
 						servidor.socketReceber.close();
 						this.objeto = Serializer.deserialize(servidor.baos.toByteArray());
 						servidor.recebendo.set(false);
+                                                recebeuDados.set(false);
 						break;
 					}
 					
@@ -61,6 +68,7 @@ public class ReadData extends Thread {
 						servidor.streamReceber.write(aux.getDados());
 						servidor.streamReceber.flush();
 						servidor.windowBaseRecebe++;
+                                                recebeuDados.set(true);
 					}
 					
 					if (qntRecebido.get() == pacote.getTotalPacotes()) {
