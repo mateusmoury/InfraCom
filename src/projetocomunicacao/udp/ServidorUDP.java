@@ -4,6 +4,7 @@ import java.io.BufferedOutputStream;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.net.BindException;
 import java.net.DatagramSocket;
 import java.net.SocketException;
 import java.util.Timer;
@@ -43,7 +44,16 @@ public class ServidorUDP extends HostUDP implements Transporte {
 		buffer = new ConcurrentHashMap<Integer, PacketData>();
 		mutexEnviar = new ReentrantLock();
 		
-		if (this.socketReceber == null || this.socketReceber.isClosed()) this.socketReceber = new DatagramSocket(this.porta);	
+		if (this.socketReceber == null || this.socketReceber.isClosed()) {
+                    while(true){
+                        try {
+                            this.socketReceber = new DatagramSocket(this.porta);
+                            break;
+                        } catch (BindException e) {
+                            this.socketReceber.close();
+                        }
+                    }
+                }	
 		
 	}
 	
