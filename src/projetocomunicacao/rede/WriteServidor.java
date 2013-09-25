@@ -45,7 +45,7 @@ public class WriteServidor extends Thread {
             int aux = this.id;
             if (!this.servidor.getMudou()[aux]) {
                 try {
-                    this.cv.awaitNanos(1000);
+                    this.cv.awaitNanos(10000000);
                     //this.cv.notifyAll();
                 } catch (InterruptedException e1) {
                     // TODO Auto-generated catch block
