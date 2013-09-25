@@ -53,6 +53,11 @@ public class PingadorCliente extends Thread {
                     System.out.println("EH AGORA!!! ABRE ESSA PORRA FILHO DA PUTA!!");
                     try {
                         this.socket.close();
+                        try {
+                            sleep(1000);
+                        } catch (InterruptedException ex) {
+                            Logger.getLogger(PingadorCliente.class.getName()).log(Level.SEVERE, null, ex);
+                        }
                         this.socket = new Socket(this.hostIP, this.porta);
                         System.out.println("CHUPA PORRA, ABRI!!!!");
                     } catch (UnknownHostException ex) {
