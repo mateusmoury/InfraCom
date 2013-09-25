@@ -105,6 +105,7 @@ public class ServidorUDP extends HostUDP implements Transporte {
 		ReadData r = new ReadData(this);
 		r.start();
 		while (recebendo.get());
+                System.out.println("EU SOU SERVIDOR E ESTOU RECEBENDO " +r.objeto);
 		return r.objeto;
 	}
         

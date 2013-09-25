@@ -13,10 +13,12 @@ public class Serializer {
         ObjectOutputStream o = new ObjectOutputStream(b);
         o.writeObject(obj);
         o.flush();
+        System.out.println(">>>>>> Serializando com tamanho " + b.toByteArray().length);
         return b.toByteArray();
     }
 
     public static Object deserialize(byte[] bytes) throws IOException, ClassNotFoundException {
+        System.out.println(">>>>>>> Desserializando com tamanho " + bytes.length);
         ByteArrayInputStream b = new ByteArrayInputStream(bytes);
         ObjectInputStream o = new ObjectInputStream(b);
         return o.readObject();

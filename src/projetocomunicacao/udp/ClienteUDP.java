@@ -94,6 +94,7 @@ public class ClienteUDP extends HostUDP implements Transporte {
 		ReadData r = new ReadData(this);
 		r.start();
 		while (recebendo.get());
+                System.out.println("EU SOU CLIENTE E ESTOU RECEBENDO " + r.objeto.toString());
 		return r.objeto;
 	}
         
