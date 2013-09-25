@@ -38,22 +38,31 @@ public class ServidorTCP implements Transporte {
 
 	@Override
 	public void enviar(Object object) throws IOException {
-            //while(true){
-              //  try{
+            while(true){
+              try{
                     this.socketOut = new ObjectOutputStream(sock.getOutputStream());
-                //    break;
-                //} catch(Exception e){
-                 //   this.socket.close();
-                 //   this.socket = new ServerSocket();
-                 //   this.sock = this.socket.accept();
-                //}
-            //}
+                     break;
+                } catch(Exception e){
+                    this.socket.close();
+                    this.socket = new ServerSocket();
+                    this.sock = this.socket.accept();
+                }
+            }
             this.socketOut.writeObject(object);
 	}
 
 	@Override
 	public Object receber() throws IOException, ClassNotFoundException {
-            this.socketIn = new ObjectInputStream(sock.getInputStream());
+            while(true){
+              try{
+                    this.socketIn = new ObjectInputStream(sock.getInputStream());
+                     break;
+                } catch(Exception e){
+                    this.socket.close();
+                    this.socket = new ServerSocket();
+                    this.sock = this.socket.accept();
+                }
+            }
             return socketIn.readObject();
 	}
 	
