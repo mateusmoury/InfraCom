@@ -2606,43 +2606,43 @@ private void PerdedorDialogWindowOpened(java.awt.event.WindowEvent evt) {//GEN-F
         int ind = this.fachada.getPlayer();
         if (this.fachada.mostraJogadores()[ind] != null) {
             NomeJogador3.setText(this.fachada.mostraJogadores()[ind].getNome());
-            NomeJogador3.setEnabled(true);
+            NomeJogador3.setEnabled(this.fachada.mostraJogadores()[ind].isStatus());
         } else {
             NomeJogador3.setText("Aguardando...");
             NomeJogador3.setEnabled(true);
         }
-        NomeJogador3.setEnabled(this.fachada.mostraJogadores()[ind].isStatus());
+        
         DuplaJogador3.setText(((ind&1)>0)?"Dupla 2":"Dupla 1");
 
         ind = (ind + 1) % 4;
         if (this.fachada.mostraJogadores()[ind] != null) {
             NomeJogador4.setText(this.fachada.mostraJogadores()[ind].getNome());
-            NomeJogador4.setEnabled(true);
+            NomeJogador4.setEnabled(this.fachada.mostraJogadores()[ind].isStatus());
         } else {
             NomeJogador4.setText("Aguardando...");
             NomeJogador4.setEnabled(false);
         }
-        NomeJogador4.setEnabled(this.fachada.mostraJogadores()[ind].isStatus());
+        
         DuplaJogador4.setText(((ind&1)>0)?"Dupla 2":"Dupla 1");
         ind = (ind + 1) % 4;
         if (this.fachada.mostraJogadores()[ind] != null) {
             NomeJogador1.setText(this.fachada.mostraJogadores()[ind].getNome());
-            NomeJogador1.setEnabled(true);
+             NomeJogador1.setEnabled(this.fachada.mostraJogadores()[ind].isStatus());
         } else {
             NomeJogador1.setText("Aguardando...");
             NomeJogador1.setEnabled(false);
         }
-        NomeJogador1.setEnabled(this.fachada.mostraJogadores()[ind].isStatus());
+       
         DuplaJogador1.setText(((ind&1)>0)?"Dupla 2":"Dupla 1");
         ind = (ind + 1) % 4;
         if (this.fachada.mostraJogadores()[ind] != null) {
             NomeJogador2.setText(this.fachada.mostraJogadores()[ind].getNome());
-            NomeJogador2.setEnabled(true);
+           NomeJogador2.setEnabled(this.fachada.mostraJogadores()[ind].isStatus());
         } else {
             NomeJogador2.setText("Aguardando...");
             NomeJogador2.setEnabled(false);
         }
-        NomeJogador2.setEnabled(this.fachada.mostraJogadores()[ind].isStatus());
+        
         DuplaJogador2.setText(((ind&1)>0)?"Dupla 2":"Dupla 1");
     }
     boolean first = true;

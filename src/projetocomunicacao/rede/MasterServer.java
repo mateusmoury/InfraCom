@@ -11,7 +11,7 @@ public class MasterServer extends Thread {
 	Transporte protocolo;
 	
 	public MasterServer() throws IOException{
-		this.protocolo = new ServidorUDP(this.portNumber);
+		this.protocolo = new ServidorTCP(this.portNumber);
 	}
 	
 	public void run(){
