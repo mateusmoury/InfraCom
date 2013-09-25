@@ -22,7 +22,7 @@ public class WaitACK extends Thread {
 				try {
 					cliente.socket.receive(p);
 				} catch (IOException e) {
-					cliente.socket.close();
+					//cliente.socket.close();
 					cliente.enviando.set(false);
 					break;
 				}
