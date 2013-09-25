@@ -11,7 +11,7 @@ public class MasterServer extends Thread {
 	Transporte protocolo;
 	
 	public MasterServer() throws IOException{
-		this.protocolo = new ServidorTCP(this.portNumber);
+		this.protocolo = new ServidorUDP(this.portNumber);
 	}
 	
 	public void run(){
@@ -22,10 +22,10 @@ public class MasterServer extends Thread {
 				e.printStackTrace();
 			}
 			int id = 1;
-			ServerSocket aux;
+			DatagramSocket aux;
 			while(true){
 				try {
-					aux = new ServerSocket(this.portNumber+id);
+					aux = new DatagramSocket(this.portNumber+id);
 					System.out.println("PORTA DISPONIVEL EH " + (this.portNumber+id));
 					break;
 				} catch (Exception e) {

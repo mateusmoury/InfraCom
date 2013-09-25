@@ -6,14 +6,14 @@ import java.io.IOException;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
-import projetocomunicacao.core.Pingador;
+import projetocomunicacao.core.PingadorServidor;
 
 public class RodaServidor {
 	public static void main(String[] args) throws IOException, InterruptedException {
 		Lock lock = new ReentrantLock();
 		Condition cv = lock.newCondition();
 		Servidor servidor = new Servidor(lock,cv);
-                Pingador pingador = new Pingador(servidor);
+                PingadorServidor pingador = new PingadorServidor(servidor);
                 pingador.start();
 		servidor.inicia();
 	}

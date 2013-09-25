@@ -1795,7 +1795,11 @@ public class Game extends javax.swing.JFrame {
             for(int i = 0; i < 4; ++i) {
                 if(!this.fachada.mostraJogadores()[i].isStatus()) { can=false; break; }
             }
-            if(!can) return;
+            if(!can) {
+                eraseContour();
+                peca.setLocation(starting_location_x, starting_location_y);
+                return;
+            }
         }
         
         int offset_w = 50;
