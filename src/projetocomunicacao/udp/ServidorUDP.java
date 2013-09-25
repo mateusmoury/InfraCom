@@ -18,7 +18,6 @@ import projetocomunicacao.rede.Transporte;
 public class ServidorUDP extends HostUDP implements Transporte {	
 	
 	public ServidorUDP(int porta) {
-            try {
                 while(true){
                         try{
                                 this.socketReceber = new DatagramSocket(porta);
@@ -29,13 +28,8 @@ public class ServidorUDP extends HostUDP implements Transporte {
                                 ++porta;
                         }
                 }
-                this.socket = new DatagramSocket();
-//                this.socketReceber = new DatagramSocket(this.porta);
                 enviando = new AtomicBoolean(false);
                 recebendo = new AtomicBoolean(false);
-            } catch (SocketException ex) {
-               ex.printStackTrace();
-            }
 	}
 	
 	private void reset() throws Exception{
@@ -49,7 +43,7 @@ public class ServidorUDP extends HostUDP implements Transporte {
 		buffer = new ConcurrentHashMap<Integer, PacketData>();
 		mutexEnviar = new ReentrantLock();
 		
-		//if (this.socketReceber == null || this.socketReceber.isClosed()) this.socketReceber = new DatagramSocket(this.porta);	
+		if (this.socketReceber == null || this.socketReceber.isClosed()) this.socketReceber = new DatagramSocket(this.porta);	
 		
 	}
 	
@@ -59,7 +53,7 @@ public class ServidorUDP extends HostUDP implements Transporte {
 			bufferAck = new ConcurrentHashMap<Integer, PacketACK>();
 			
 			ip = this.ipEnviar;
-			//socket = new DatagramSocket();
+			socket = new DatagramSocket();
 			byte[] serializado = Serializer.serialize(objeto);
 			stream = new BufferedInputStream(new ByteArrayInputStream(serializado));
 			qntTotalPacotes = (int) Math.ceil(((double)serializado.length)/PacketData.tamanhoDados);

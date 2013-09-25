@@ -24,9 +24,9 @@ public class ReadData extends Thread {
 					servidor.socketReceber.receive(datagrama);
 					servidor.ipEnviar = datagrama.getAddress();
 				} catch (IOException e) {
-					//servidor.socketReceber.close();
-					//this.objeto = Serializer.deserialize(servidor.baos.toByteArray());
-					//servidor.recebendo.set(false);
+					servidor.socketReceber.close();
+					this.objeto = Serializer.deserialize(servidor.baos.toByteArray());
+					servidor.recebendo.set(false);
 					break;
 				}
 				
@@ -46,11 +46,11 @@ public class ReadData extends Thread {
                                         System.out.println(">>>>>> Envia ack num " + pacote.getNumSeq() + " para " + datagrama.getAddress() + " " + datagrama.getPort());
 					
 					if (pacote.getIsLast()) {
-						/*for (int i = 0; i < 3; ++i) {
+						for (int i = 0; i < 3; ++i) {
 							Thread.sleep(servidor.packetTimeout);
 							servidor.socketReceber.send(dat);
-						}*/
-						//servidor.socketReceber.close();
+						}
+						servidor.socketReceber.close();
 						this.objeto = Serializer.deserialize(servidor.baos.toByteArray());
 						servidor.recebendo.set(false);
 						break;

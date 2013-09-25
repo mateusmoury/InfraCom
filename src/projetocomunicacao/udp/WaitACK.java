@@ -22,7 +22,7 @@ public class WaitACK extends Thread {
 				try {
 					cliente.socket.receive(p);
 				} catch (IOException e) {
-					//cliente.socket.close();
+					cliente.socket.close();
 					cliente.enviando.set(false);
 					break;
 				}
@@ -60,9 +60,7 @@ public class WaitACK extends Thread {
 	
 	
 					if (this.pacotesConfirmados.get() == cliente.qntTotalPacotes) {
-						//this.write.envia(new PacketData(-1,true));
-                                                byte[] dados = new PacketData(-1, true).montaPacote();
-                                                this.cliente.socket.send(new DatagramPacket(dados, dados.length, cliente.ipEnviar, cliente.portaEnviar));
+						this.write.envia(new PacketData(-1,true));
 						this.cliente.socket.setSoTimeout(cliente.socketTimeout);
 					}
 				}
@@ -72,6 +70,6 @@ public class WaitACK extends Thread {
 				e.printStackTrace();
 			}
 		}
-		//cliente.socket.close();
+		cliente.socket.close();
 	}
 }
