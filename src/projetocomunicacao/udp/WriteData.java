@@ -1,6 +1,7 @@
 package projetocomunicacao.udp;
 import java.io.IOException;
 import java.net.DatagramPacket;
+import java.net.InetAddress;
 import java.util.TimerTask;
 
 
@@ -44,9 +45,9 @@ public class WriteData extends Thread {
 	public synchronized void envia(PacketData packet) {
 		byte[] pacote = packet.montaPacote();
 		try {
-                    System.out.println(">>>>>> Enviando pacote num " + packet.getNumSeq());
+                    System.out.println(">>>>>> Enviando pacote num " + packet.getNumSeq() + " " + cliente.ipEnviar + " " + cliente.portaEnviar);
 			cliente.socket.send(new DatagramPacket(pacote, pacote.length, cliente.ipEnviar, cliente.portaEnviar));
-			cliente.timer.schedule(new Reenvia(packet.getNumSeq()), cliente.packetTimeout);
+			cliente.timer.schedule(new Reenvia(packet.getNumSeq(), cliente.ipEnviar, cliente.portaEnviar), cliente.packetTimeout);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -54,9 +55,13 @@ public class WriteData extends Thread {
 
 	private class Reenvia extends TimerTask {
 		private int numSeq;
+                InetAddress ip;
+                int pprta;
 
-		public Reenvia(int numSeq) {
+		public Reenvia(int numSeq, InetAddress ip, int pprta) {
 			this.numSeq = numSeq;
+                        this.ip = ip;
+                        this.pprta = pprta;
 		}
 
 		@Override
@@ -65,7 +70,7 @@ public class WriteData extends Thread {
 			synchronized (cliente.bufferDado) {
 				PacketData pacote = cliente.bufferDado.get(numSeq);
 				if (pacote != null) {
-                                        System.out.println(">>>>>> Vai reenviar o pacote num " + numSeq);
+                                        System.out.println(">>>>>> Vai reenviar o pacote num " + numSeq + " " + this.ip + " " + this.pprta);
 					envia(pacote);;
 				}
 			}
