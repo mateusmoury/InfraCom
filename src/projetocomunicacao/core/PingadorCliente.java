@@ -38,6 +38,7 @@ public class PingadorCliente extends Thread {
         this.hostIP = hostIP;
         this.socket = socket;
         this.porta = porta;
+        this.tavaOn = true;
     }
     
     public void run(){
