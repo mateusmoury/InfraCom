@@ -3,6 +3,7 @@ package projetocomunicacao.rede;
 import java.io.IOException;
 
 import projetocomunicacao.udp.ClienteUDP;
+import projetocomunicacao.udp.ModuloEspecial;
 
 
 public class Cliente {
@@ -18,6 +19,7 @@ public class Cliente {
 	}
 	
 	public void executa() throws IOException, ClassNotFoundException {
+                ModuloEspecial.setNumero(30);
 		System.out.println("oi, eu sou um cliente");
 		final int portNumber = 3030;
 		Transporte protocolo = new ClienteUDP(this.IP,portNumber);
