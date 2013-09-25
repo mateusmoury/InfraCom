@@ -63,9 +63,8 @@ public class WaitACK extends Thread {
 						this.write.envia(new PacketData(-1,true));
 						this.cliente.socket.setSoTimeout(cliente.socketTimeout);
 					}
-				}
-
-				cliente.mutex.unlock();
+                                        cliente.mutex.unlock();
+                                }
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
