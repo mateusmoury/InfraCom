@@ -44,8 +44,15 @@ public class ServidorTCP implements Transporte {
 
 	@Override
 	public Object receber() throws IOException, ClassNotFoundException {
-		this.socketIn = new ObjectInputStream(sock.getInputStream());
-		return socketIn.readObject();
+            while(true){
+                try{
+                    this.socketIn = new ObjectInputStream(sock.getInputStream());
+                    break;
+                } catch(Exception e){
+                    
+                }
+            }
+            return socketIn.readObject();
 	}
 	
 	public void setPortNumber(int PortNumber){}

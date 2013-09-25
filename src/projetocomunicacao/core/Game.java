@@ -1789,7 +1789,15 @@ public class Game extends javax.swing.JFrame {
         System.out.println("entrei aqui!!!!!");
         javax.swing.JLabel last_piece_right = last_right();
         javax.swing.JLabel last_piece_left = last_left();
-
+        
+        if(this.fachada.isEmAndamento()) {
+            boolean can=true;
+            for(int i = 0; i < 4; ++i) {
+                if(!this.fachada.mostraJogadores()[i].isStatus()) { can=false; break; }
+            }
+            if(!can) return;
+        }
+        
         int offset_w = 50;
         int offset_h = 90;
         int neg_offset_h = 20;

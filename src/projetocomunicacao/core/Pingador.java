@@ -49,17 +49,26 @@ public class Pingador extends Thread{
                 for(int i = 0; i < this.servidor.getSalas().size(); ++i){
                     for(int j = 0; j < 4; ++j){
                         System.out.println(this.servidor.getSalas().get(i).getQuantidadeJogadores());
-                        if(this.servidor.getSalas().get(i).getJogadores()[j]!=null && !pingar(this.servidor.getSalas().get(i).getJogadores()[j].getIP())){
-                           if(!this.servidor.isCaiu()[i]) {
-                               ok = true;
-                               this.servidor.getSalas().get(i).incrementaSeqNumber();
+                        if(this.servidor.getSalas().get(i).getJogadores()[j]!=null){
+                           if(!pingar(this.servidor.getSalas().get(i).getJogadores()[j].getIP())) {
+                                if(!this.servidor.isCaiu()[i]) {
+                                   ok = true;
+                                   this.servidor.getSalas().get(i).incrementaSeqNumber();
+                               }
+                               ++cnt;
+                               this.servidor.isCaiu()[i] = true;
+                               this.servidor.getSalas().get(i).getJogadores()[j].setStatus(false);
+                           } else {
+                               this.servidor.getSalas().get(i).getJogadores()[j].setStatus(true);
                            }
-                           ++cnt;
-                           this.servidor.isCaiu()[i] = true;
-                           this.servidor.getSalas().get(i).getJogadores()[j].setStatus(false);
-                        }
+                        } 
                     }
-                    if(cnt==0&&this.servidor.isCaiu()[i]) this.servidor.isCaiu()[i] = false;
+                    if(cnt==0&&this.servidor.isCaiu()[i]) {
+                        this.servidor.isCaiu()[i] = false;
+                        ok=true;
+                        this.servidor.getSalas().get(i).incrementaSeqNumber();
+                        
+                    }
                     cnt = 0;
                 }
             }
