@@ -21,7 +21,7 @@ public class GUIServidor extends javax.swing.JFrame {
      * Creates new form GUIServidor
      */
     private FachadaServidor fachada;
-    public GUIServidor() throws IOException, InterruptedException {
+    public GUIServidor() {
         initComponents();
     }
 

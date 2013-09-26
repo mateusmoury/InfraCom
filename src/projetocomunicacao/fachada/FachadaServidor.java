@@ -16,12 +16,14 @@ import projetocomunicacao.rede.MasterServer;
 import projetocomunicacao.rede.Servidor;
 
 public class FachadaServidor {
+    private MasterServer ms;
     private Lock lock;
     private Condition cv;
     private Servidor servidor;
     private PingadorServidor pingador;
     
     public FachadaServidor() throws IOException{
+        this.ms = new MasterServer();
         this.lock = new ReentrantLock();
         this.cv = this.lock.newCondition();
         this.servidor = new Servidor(this.lock, this.cv);
@@ -29,6 +31,9 @@ public class FachadaServidor {
         System.out.println("acabei tudo que eu tinha pra fazer");
     }
     
+    public void executaMasterServer() {
+        ms.start();
+    }
     
     public void executa() throws IOException, InterruptedException{
         pingador.start();
