@@ -240,15 +240,15 @@ public class Game extends javax.swing.JFrame {
 
         medal_label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetocomunicacao/resources/medal-icon.png"))); // NOI18N
 
-        vitoria.setFont(new java.awt.Font("Verdana", 0, 24)); // NOI18N
+        vitoria.setFont(new java.awt.Font("Verdana", 0, 24));
         vitoria.setForeground(new java.awt.Color(0, 153, 0));
         vitoria.setText("Vitória!");
 
-        duplavencedora.setFont(new java.awt.Font("Verdana", 0, 22)); // NOI18N
+        duplavencedora.setFont(new java.awt.Font("Verdana", 0, 22));
         duplavencedora.setForeground(new java.awt.Color(255, 255, 255));
         duplavencedora.setText("Sua dupla ganhou");
 
-        rodadaganha.setFont(new java.awt.Font("Verdana", 0, 22)); // NOI18N
+        rodadaganha.setFont(new java.awt.Font("Verdana", 0, 22));
         rodadaganha.setForeground(new java.awt.Color(255, 255, 255));
         rodadaganha.setText("essa rodada.");
 
@@ -317,15 +317,15 @@ public class Game extends javax.swing.JFrame {
 
         trophy_label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetocomunicacao/resources/icon_trophy.png"))); // NOI18N
 
-        campeao.setFont(new java.awt.Font("Verdana", 0, 42)); // NOI18N
+        campeao.setFont(new java.awt.Font("Verdana", 0, 42));
         campeao.setForeground(new java.awt.Color(0, 153, 0));
         campeao.setText("Campeão!");
 
-        duplacampea.setFont(new java.awt.Font("Verdana", 0, 22)); // NOI18N
+        duplacampea.setFont(new java.awt.Font("Verdana", 0, 22));
         duplacampea.setForeground(new java.awt.Color(255, 255, 255));
         duplacampea.setText("Parabéns! Sua dupla foi ");
 
-        duplacampea1.setFont(new java.awt.Font("Verdana", 0, 22)); // NOI18N
+        duplacampea1.setFont(new java.awt.Font("Verdana", 0, 22));
         duplacampea1.setForeground(new java.awt.Color(255, 255, 255));
         duplacampea1.setText("a campeã da partida!");
 
@@ -386,11 +386,11 @@ public class Game extends javax.swing.JFrame {
 
         cry_label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetocomunicacao/resources/icon_perde.png"))); // NOI18N
 
-        perdedor_label.setFont(new java.awt.Font("Verdana", 0, 24)); // NOI18N
+        perdedor_label.setFont(new java.awt.Font("Verdana", 0, 24));
         perdedor_label.setForeground(new java.awt.Color(255, 0, 51));
         perdedor_label.setText("Você perdeu O Jogo.");
 
-        perdedor_label1.setFont(new java.awt.Font("Verdana", 0, 22)); // NOI18N
+        perdedor_label1.setFont(new java.awt.Font("Verdana", 0, 22));
         perdedor_label1.setForeground(new java.awt.Color(255, 255, 255));
         perdedor_label1.setText("Sua dupla perdeu a partida!");
 
@@ -440,7 +440,7 @@ public class Game extends javax.swing.JFrame {
         quit_panel.setMinimumSize(new java.awt.Dimension(400, 175));
         quit_panel.setOpaque(false);
 
-        pergunta.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
+        pergunta.setFont(new java.awt.Font("Verdana", 0, 18));
         pergunta.setForeground(new java.awt.Color(255, 255, 255));
         pergunta.setText("Você deseja realmente sair da partida?");
         pergunta.setToolTipText("");
@@ -469,7 +469,7 @@ public class Game extends javax.swing.JFrame {
                 .addGroup(quit_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(pergunta)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, quit_panelLayout.createSequentialGroup()
-                        .addComponent(sair, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(sair, javax.swing.GroupLayout.DEFAULT_SIZE, 75, Short.MAX_VALUE)
                         .addGap(204, 204, 204)
                         .addComponent(cancelar)))
                 .addGap(20, 20, 20))
@@ -513,11 +513,11 @@ public class Game extends javax.swing.JFrame {
         toque_panel.setMinimumSize(new java.awt.Dimension(400, 175));
         toque_panel.setOpaque(false);
 
-        jogadas.setFont(new java.awt.Font("Verdana", 0, 24)); // NOI18N
+        jogadas.setFont(new java.awt.Font("Verdana", 0, 24));
         jogadas.setForeground(new java.awt.Color(255, 255, 255));
         jogadas.setText("Não há jogadas disponíveis!");
 
-        mudar.setFont(new java.awt.Font("Verdana", 0, 22)); // NOI18N
+        mudar.setFont(new java.awt.Font("Verdana", 0, 22));
         mudar.setForeground(new java.awt.Color(255, 255, 255));
         mudar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetocomunicacao/resources/toqueicon90.png"))); // NOI18N
 
@@ -567,19 +567,19 @@ public class Game extends javax.swing.JFrame {
         loser_panel.setMinimumSize(new java.awt.Dimension(400, 175));
         loser_panel.setOpaque(false);
 
-        derrota.setFont(new java.awt.Font("Verdana", 0, 24)); // NOI18N
+        derrota.setFont(new java.awt.Font("Verdana", 0, 24));
         derrota.setForeground(new java.awt.Color(255, 0, 0));
         derrota.setText("Derrota!");
 
-        duplaperdedora.setFont(new java.awt.Font("Verdana", 0, 22)); // NOI18N
+        duplaperdedora.setFont(new java.awt.Font("Verdana", 0, 22));
         duplaperdedora.setForeground(new java.awt.Color(255, 255, 255));
         duplaperdedora.setText("Sua dupla perdeu");
 
-        rodadaperdida.setFont(new java.awt.Font("Verdana", 0, 22)); // NOI18N
+        rodadaperdida.setFont(new java.awt.Font("Verdana", 0, 22));
         rodadaperdida.setForeground(new java.awt.Color(255, 255, 255));
         rodadaperdida.setText("essa rodada. Boa");
 
-        jLabel1.setFont(new java.awt.Font("Verdana", 0, 22)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Verdana", 0, 22));
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("sorte na próxima!");
 
@@ -638,23 +638,23 @@ public class Game extends javax.swing.JFrame {
 
         winner_count_icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetocomunicacao/resources/draw_victory128.png"))); // NOI18N
 
-        win_count.setFont(new java.awt.Font("Verdana", 0, 24)); // NOI18N
+        win_count.setFont(new java.awt.Font("Verdana", 0, 24));
         win_count.setForeground(new java.awt.Color(0, 153, 0));
         win_count.setText("Vitória na contagem!");
 
-        dupla1contagemv.setFont(new java.awt.Font("Verdana", 0, 22)); // NOI18N
+        dupla1contagemv.setFont(new java.awt.Font("Verdana", 0, 22));
         dupla1contagemv.setForeground(new java.awt.Color(255, 255, 255));
         dupla1contagemv.setText("Pontos Dupla 1:");
 
-        dupla2contagemv.setFont(new java.awt.Font("Verdana", 0, 22)); // NOI18N
+        dupla2contagemv.setFont(new java.awt.Font("Verdana", 0, 22));
         dupla2contagemv.setForeground(new java.awt.Color(255, 255, 255));
         dupla2contagemv.setText("Pontos Dupla 2:");
 
-        label_pontosdupla1v.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
+        label_pontosdupla1v.setFont(new java.awt.Font("Verdana", 0, 18));
         label_pontosdupla1v.setForeground(new java.awt.Color(255, 255, 255));
         label_pontosdupla1v.setText("pt1");
 
-        label_pontosdupla2v.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
+        label_pontosdupla2v.setFont(new java.awt.Font("Verdana", 0, 18));
         label_pontosdupla2v.setForeground(new java.awt.Color(255, 255, 255));
         label_pontosdupla2v.setText("pt2");
 
@@ -726,31 +726,31 @@ public class Game extends javax.swing.JFrame {
         lose_count_panel.add(loser_count_icon);
         loser_count_icon.setBounds(0, 20, 110, 128);
 
-        derrota_count.setFont(new java.awt.Font("Verdana", 0, 24)); // NOI18N
+        derrota_count.setFont(new java.awt.Font("Verdana", 0, 24));
         derrota_count.setForeground(new java.awt.Color(255, 0, 0));
         derrota_count.setText("Derrota na contagem!");
         lose_count_panel.add(derrota_count);
         derrota_count.setBounds(120, 30, 263, 30);
 
-        dupla1contagemd.setFont(new java.awt.Font("Verdana", 0, 22)); // NOI18N
+        dupla1contagemd.setFont(new java.awt.Font("Verdana", 0, 22));
         dupla1contagemd.setForeground(new java.awt.Color(255, 255, 255));
         dupla1contagemd.setText("Pontos Dupla 1:");
         lose_count_panel.add(dupla1contagemd);
         dupla1contagemd.setBounds(144, 59, 177, 28);
 
-        dupla2contagemd.setFont(new java.awt.Font("Verdana", 0, 22)); // NOI18N
+        dupla2contagemd.setFont(new java.awt.Font("Verdana", 0, 22));
         dupla2contagemd.setForeground(new java.awt.Color(255, 255, 255));
         dupla2contagemd.setText("Pontos Dupla 2:");
         lose_count_panel.add(dupla2contagemd);
         dupla2contagemd.setBounds(144, 98, 177, 28);
 
-        label_pontosdupla1d.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
+        label_pontosdupla1d.setFont(new java.awt.Font("Verdana", 0, 18));
         label_pontosdupla1d.setForeground(new java.awt.Color(255, 255, 255));
         label_pontosdupla1d.setText("pt1");
         lose_count_panel.add(label_pontosdupla1d);
         label_pontosdupla1d.setBounds(327, 63, 29, 23);
 
-        label_pontosdupla2d.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
+        label_pontosdupla2d.setFont(new java.awt.Font("Verdana", 0, 18));
         label_pontosdupla2d.setForeground(new java.awt.Color(255, 255, 255));
         label_pontosdupla2d.setText("pt2");
         lose_count_panel.add(label_pontosdupla2d);
@@ -775,7 +775,7 @@ public class Game extends javax.swing.JFrame {
         disconnect_panel.setOpaque(false);
         disconnect_panel.setLayout(null);
 
-        jogador_desconectado.setFont(new java.awt.Font("Verdana", 0, 24)); // NOI18N
+        jogador_desconectado.setFont(new java.awt.Font("Verdana", 0, 24));
         jogador_desconectado.setForeground(new java.awt.Color(255, 0, 0));
         jogador_desconectado.setText("Jogador(es) Desconetado(s)!");
         disconnect_panel.add(jogador_desconectado);
@@ -796,7 +796,7 @@ public class Game extends javax.swing.JFrame {
         disconnect_panel.add(exit_disconnect);
         exit_disconnect.setBounds(360, 110, 32, 32);
 
-        espere.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
+        espere.setFont(new java.awt.Font("Verdana", 0, 18));
         espere.setForeground(new java.awt.Color(255, 255, 255));
         espere.setText("ou saia do jogo.");
         disconnect_panel.add(espere);
@@ -806,7 +806,7 @@ public class Game extends javax.swing.JFrame {
         disconnect_panel.add(disconnect_icon);
         disconnect_icon.setBounds(20, 50, 80, 80);
 
-        espere1.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
+        espere1.setFont(new java.awt.Font("Verdana", 0, 18));
         espere1.setForeground(new java.awt.Color(255, 255, 255));
         espere1.setText("Espere por reconexão");
         disconnect_panel.add(espere1);
@@ -841,19 +841,19 @@ public class Game extends javax.swing.JFrame {
         close_panel.add(alert_label);
         alert_label.setBounds(30, 20, 128, 128);
 
-        closed.setFont(new java.awt.Font("Verdana", 0, 24)); // NOI18N
+        closed.setFont(new java.awt.Font("Verdana", 0, 24));
         closed.setForeground(new java.awt.Color(255, 0, 0));
         closed.setText("Algum jogador fechou o app!");
         close_panel.add(closed);
         closed.setBounds(30, 10, 350, 30);
 
-        sendo.setFont(new java.awt.Font("Verdana", 0, 22)); // NOI18N
+        sendo.setFont(new java.awt.Font("Verdana", 0, 22));
         sendo.setForeground(new java.awt.Color(255, 255, 255));
         sendo.setText("O jogo está sendo");
         close_panel.add(sendo);
         sendo.setBounds(150, 50, 200, 28);
 
-        finalizado.setFont(new java.awt.Font("Verdana", 0, 22)); // NOI18N
+        finalizado.setFont(new java.awt.Font("Verdana", 0, 22));
         finalizado.setForeground(new java.awt.Color(255, 255, 255));
         finalizado.setText("finalizado.");
         close_panel.add(finalizado);
@@ -1291,7 +1291,7 @@ public class Game extends javax.swing.JFrame {
         game_panel.add(peca6jogador1);
         peca6jogador1.setBounds(501, 21, 35, 70);
 
-        NomeJogador1.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        NomeJogador1.setFont(new java.awt.Font("Verdana", 1, 12));
         NomeJogador1.setForeground(new java.awt.Color(255, 255, 255));
         NomeJogador1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetocomunicacao/resources/greenball16.png"))); // NOI18N
         NomeJogador1.setText("Pedro");
@@ -1302,7 +1302,7 @@ public class Game extends javax.swing.JFrame {
         game_panel.add(NomeJogador1);
         NomeJogador1.setBounds(554, 21, 100, 16);
 
-        DuplaJogador1.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        DuplaJogador1.setFont(new java.awt.Font("Verdana", 1, 12));
         DuplaJogador1.setForeground(new java.awt.Color(255, 255, 255));
         DuplaJogador1.setText("Dupla 1");
         DuplaJogador1.setFocusable(false);
@@ -1311,7 +1311,7 @@ public class Game extends javax.swing.JFrame {
         game_panel.add(DuplaJogador1);
         DuplaJogador1.setBounds(554, 43, 51, 16);
 
-        NomeJogador2.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        NomeJogador2.setFont(new java.awt.Font("Verdana", 1, 12));
         NomeJogador2.setForeground(new java.awt.Color(255, 255, 255));
         NomeJogador2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetocomunicacao/resources/greenball16.png"))); // NOI18N
         NomeJogador2.setText("Aquitério");
@@ -1322,7 +1322,7 @@ public class Game extends javax.swing.JFrame {
         game_panel.add(NomeJogador2);
         NomeJogador2.setBounds(710, 105, 80, 16);
 
-        DuplaJogador2.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        DuplaJogador2.setFont(new java.awt.Font("Verdana", 1, 12));
         DuplaJogador2.setForeground(new java.awt.Color(255, 255, 255));
         DuplaJogador2.setText("Dupla 2");
         DuplaJogador2.setFocusable(false);
@@ -1331,7 +1331,7 @@ public class Game extends javax.swing.JFrame {
         game_panel.add(DuplaJogador2);
         DuplaJogador2.setBounds(710, 127, 51, 16);
 
-        NomeJogador3.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        NomeJogador3.setFont(new java.awt.Font("Verdana", 1, 12));
         NomeJogador3.setForeground(new java.awt.Color(255, 255, 255));
         NomeJogador3.setText("Vini");
         NomeJogador3.setFocusable(false);
@@ -1340,7 +1340,7 @@ public class Game extends javax.swing.JFrame {
         game_panel.add(NomeJogador3);
         NomeJogador3.setBounds(554, 509, 120, 16);
 
-        DuplaJogador3.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        DuplaJogador3.setFont(new java.awt.Font("Verdana", 1, 12));
         DuplaJogador3.setForeground(new java.awt.Color(255, 255, 255));
         DuplaJogador3.setText("Dupla 1");
         DuplaJogador3.setToolTipText("");
@@ -1350,7 +1350,7 @@ public class Game extends javax.swing.JFrame {
         game_panel.add(DuplaJogador3);
         DuplaJogador3.setBounds(554, 531, 51, 16);
 
-        NomeJogador4.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        NomeJogador4.setFont(new java.awt.Font("Verdana", 1, 12));
         NomeJogador4.setForeground(new java.awt.Color(255, 255, 255));
         NomeJogador4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetocomunicacao/resources/greenball16.png"))); // NOI18N
         NomeJogador4.setText("Jacilda");
@@ -1361,7 +1361,7 @@ public class Game extends javax.swing.JFrame {
         game_panel.add(NomeJogador4);
         NomeJogador4.setBounds(9, 105, 80, 16);
 
-        DuplaJogador4.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        DuplaJogador4.setFont(new java.awt.Font("Verdana", 1, 12));
         DuplaJogador4.setForeground(new java.awt.Color(255, 255, 255));
         DuplaJogador4.setText("Dupla 2");
         DuplaJogador4.setFocusable(false);
@@ -1370,7 +1370,7 @@ public class Game extends javax.swing.JFrame {
         game_panel.add(DuplaJogador4);
         DuplaJogador4.setBounds(22, 127, 51, 16);
 
-        ScoreDupla1.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        ScoreDupla1.setFont(new java.awt.Font("Verdana", 1, 12));
         ScoreDupla1.setForeground(new java.awt.Color(255, 0, 0));
         ScoreDupla1.setText("0");
         ScoreDupla1.setFocusable(false);
@@ -1379,7 +1379,7 @@ public class Game extends javax.swing.JFrame {
         game_panel.add(ScoreDupla1);
         ScoreDupla1.setBounds(688, 52, 9, 16);
 
-        ScoreDupla2.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        ScoreDupla2.setFont(new java.awt.Font("Verdana", 1, 12));
         ScoreDupla2.setForeground(new java.awt.Color(46, 180, 243));
         ScoreDupla2.setText("0");
         ScoreDupla2.setFocusable(false);
@@ -2503,9 +2503,16 @@ private void peca6jogador3MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIR
 
     private void sairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sairActionPerformed
         // TODO add your handling code here:
+        this.fachada.querSair();
         System.exit(0);
     }//GEN-LAST:event_sairActionPerformed
-
+    
+    public void mostraQuitDialog(){
+        QuitDialog.setLocationRelativeTo(game_panel);
+        QuitDialog.setModal(true);
+        QuitDialog.setVisible(true);
+    }
+    
     private void cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarActionPerformed
         // TODO add your handling code here:
         QuitDialog.setVisible(false);

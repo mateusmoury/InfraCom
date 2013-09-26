@@ -13,7 +13,6 @@ public class Jogador implements Serializable {
 	private boolean querSair;
         private boolean status;
 	private int id;
-	private int numPausas;
         private String IP;
 	
 	public Jogador(String nome, String IP){
@@ -23,7 +22,6 @@ public class Jogador implements Serializable {
                 Arrays.fill(this.usadas,false);
 		this.querSair = false;
                 this.status = true;
-		this.numPausas = 3;
                 this.IP = IP;
         }
 
@@ -51,27 +49,6 @@ public class Jogador implements Serializable {
 		return this.nome;
 	}
 	
-	public boolean pausa(Jogo jogo){
-		boolean ret;
-		if(jogo.getVez()==this.id && this.numPausas>0){
-			this.numPausas--;
-			jogo.setEstaPausado(true);
-			//ativa timer
-			ret = true;
-		} else ret = false;
-		return ret;
-	}
-	
-	public boolean despausa(Jogo jogo){
-		boolean ret;
-		if(jogo.isEstaPausado() && jogo.getVez()==this.id){
-			jogo.setEstaPausado(false);
-			ret = true;
-			//desativa timer
-		}
-		else ret = false;
-		return ret;
-	}
 	
 	//checa se jogador pode jogar pecas[ind] no extremo esquerdo do jogo
 	//se lado == 0 e no direito caso contrario. Se puder, retorna lado da peca

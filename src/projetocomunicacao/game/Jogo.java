@@ -333,4 +333,12 @@ public class Jogo implements Serializable{
 	public boolean getEmAndamento() {
 		return this.emAndamento;
 	}
+        
+       public boolean isQuerSair(int ind) {
+		return this.jogadores[ind].isQuerSair();
+	}
+       
+       public void setQuerSair(int ind, boolean querSair){
+           this.jogadores[ind].setQuerSair(querSair);
+       }
 }

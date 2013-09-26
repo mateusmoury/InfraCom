@@ -170,4 +170,12 @@ public class FachadaCliente {
         public int getIndInicial(){
             return this.cliente.getWriteCliente().getIndInicial();
         }
+        
+        public void querSair(){
+            this.cliente.getWriteCliente().querSair();
+        }
+        
+        public boolean getQuerSair(int ind){
+            return this.cliente.getWriteCliente().getSalas().get(this.cliente.getWriteCliente().getSalaId()).isQuerSair(ind);
+        }
 }

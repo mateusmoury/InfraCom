@@ -194,5 +194,13 @@ public class Sala implements Serializable{
         public void reiniciarPartida(){
             this.jogo.reiniciarPartida();;
         }
+        
+        public boolean isQuerSair(int ind) {
+		return this.jogo.getJogadores()[ind].isQuerSair();
+	}
+       
+       public void setQuerSair(int ind, boolean querSair){
+           this.jogo.getJogadores()[ind].setQuerSair(querSair);
+       }
 
 }

@@ -29,6 +29,11 @@ public class DesenhaGUI extends Thread {
                 this.fachada.setAlterou(false);
                 System.out.println("Dentro do isAlterou");
                 if (this.fachada.isEmAndamento()) {
+                    for(int i = 0; i < 4; ++i){
+                        if(this.fachada.getQuerSair(i)){
+                            this.game.mostraQuitDialog();
+                        }
+                    }
                     if (this.fachada.mostraTabuleiro().size() > 0) {
                         this.game.desenharTabuleiro();
                     }

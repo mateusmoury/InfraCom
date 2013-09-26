@@ -28,11 +28,9 @@ public class GUIServidor extends javax.swing.JFrame {
 
     
     public void desenhaComboBox(){
-        //salas_combobox.removeAllItems();
-        if(this.fachada.getSalas().size()==1&&salas_combobox.getItemCount()<this.fachada.getSalas().size()) salas_combobox.addItem(this.fachada.getSalas().size()-1);
-        else {
-            if(salas_combobox.getItemCount()<this.fachada.getSalas().size()) 
-                salas_combobox.addItem(this.fachada.getSalas().size()-1);
+        salas_combobox.removeAllItems();
+        for(int i = 0; i < this.fachada.getSalas().size(); ++i) {
+            salas_combobox.addItem(this.fachada.getSalas().get(i).getId());
         }
     }
     
@@ -106,6 +104,7 @@ public class GUIServidor extends javax.swing.JFrame {
         icon_status_jogador3 = new javax.swing.JLabel();
         icon_status_jogador4 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
         server_background = new javax.swing.JLabel();
 
         EspecialDialogServidor.setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
@@ -213,7 +212,7 @@ public class GUIServidor extends javax.swing.JFrame {
         server_panel.add(especial_label);
         especial_label.setBounds(180, 530, 240, 32);
 
-        salas_combobox.setFont(new java.awt.Font("Verdana", 0, 11));
+        salas_combobox.setFont(new java.awt.Font("Verdana", 0, 11)); // NOI18N
         salas_combobox.setMaximumRowCount(20);
         salas_combobox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -299,6 +298,16 @@ public class GUIServidor extends javax.swing.JFrame {
         server_panel.add(jButton1);
         jButton1.setBounds(490, 150, 40, 40);
 
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetocomunicacao/resources/door32.png"))); // NOI18N
+        jButton2.setText("Atualizar sala");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        server_panel.add(jButton2);
+        jButton2.setBounds(300, 480, 170, 40);
+
         getContentPane().add(server_panel);
         server_panel.setBounds(0, 0, 800, 600);
 
@@ -334,8 +343,12 @@ private void salas_comboboxActionPerformed(java.awt.event.ActionEvent evt) {//GE
 private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 // TODO add your handling code here:
     this.desenhaComboBox();
-    this.escreveJogadores();
 }//GEN-LAST:event_jButton1ActionPerformed
+
+private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+// TODO add your handling code here:
+    escreveJogadores();
+}//GEN-LAST:event_jButton2ActionPerformed
 
    /**
      * @param args the command line arguments
@@ -384,6 +397,7 @@ private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
     private javax.swing.JLabel icon_status_jogador3;
     private javax.swing.JLabel icon_status_jogador4;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel label_esp_server;
     private javax.swing.JLabel monitorar_sala;
     private javax.swing.JComboBox salas_combobox;

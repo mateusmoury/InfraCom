@@ -36,6 +36,12 @@ import java.util.LinkedList;
                 this.path="";
 	}
         
+        public void querSair(){
+            this.salas.get(salaId).getJogadores()[this.player].setQuerSair(true);
+            this.instrucao=4;
+            this.temInstrucao = true;
+        }
+        
         public void setNovaSalaId(int id) {
             this.novaSalaId = id;
         }
@@ -315,7 +321,9 @@ import java.util.LinkedList;
 					this.fazJogada();
 				} else if(this.instrucao==3){
 					this.incrementaVez();
-				}
+				} else if(this.instrucao==4){
+                                    this.envia();
+                                }
 				this.temInstrucao = false;
 			}
 		}
