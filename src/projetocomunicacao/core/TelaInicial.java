@@ -104,6 +104,13 @@ public class TelaInicial extends javax.swing.JFrame {
         escolha_room = new javax.swing.JLabel();
         OK_room = new javax.swing.JButton();
         room_background = new javax.swing.JLabel();
+        IPDialog = new javax.swing.JDialog();
+        ip_panel = new javax.swing.JPanel();
+        ip_icon = new javax.swing.JLabel();
+        formato = new javax.swing.JLabel();
+        valido = new javax.swing.JLabel();
+        OKIP = new javax.swing.JButton();
+        IP_background = new javax.swing.JLabel();
         panel_inicial = new javax.swing.JPanel();
         logoInicial = new javax.swing.JLabel();
         salas = new javax.swing.JLabel();
@@ -131,63 +138,63 @@ public class TelaInicial extends javax.swing.JFrame {
 
         jPanel2.setOpaque(false);
 
-        jLabel9.setFont(new java.awt.Font("Verdana", 0, 36));
+        jLabel9.setFont(new java.awt.Font("Verdana", 0, 36)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Regras do Jogo");
 
-        jLabel10.setFont(new java.awt.Font("Verdana", 0, 11));
+        jLabel10.setFont(new java.awt.Font("Verdana", 0, 11)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("1. 4 participantes, duas duplas com participantes alternados (ABAB), cada jogador");
 
-        jLabel12.setFont(new java.awt.Font("Verdana", 0, 11));
+        jLabel12.setFont(new java.awt.Font("Verdana", 0, 11)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setText("recebe 6 pedras.");
 
-        jLabel13.setFont(new java.awt.Font("Verdana", 0, 11));
+        jLabel13.setFont(new java.awt.Font("Verdana", 0, 11)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(255, 255, 255));
         jLabel13.setText("2. Na primeira jogada da partida, começa quem tiver a carroça de maior valor.");
 
-        jLabel14.setFont(new java.awt.Font("Verdana", 0, 11));
+        jLabel14.setFont(new java.awt.Font("Verdana", 0, 11)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(255, 255, 255));
         jLabel14.setText("3. Em sentido horário, o próximo jogador coloca uma pedra com o valor igual a");
 
-        jLabel15.setFont(new java.awt.Font("Verdana", 0, 11));
+        jLabel15.setFont(new java.awt.Font("Verdana", 0, 11)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(255, 255, 255));
         jLabel15.setText("da pedra que está em uma das pontas. Caso não possua, passa a vez.");
 
-        jLabel16.setFont(new java.awt.Font("Verdana", 0, 11));
+        jLabel16.setFont(new java.awt.Font("Verdana", 0, 11)); // NOI18N
         jLabel16.setForeground(new java.awt.Color(255, 255, 255));
         jLabel16.setText("4. Ganha a rodada da partida quem acabar primeiro com as pedras da mão.");
 
-        jLabel18.setFont(new java.awt.Font("Verdana", 0, 11));
+        jLabel18.setFont(new java.awt.Font("Verdana", 0, 11)); // NOI18N
         jLabel18.setForeground(new java.awt.Color(255, 255, 255));
         jLabel18.setText("permanecer empatado, a rodada é cancelada.");
 
-        jLabel19.setFont(new java.awt.Font("Verdana", 0, 11));
+        jLabel19.setFont(new java.awt.Font("Verdana", 0, 11)); // NOI18N
         jLabel19.setForeground(new java.awt.Color(255, 255, 255));
         jLabel19.setText("6. Pontuação:");
 
-        jLabel20.setFont(new java.awt.Font("Verdana", 0, 11));
+        jLabel20.setFont(new java.awt.Font("Verdana", 0, 11)); // NOI18N
         jLabel20.setForeground(new java.awt.Color(255, 255, 255));
         jLabel20.setText("    Se a pedra serviu em apenas uma das pontas e não é carroça, 1 ponto.");
 
-        jLabel21.setFont(new java.awt.Font("Verdana", 0, 11));
+        jLabel21.setFont(new java.awt.Font("Verdana", 0, 11)); // NOI18N
         jLabel21.setForeground(new java.awt.Color(255, 255, 255));
         jLabel21.setText("    Se a pedra serviu em apenas uma das pontas e é carroça, 2 pontos.");
 
-        jLabel22.setFont(new java.awt.Font("Verdana", 0, 11));
+        jLabel22.setFont(new java.awt.Font("Verdana", 0, 11)); // NOI18N
         jLabel22.setForeground(new java.awt.Color(255, 255, 255));
         jLabel22.setText("    Se a pedra serviu em ambas pontas e não é uma carroça, 3 pontos.");
 
-        jLabel23.setFont(new java.awt.Font("Verdana", 0, 11));
+        jLabel23.setFont(new java.awt.Font("Verdana", 0, 11)); // NOI18N
         jLabel23.setForeground(new java.awt.Color(255, 255, 255));
         jLabel23.setText("    Se a pedra serviu em ambas pontas e é uma carroça, 4 pontos.");
 
-        jLabel24.setFont(new java.awt.Font("Verdana", 0, 11));
+        jLabel24.setFont(new java.awt.Font("Verdana", 0, 11)); // NOI18N
         jLabel24.setForeground(new java.awt.Color(255, 255, 255));
         jLabel24.setText("7. Ganha o jogo quem primeiro obtiver 7 pontos primeiro. ");
 
-        jLabel25.setFont(new java.awt.Font("Verdana", 0, 11));
+        jLabel25.setFont(new java.awt.Font("Verdana", 0, 11)); // NOI18N
         jLabel25.setForeground(new java.awt.Color(255, 255, 255));
         jLabel25.setText("*carroça: pedra com valores iguais nas duas pontas.");
 
@@ -211,7 +218,7 @@ public class TelaInicial extends javax.swing.JFrame {
             }
         });
 
-        jLabel11.setFont(new java.awt.Font("Verdana", 0, 11));
+        jLabel11.setFont(new java.awt.Font("Verdana", 0, 11)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("5. Em caso de empate, ganha quem tiver menos pontos agregados. Em caso de");
 
@@ -325,7 +332,7 @@ public class TelaInicial extends javax.swing.JFrame {
 
         jPanel4.setOpaque(false);
 
-        criarsala_button.setFont(new java.awt.Font("Verdana", 0, 14));
+        criarsala_button.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         criarsala_button.setForeground(new java.awt.Color(255, 255, 255));
         criarsala_button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetocomunicacao/resources/icon_check_criarsala.png"))); // NOI18N
         criarsala_button.setText("Criar!");
@@ -345,7 +352,7 @@ public class TelaInicial extends javax.swing.JFrame {
             }
         });
 
-        jLabel3.setFont(new java.awt.Font("Verdana", 0, 12));
+        jLabel3.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Nome da Sala");
 
@@ -407,13 +414,13 @@ public class TelaInicial extends javax.swing.JFrame {
         group_panel.add(groupicon);
         groupicon.setBounds(310, 20, 90, 90);
 
-        completa.setFont(new java.awt.Font("Verdana", 0, 18));
+        completa.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
         completa.setText("A dupla escolhida está completa!");
         completa.setToolTipText("");
         group_panel.add(completa);
         completa.setBounds(10, 11, 296, 23);
 
-        escolha.setFont(new java.awt.Font("Verdana", 0, 18));
+        escolha.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
         escolha.setText("Escolha outra dupla.");
         escolha.setToolTipText("");
         group_panel.add(escolha);
@@ -452,15 +459,15 @@ public class TelaInicial extends javax.swing.JFrame {
         server_panel.add(serverlabel1);
         serverlabel1.setBounds(10, 30, 120, 120);
 
-        serverlabel2.setFont(new java.awt.Font("Verdana", 0, 18));
+        serverlabel2.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
         serverlabel2.setText("Falha ao se conectar com o servidor!");
         server_panel.add(serverlabel2);
         serverlabel2.setBounds(30, 10, 333, 18);
 
-        serverlabel3.setFont(new java.awt.Font("Verdana", 0, 18));
-        serverlabel3.setText("IP ou formato inválido");
+        serverlabel3.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
+        serverlabel3.setText("Tente outra vez.");
         server_panel.add(serverlabel3);
-        serverlabel3.setBounds(160, 30, 201, 23);
+        serverlabel3.setBounds(210, 30, 149, 23);
 
         OKServer.setText("OK");
         OKServer.addActionListener(new java.awt.event.ActionListener() {
@@ -490,7 +497,7 @@ public class TelaInicial extends javax.swing.JFrame {
         especial_panel.setMinimumSize(new java.awt.Dimension(400, 175));
         especial_panel.setOpaque(false);
 
-        alterar_label.setFont(new java.awt.Font("Verdana", 0, 18));
+        alterar_label.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
         alterar_label.setForeground(new java.awt.Color(255, 255, 255));
         alterar_label.setText("Alterar número do módulo especial:");
         alterar_label.setToolTipText("");
@@ -554,13 +561,13 @@ public class TelaInicial extends javax.swing.JFrame {
         room_panel.add(room_icon);
         room_icon.setBounds(310, 20, 90, 90);
 
-        selecionada.setFont(new java.awt.Font("Verdana", 0, 18));
+        selecionada.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
         selecionada.setText("Nenhuma sala foi selecionada!");
         selecionada.setToolTipText("");
         room_panel.add(selecionada);
         selecionada.setBounds(10, 11, 274, 23);
 
-        escolha_room.setFont(new java.awt.Font("Verdana", 0, 18));
+        escolha_room.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
         escolha_room.setText("Escolha uma sala.");
         escolha_room.setToolTipText("");
         room_panel.add(escolha_room);
@@ -582,6 +589,50 @@ public class TelaInicial extends javax.swing.JFrame {
         RoomDialog.getContentPane().add(room_panel);
         room_panel.setBounds(0, 0, 400, 160);
 
+        IPDialog.setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        IPDialog.setTitle("IP inválido");
+        IPDialog.setLocationByPlatform(true);
+        IPDialog.setMinimumSize(new java.awt.Dimension(400, 175));
+        IPDialog.setModalExclusionType(java.awt.Dialog.ModalExclusionType.APPLICATION_EXCLUDE);
+        IPDialog.setModalityType(java.awt.Dialog.ModalityType.APPLICATION_MODAL);
+        IPDialog.setResizable(false);
+        IPDialog.getContentPane().setLayout(null);
+
+        ip_panel.setMinimumSize(new java.awt.Dimension(400, 175));
+        ip_panel.setOpaque(false);
+        ip_panel.setLayout(null);
+
+        ip_icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetocomunicacao/resources/icon_disconnection.png"))); // NOI18N
+        ip_panel.add(ip_icon);
+        ip_icon.setBounds(10, 30, 120, 120);
+
+        formato.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
+        formato.setText("IP digitado possui formato inválido!");
+        formato.setToolTipText("");
+        ip_panel.add(formato);
+        formato.setBounds(30, 10, 320, 18);
+
+        valido.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
+        valido.setText("Digite um IP válido");
+        ip_panel.add(valido);
+        valido.setBounds(170, 30, 201, 23);
+
+        OKIP.setText("OK");
+        OKIP.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                OKIPActionPerformed(evt);
+            }
+        });
+        ip_panel.add(OKIP);
+        OKIP.setBounds(290, 120, 73, 23);
+
+        IP_background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetocomunicacao/resources/background_disconnection.jpg"))); // NOI18N
+        ip_panel.add(IP_background);
+        IP_background.setBounds(0, 0, 400, 160);
+
+        IPDialog.getContentPane().add(ip_panel);
+        ip_panel.setBounds(0, 0, 400, 175);
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Início - DominoMania");
         setMinimumSize(new java.awt.Dimension(800, 600));
@@ -594,13 +645,13 @@ public class TelaInicial extends javax.swing.JFrame {
         panel_inicial.add(logoInicial);
         logoInicial.setBounds(0, 0, 300, 300);
 
-        salas.setFont(new java.awt.Font("Verdana", 0, 24));
+        salas.setFont(new java.awt.Font("Verdana", 0, 24)); // NOI18N
         salas.setForeground(new java.awt.Color(96, 67, 12));
         salas.setText("Salas Disponíveis");
         panel_inicial.add(salas);
         salas.setBounds(460, 110, 220, 40);
 
-        nick.setFont(new java.awt.Font("Verdana", 0, 24));
+        nick.setFont(new java.awt.Font("Verdana", 0, 24)); // NOI18N
         nick.setForeground(new java.awt.Color(96, 67, 12));
         nick.setText("Nickname:");
         nick.setToolTipText("");
@@ -620,7 +671,7 @@ public class TelaInicial extends javax.swing.JFrame {
         panel_inicial.add(dupla_combobox);
         dupla_combobox.setBounds(210, 350, 70, 30);
 
-        criarjogo_button.setFont(new java.awt.Font("Verdana", 0, 12));
+        criarjogo_button.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         criarjogo_button.setForeground(new java.awt.Color(96, 67, 12));
         criarjogo_button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetocomunicacao/resources/icon_dado.png"))); // NOI18N
         criarjogo_button.setText("Jogar!");
@@ -636,13 +687,13 @@ public class TelaInicial extends javax.swing.JFrame {
         panel_inicial.add(criarjogo_button);
         criarjogo_button.setBounds(290, 440, 160, 70);
 
-        ip.setFont(new java.awt.Font("Verdana", 0, 24));
+        ip.setFont(new java.awt.Font("Verdana", 0, 24)); // NOI18N
         ip.setForeground(new java.awt.Color(96, 67, 12));
         ip.setText("IP do Servidor:");
         panel_inicial.add(ip);
         ip.setBounds(70, 390, 190, 40);
 
-        regras_button.setFont(new java.awt.Font("Verdana", 0, 14));
+        regras_button.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         regras_button.setForeground(new java.awt.Color(96, 67, 12));
         regras_button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetocomunicacao/resources/icon_interrogacao.png"))); // NOI18N
         regras_button.setText("Regras");
@@ -676,7 +727,7 @@ public class TelaInicial extends javax.swing.JFrame {
         panel_inicial.add(salas_scrollpane);
         salas_scrollpane.setBounds(460, 160, 250, 270);
 
-        criarnovasala_button.setFont(new java.awt.Font("Verdana", 0, 11));
+        criarnovasala_button.setFont(new java.awt.Font("Verdana", 0, 11)); // NOI18N
         criarnovasala_button.setForeground(new java.awt.Color(96, 67, 12));
         criarnovasala_button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetocomunicacao/resources/icon_button_criarsala.png"))); // NOI18N
         criarnovasala_button.setText("Criar Nova Sala");
@@ -690,7 +741,7 @@ public class TelaInicial extends javax.swing.JFrame {
         panel_inicial.add(criarnovasala_button);
         criarnovasala_button.setBounds(460, 440, 250, 70);
 
-        dupla.setFont(new java.awt.Font("Verdana", 0, 24));
+        dupla.setFont(new java.awt.Font("Verdana", 0, 24)); // NOI18N
         dupla.setForeground(new java.awt.Color(96, 67, 12));
         dupla.setText("Dupla:");
         dupla.setToolTipText("");
@@ -721,7 +772,7 @@ public class TelaInicial extends javax.swing.JFrame {
         panel_inicial.add(conectar);
         conectar.setBounds(390, 400, 50, 30);
 
-        especial_button.setFont(new java.awt.Font("Verdana", 0, 14));
+        especial_button.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         especial_button.setForeground(new java.awt.Color(96, 67, 12));
         especial_button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetocomunicacao/resources/icon_especial.png"))); // NOI18N
         especial_button.setText("Especial");
@@ -883,8 +934,14 @@ public class TelaInicial extends javax.swing.JFrame {
                 criarnovasala_button.setEnabled(true);
             } catch (ConnectException e) {
                 System.out.println("Nao conseguiu conectar fera.");
+		ServerDialog.setLocationRelativeTo(panel_inicial);
+		ServerDialog.setModal(true);
+		ServerDialog.setVisible(true);
             } catch (UnknownHostException e) {
                 System.out.println("Digita o ip direito boy.");
+		IPDialog.setLocationRelativeTo(panel_inicial);
+		IPDialog.setModal(true);
+		IPDialog.setVisible(true);
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -944,6 +1001,12 @@ public class TelaInicial extends javax.swing.JFrame {
         EspecialDialogInicial.setModal(false);
     }//GEN-LAST:event_especial_buttonActionPerformed
 
+    private void OKIPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OKIPActionPerformed
+        // TODO add your handling code here:
+	IPDialog.setModal(false);
+	IPDialog.setVisible(false);
+    }//GEN-LAST:event_OKIPActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -988,7 +1051,10 @@ public class TelaInicial extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDialog EspecialDialogInicial;
     private javax.swing.JDialog GroupDialog;
+    private javax.swing.JDialog IPDialog;
+    private javax.swing.JLabel IP_background;
     private javax.swing.JButton OK;
+    private javax.swing.JButton OKIP;
     private javax.swing.JButton OKServer;
     private javax.swing.JButton OK_room;
     private javax.swing.JDialog RegrasDialog;
@@ -1009,11 +1075,14 @@ public class TelaInicial extends javax.swing.JFrame {
     private javax.swing.JLabel especial_background;
     private javax.swing.JButton especial_button;
     private javax.swing.JPanel especial_panel;
+    private javax.swing.JLabel formato;
     private javax.swing.JLabel group_background;
     private javax.swing.JPanel group_panel;
     private javax.swing.JLabel groupicon;
     private javax.swing.JLabel inicial_background;
     private javax.swing.JLabel ip;
+    private javax.swing.JLabel ip_icon;
+    private javax.swing.JPanel ip_panel;
     private javax.swing.JTextField ip_textfield;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1056,5 +1125,6 @@ public class TelaInicial extends javax.swing.JFrame {
     private javax.swing.JLabel serverlabel2;
     private javax.swing.JLabel serverlabel3;
     private javax.swing.JTextField textfield_especial;
+    private javax.swing.JLabel valido;
     // End of variables declaration//GEN-END:variables
 }
