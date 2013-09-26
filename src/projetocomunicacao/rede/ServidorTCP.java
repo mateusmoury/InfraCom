@@ -13,6 +13,7 @@ public class ServidorTCP implements Transporte {
 	private Socket sock;
 	private ObjectOutputStream socketOut;
 	private ObjectInputStream socketIn;
+        private int porta;
 
 	
 	public ServidorTCP(int portNumber){
@@ -21,6 +22,7 @@ public class ServidorTCP implements Transporte {
 			try{
 				this.socket = new ServerSocket(portNumber+id);
 				System.out.println("ABRINDO PORTA " + (portNumber+id));
+                                this.porta = portNumber+id;
 				break;
 			} catch(Exception e){
 				++id;
@@ -50,7 +52,8 @@ public class ServidorTCP implements Transporte {
                   //  System.out.println("TO TENTANDO ENVIAR PARA + " +p.toString());
                     this.socket.close();
                     this.sock.close();
-                    this.socket = new ServerSocket();
+                    this.socket = new ServerSocket(this.porta);
+                     this.sock = new Socket();
                     this.socket.setReuseAddress(true);
                     this.socket.bind(new InetSocketAddress("172.20.4.216", p));
                     this.sock = this.socket.accept();
@@ -69,7 +72,8 @@ public class ServidorTCP implements Transporte {
                     int p = this.socket.getLocalPort();
                     this.socket.close();
                     this.sock.close();
-                    this.socket = new ServerSocket();
+                    this.socket = new ServerSocket(this.porta);
+                    this.sock = new Socket();
                     this.socket.setReuseAddress(true);
                     this.socket.bind(new InetSocketAddress("172.20.4.216", p));
                   //  this.socket.bind(this.sock.getLocalSocketAddress());
