@@ -3,6 +3,7 @@ package projetocomunicacao.rede;
 import projetocomunicacao.game.*;
 
 import java.io.IOException;
+import java.net.SocketException;
 import java.util.ArrayList;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
@@ -31,12 +32,13 @@ public class ReadServidor extends Thread {
                                 
 				//System.out.println("opa");
 			} catch (IOException e) {
-				e.printStackTrace();
-				break;
+				//e.printStackTrace();
+                                 System.out.println("CLIENTE SAIU");
+                                 break;
 			} catch (ClassNotFoundException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
-			}
+			} 
 
 			System.out.print("Recebi do cliente "+this.inFromClient + '\n');
 			

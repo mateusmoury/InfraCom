@@ -67,7 +67,8 @@ public class WriteServidor extends Thread {
                     //Servidor.mudou[id]=false;
                 } catch (IOException e) {
                     // TODO Auto-generated catch block
-                    e.printStackTrace();
+                    System.out.println("CRIENTE QUE EU TENTEI MANDAR AGORA JA TA FORA JA");
+                    //e.printStackTrace();
                     break;
                 }
                 this.servidor.getMudou()[aux] = false;

@@ -7,6 +7,7 @@ import java.net.InetSocketAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.SocketAddress;
+import java.net.SocketException;
 
 public class ServidorTCP implements Transporte {
 	private ServerSocket socket;
@@ -48,7 +49,7 @@ public class ServidorTCP implements Transporte {
 	}
 
 	@Override
-	public Object receber() throws IOException, ClassNotFoundException {
+	public Object receber() throws IOException, ClassNotFoundException, SocketException {
             this.socketIn = new ObjectInputStream(sock.getInputStream()); 
             return socketIn.readObject();
 	}
