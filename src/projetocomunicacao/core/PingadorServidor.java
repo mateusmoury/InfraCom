@@ -37,7 +37,7 @@ public class PingadorServidor extends Thread{
     public void run(){
         while(true){
              try {
-                sleep(10000);
+                sleep(5000);
             } catch (InterruptedException ex) {
                 ex.printStackTrace();
             }

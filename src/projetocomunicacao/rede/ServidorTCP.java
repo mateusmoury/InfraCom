@@ -3,6 +3,7 @@ package projetocomunicacao.rede;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.net.InetSocketAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.SocketAddress;
@@ -45,12 +46,13 @@ public class ServidorTCP implements Transporte {
                     this.socketOut = new ObjectOutputStream(sock.getOutputStream());
                      break;
                 } catch(Exception e){
-                    SocketAddress p = this.socket.getLocalSocketAddress();
+                    int p = this.socket.getLocalPort();
+                  //  System.out.println("TO TENTANDO ENVIAR PARA + " +p.toString());
                     this.socket.close();
                     this.sock.close();
                     this.socket = new ServerSocket();
                     this.socket.setReuseAddress(true);
-                    this.socket.bind(p);
+                    this.socket.bind(new InetSocketAddress("172.20.4.216", p));
                     this.sock = this.socket.accept();
                 }
             }
@@ -64,16 +66,18 @@ public class ServidorTCP implements Transporte {
                     this.socketIn = new ObjectInputStream(sock.getInputStream());
                      break;
                 } catch(Exception e){
-                    SocketAddress p = this.socket.getLocalSocketAddress();
+                    int p = this.socket.getLocalPort();
                     this.socket.close();
                     this.sock.close();
                     this.socket = new ServerSocket();
                     this.socket.setReuseAddress(true);
-                    this.socket.bind(p);
+                    this.socket.bind(new InetSocketAddress("172.20.4.216", p));
                   //  this.socket.bind(this.sock.getLocalSocketAddress());
                     this.sock = this.socket.accept();
                 }
             }
+            SocketAddress p = this.socket.getLocalSocketAddress();
+            System.out.println("vou tentar receber de " +p.toString());
             return socketIn.readObject();
 	}
 	
