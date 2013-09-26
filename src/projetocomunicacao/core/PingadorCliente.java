@@ -54,12 +54,18 @@ public class PingadorCliente extends Thread {
                     try {
                         this.socket.close();
                         try {
-                            sleep(10000);
+                            sleep(2000);
                         } catch (InterruptedException ex) {
-                            Logger.getLogger(PingadorCliente.class.getName()).log(Level.SEVERE, null, ex);
+                            ex.printStackTrace();
                         }
-                        this.socket = new Socket(this.hostIP, this.porta);
-                        System.out.println("CHUPA PORRA, ABRI!!!!");
+                        while(true){
+                            try{
+                                this.socket = new Socket(this.hostIP, this.porta);
+                                 System.out.println("CHUPA PORRA, ABRI!!!!");
+                            } catch (Exception e){
+                                   System.out.println("AINDA TAVA FECHADO");
+                            }
+                        }
                     } catch (UnknownHostException ex) {
                         Logger.getLogger(PingadorCliente.class.getName()).log(Level.SEVERE, null, ex);
                     } catch (IOException ex) {
