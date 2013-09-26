@@ -48,17 +48,17 @@ public class ServidorTCP implements Transporte {
                     this.socketOut = new ObjectOutputStream(sock.getOutputStream());
                      break;
                 } catch(Exception e){
+                    System.out.println("NAO CONSEGUI ENVIAR");
                     int p = this.socket.getLocalPort();
                   //  System.out.println("TO TENTANDO ENVIAR PARA + " +p.toString());
                     this.socket.close();
                     this.sock.close();
                     this.socket = new ServerSocket(this.porta);
-                     this.sock = new Socket();
-                    this.socket.setReuseAddress(true);
-                    this.socket.bind(new InetSocketAddress("172.20.4.216", p));
+                    while(!this.socket.isClosed()&&!this.socket.isBound());
                     this.sock = this.socket.accept();
                 }
             }
+            System.out.println("CONSEGUI ENVIAR");
             this.socketOut.writeObject(object);
 	}
 
@@ -69,19 +69,18 @@ public class ServidorTCP implements Transporte {
                     this.socketIn = new ObjectInputStream(sock.getInputStream());
                      break;
                 } catch(Exception e){
+                    System.out.println("NAO CONSEGUI RECEBER");
                     int p = this.socket.getLocalPort();
                     this.socket.close();
                     this.sock.close();
                     this.socket = new ServerSocket(this.porta);
-                    this.sock = new Socket();
-                    this.socket.setReuseAddress(true);
-                    this.socket.bind(new InetSocketAddress("172.20.4.216", p));
+                    while(!this.socket.isClosed()&&!this.socket.isBound());
                   //  this.socket.bind(this.sock.getLocalSocketAddress());
                     this.sock = this.socket.accept();
                 }
             }
-            SocketAddress p = this.socket.getLocalSocketAddress();
-            System.out.println("vou tentar receber de " +p.toString());
+            //System.out.println("vou tentar receber de " +p.toString());
+             System.out.println("CONSEGUI RECEBER");
             return socketIn.readObject();
 	}
 	
