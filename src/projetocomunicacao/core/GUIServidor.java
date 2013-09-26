@@ -45,7 +45,7 @@ public class GUIServidor extends javax.swing.JFrame {
             for(int i = 0; i < 4; ++i){
                 if(jogadores[i]!=null){
                    texto = texto+jogadores[i].getNome()+'\n';
-                   status_jogador.setEnabled(jogadores[i].isStatus());
+//                   status_jogador.setEnabled(jogadores[i].isStatus());
                 }
             }
             salas_textarea.setText(texto);
@@ -73,14 +73,16 @@ public class GUIServidor extends javax.swing.JFrame {
         status_label = new javax.swing.JLabel();
         especial_label = new javax.swing.JLabel();
         salas_combobox = new javax.swing.JComboBox();
-        jogadores_scrollpane = new javax.swing.JScrollPane();
-        list_jogadores = new javax.swing.JList();
-        monitorar_jogador = new javax.swing.JLabel();
-        status_jogador = new javax.swing.JLabel();
         monitorar_sala = new javax.swing.JLabel();
         textfield_especial = new javax.swing.JTextField();
         button_especial = new javax.swing.JButton();
-        button_getitemcombo = new javax.swing.JButton();
+        status_label1 = new javax.swing.JLabel();
+        status_label2 = new javax.swing.JLabel();
+        status_label3 = new javax.swing.JLabel();
+        icon_status_jogador1 = new javax.swing.JLabel();
+        icon_status_jogador2 = new javax.swing.JLabel();
+        icon_status_jogador3 = new javax.swing.JLabel();
+        icon_status_jogador4 = new javax.swing.JLabel();
         server_background = new javax.swing.JLabel();
 
         EspecialDialogServidor.setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
@@ -147,7 +149,7 @@ public class GUIServidor extends javax.swing.JFrame {
         server_panel.setOpaque(false);
         server_panel.setLayout(null);
 
-        title_label.setFont(new java.awt.Font("Verdana", 0, 42));
+        title_label.setFont(new java.awt.Font("Verdana", 0, 42)); // NOI18N
         title_label.setForeground(new java.awt.Color(255, 255, 255));
         title_label.setText("DominoMania Server Management");
         server_panel.add(title_label);
@@ -162,22 +164,22 @@ public class GUIServidor extends javax.swing.JFrame {
         salas_scrollpane.setViewportView(salas_textarea);
 
         server_panel.add(salas_scrollpane);
-        salas_scrollpane.setBounds(70, 220, 260, 260);
+        salas_scrollpane.setBounds(300, 210, 170, 260);
 
-        status_label.setFont(new java.awt.Font("Verdana", 0, 24));
+        status_label.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         status_label.setForeground(new java.awt.Color(255, 255, 255));
         status_label.setText("Status:");
         server_panel.add(status_label);
-        status_label.setBounds(460, 170, 87, 30);
+        status_label.setBounds(490, 210, 60, 20);
 
         especial_label.setFont(new java.awt.Font("Verdana", 0, 24));
         especial_label.setForeground(new java.awt.Color(255, 255, 255));
         especial_label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetocomunicacao/resources/icon_especial.png"))); // NOI18N
         especial_label.setText("Módulo Especial:");
         server_panel.add(especial_label);
-        especial_label.setBounds(30, 520, 240, 32);
+        especial_label.setBounds(180, 530, 240, 32);
 
-        salas_combobox.setFont(new java.awt.Font("Verdana", 0, 11)); // NOI18N
+        salas_combobox.setFont(new java.awt.Font("Verdana", 0, 11));
         salas_combobox.setMaximumRowCount(20);
         salas_combobox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -185,33 +187,13 @@ public class GUIServidor extends javax.swing.JFrame {
             }
         });
         server_panel.add(salas_combobox);
-        salas_combobox.setBounds(70, 160, 167, 45);
-
-        list_jogadores.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "Jogador 1", "Jogador 2", "Jogador 3" };
-            public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
-        });
-        jogadores_scrollpane.setViewportView(list_jogadores);
-
-        server_panel.add(jogadores_scrollpane);
-        jogadores_scrollpane.setBounds(460, 220, 270, 260);
-
-        monitorar_jogador.setFont(new java.awt.Font("Verdana", 0, 24));
-        monitorar_jogador.setForeground(new java.awt.Color(255, 255, 255));
-        monitorar_jogador.setText("Monitorar Jogador");
-        server_panel.add(monitorar_jogador);
-        monitorar_jogador.setBounds(460, 120, 217, 30);
-
-        status_jogador.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetocomunicacao/resources/redball32.png"))); // NOI18N
-        server_panel.add(status_jogador);
-        status_jogador.setBounds(570, 170, 30, 30);
+        salas_combobox.setBounds(300, 150, 167, 45);
 
         monitorar_sala.setFont(new java.awt.Font("Verdana", 0, 24));
         monitorar_sala.setForeground(new java.awt.Color(255, 255, 255));
         monitorar_sala.setText("Monitorar Sala");
         server_panel.add(monitorar_sala);
-        monitorar_sala.setBounds(70, 120, 172, 30);
+        monitorar_sala.setBounds(300, 110, 172, 30);
 
         textfield_especial.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -219,7 +201,7 @@ public class GUIServidor extends javax.swing.JFrame {
             }
         });
         server_panel.add(textfield_especial);
-        textfield_especial.setBounds(280, 520, 80, 30);
+        textfield_especial.setBounds(430, 530, 80, 30);
 
         button_especial.setText("OK");
         button_especial.addActionListener(new java.awt.event.ActionListener() {
@@ -228,16 +210,41 @@ public class GUIServidor extends javax.swing.JFrame {
             }
         });
         server_panel.add(button_especial);
-        button_especial.setBounds(460, 520, 90, 30);
+        button_especial.setBounds(520, 530, 90, 30);
 
-        button_getitemcombo.setText("Ver");
-        button_getitemcombo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                button_getitemcomboActionPerformed(evt);
-            }
-        });
-        server_panel.add(button_getitemcombo);
-        button_getitemcombo.setBounds(260, 163, 70, 40);
+        status_label1.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        status_label1.setForeground(new java.awt.Color(255, 255, 255));
+        status_label1.setText("Status:");
+        server_panel.add(status_label1);
+        status_label1.setBounds(490, 270, 60, 20);
+
+        status_label2.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        status_label2.setForeground(new java.awt.Color(255, 255, 255));
+        status_label2.setText("Status:");
+        server_panel.add(status_label2);
+        status_label2.setBounds(490, 230, 60, 20);
+
+        status_label3.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        status_label3.setForeground(new java.awt.Color(255, 255, 255));
+        status_label3.setText("Status:");
+        server_panel.add(status_label3);
+        status_label3.setBounds(490, 250, 60, 20);
+
+        icon_status_jogador1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetocomunicacao/resources/icon_red_1616.png"))); // NOI18N
+        server_panel.add(icon_status_jogador1);
+        icon_status_jogador1.setBounds(550, 210, 20, 16);
+
+        icon_status_jogador2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetocomunicacao/resources/icon_red_1616.png"))); // NOI18N
+        server_panel.add(icon_status_jogador2);
+        icon_status_jogador2.setBounds(550, 230, 20, 16);
+
+        icon_status_jogador3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetocomunicacao/resources/icon_red_1616.png"))); // NOI18N
+        server_panel.add(icon_status_jogador3);
+        icon_status_jogador3.setBounds(550, 250, 20, 16);
+
+        icon_status_jogador4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetocomunicacao/resources/icon_red_1616.png"))); // NOI18N
+        server_panel.add(icon_status_jogador4);
+        icon_status_jogador4.setBounds(550, 270, 20, 16);
 
         getContentPane().add(server_panel);
         server_panel.setBounds(0, 0, 800, 600);
@@ -269,21 +276,6 @@ private void confirm_especial_serverActionPerformed(java.awt.event.ActionEvent e
 private void salas_comboboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salas_comboboxActionPerformed
 // TODO add your handling code here:
 }//GEN-LAST:event_salas_comboboxActionPerformed
-
-private void button_getitemcomboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_getitemcomboActionPerformed
-// TODO add your handling code here:
-    int ind = salas_combobox.getSelectedIndex();
-    String texto = "";
-    if(ind!=-1){
-        Jogador[] jogadores = this.fachada.mostraJogadores(ind);
-        for(int i = 0; i < 4; ++i){
-            if(jogadores[i]!=null){
-               texto = texto+jogadores[i].getNome()+'\n';
-            }
-        }
-        salas_textarea.setText(texto);
-    }
-}//GEN-LAST:event_button_getitemcomboActionPerformed
 
     /**
      * @param args the command line arguments
@@ -322,23 +314,25 @@ private void button_getitemcomboActionPerformed(java.awt.event.ActionEvent evt) 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDialog EspecialDialogServidor;
     private javax.swing.JButton button_especial;
-    private javax.swing.JButton button_getitemcombo;
     private javax.swing.JButton confirm_especial_server;
     private javax.swing.JLabel especial_label;
     private javax.swing.JLabel especial_server_background;
     private javax.swing.JPanel especial_server_panel;
-    private javax.swing.JScrollPane jogadores_scrollpane;
+    private javax.swing.JLabel icon_status_jogador1;
+    private javax.swing.JLabel icon_status_jogador2;
+    private javax.swing.JLabel icon_status_jogador3;
+    private javax.swing.JLabel icon_status_jogador4;
     private javax.swing.JLabel label_esp_server;
-    private javax.swing.JList list_jogadores;
-    private javax.swing.JLabel monitorar_jogador;
     private javax.swing.JLabel monitorar_sala;
     private javax.swing.JComboBox salas_combobox;
     private javax.swing.JScrollPane salas_scrollpane;
     private javax.swing.JTextArea salas_textarea;
     private javax.swing.JLabel server_background;
     private javax.swing.JPanel server_panel;
-    private javax.swing.JLabel status_jogador;
     private javax.swing.JLabel status_label;
+    private javax.swing.JLabel status_label1;
+    private javax.swing.JLabel status_label2;
+    private javax.swing.JLabel status_label3;
     private javax.swing.JTextField textfield_especial;
     private javax.swing.JLabel title_label;
     // End of variables declaration//GEN-END:variables
