@@ -21,13 +21,11 @@ public class GUIServidor extends javax.swing.JFrame {
      * Creates new form GUIServidor
      */
     private FachadaServidor fachada;
-    public GUIServidor() {
+    public GUIServidor(FachadaServidor fachada) {
         initComponents();
-    }
-
-    public void setFachada(FachadaServidor fachada) {
         this.fachada = fachada;
     }
+
     
     public void desenhaComboBox(){
         //salas_combobox.removeAllItems();
@@ -107,6 +105,7 @@ public class GUIServidor extends javax.swing.JFrame {
         icon_status_jogador2 = new javax.swing.JLabel();
         icon_status_jogador3 = new javax.swing.JLabel();
         icon_status_jogador4 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
         server_background = new javax.swing.JLabel();
 
         EspecialDialogServidor.setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
@@ -289,6 +288,17 @@ public class GUIServidor extends javax.swing.JFrame {
         server_panel.add(icon_status_jogador4);
         icon_status_jogador4.setBounds(550, 270, 20, 16);
 
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetocomunicacao/resources/refresh32.png"))); // NOI18N
+        jButton1.setBorderPainted(false);
+        jButton1.setFocusPainted(false);
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        server_panel.add(jButton1);
+        jButton1.setBounds(490, 150, 40, 40);
+
         getContentPane().add(server_panel);
         server_panel.setBounds(0, 0, 800, 600);
 
@@ -321,6 +331,12 @@ private void salas_comboboxActionPerformed(java.awt.event.ActionEvent evt) {//GE
     this.fachada.setAlterou(true);
 }//GEN-LAST:event_salas_comboboxActionPerformed
 
+private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+// TODO add your handling code here:
+    this.desenhaComboBox();
+    this.escreveJogadores();
+}//GEN-LAST:event_jButton1ActionPerformed
+
    /**
      * @param args the command line arguments
      */
@@ -348,7 +364,7 @@ private void salas_comboboxActionPerformed(java.awt.event.ActionEvent evt) {//GE
         }
         //</editor-fold>
 
-        new GUIServidor().setVisible(true);
+        new GUIServidor(new FachadaServidor()).setVisible(true);
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {        
@@ -367,6 +383,7 @@ private void salas_comboboxActionPerformed(java.awt.event.ActionEvent evt) {//GE
     private javax.swing.JLabel icon_status_jogador2;
     private javax.swing.JLabel icon_status_jogador3;
     private javax.swing.JLabel icon_status_jogador4;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel label_esp_server;
     private javax.swing.JLabel monitorar_sala;
     private javax.swing.JComboBox salas_combobox;

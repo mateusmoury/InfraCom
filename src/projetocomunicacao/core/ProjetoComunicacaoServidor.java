@@ -18,12 +18,9 @@ import projetocomunicacao.fachada.FachadaServidor;
 public class ProjetoComunicacaoServidor {
     
      public static void main(String[] args) throws IOException, InterruptedException{
-         GUIServidor gs = new GUIServidor();
          FachadaServidor fachada = new FachadaServidor();
-         gs.setFachada(fachada);
+         GUIServidor gs = new GUIServidor(fachada);
          fachada.executaMasterServer();
-         DesenhaGUIServidor dgs = new DesenhaGUIServidor(fachada, gs);
-         dgs.start();
          gs.setLocationRelativeTo(null);
          gs.setVisible(true);
          try{
