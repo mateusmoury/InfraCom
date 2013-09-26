@@ -23,7 +23,7 @@ public class Cliente {
                 //ModuloEspecial.setNumero(0);
 		System.out.println("oi, eu sou um cliente");
 		final int portNumber = 3030;
-		Transporte protocolo = new ClienteTCP(this.IP,portNumber);
+		Transporte protocolo = new ClienteUDP(this.IP,portNumber);
 		System.out.println("cliente contata master server");
 		protocolo.iniciarConexao();
 		int newPort = (Integer) protocolo.receber();
