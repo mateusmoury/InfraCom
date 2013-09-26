@@ -54,7 +54,7 @@ public class PingadorCliente extends Thread {
                     try {
                         this.socket.close();
                         try {
-                            sleep(1000);
+                            sleep(10000);
                         } catch (InterruptedException ex) {
                             Logger.getLogger(PingadorCliente.class.getName()).log(Level.SEVERE, null, ex);
                         }

@@ -5,12 +5,14 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.net.SocketAddress;
 
 public class ServidorTCP implements Transporte {
 	private ServerSocket socket;
 	private Socket sock;
 	private ObjectOutputStream socketOut;
 	private ObjectInputStream socketIn;
+
 	
 	public ServidorTCP(int portNumber){
 		int id = 0;
@@ -43,13 +45,12 @@ public class ServidorTCP implements Transporte {
                     this.socketOut = new ObjectOutputStream(sock.getOutputStream());
                      break;
                 } catch(Exception e){
+                    SocketAddress p = this.socket.getLocalSocketAddress();
                     this.socket.close();
                     this.sock.close();
                     this.socket = new ServerSocket();
-                    while(!this.socket.isBound());
-                    while(!this.sock.isBound());
-                    this.sock.setReuseAddress(true);
                     this.socket.setReuseAddress(true);
+                    this.socket.bind(p);
                     this.sock = this.socket.accept();
                 }
             }
@@ -63,13 +64,12 @@ public class ServidorTCP implements Transporte {
                     this.socketIn = new ObjectInputStream(sock.getInputStream());
                      break;
                 } catch(Exception e){
+                    SocketAddress p = this.socket.getLocalSocketAddress();
                     this.socket.close();
                     this.sock.close();
                     this.socket = new ServerSocket();
-                    while(!this.socket.isBound());
-                    while(!this.sock.isBound());
-                    this.sock.setReuseAddress(true);
                     this.socket.setReuseAddress(true);
+                    this.socket.bind(p);
                   //  this.socket.bind(this.sock.getLocalSocketAddress());
                     this.sock = this.socket.accept();
                 }
