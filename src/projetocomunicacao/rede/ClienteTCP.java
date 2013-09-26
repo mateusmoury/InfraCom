@@ -38,14 +38,7 @@ public class ClienteTCP implements Transporte {
 
 	@Override
 	public Object receber() throws IOException, ClassNotFoundException {
-            while(true){
-                try{
-                    this.socketIn = new ObjectInputStream(sock.getInputStream());
-                    break;
-                } catch(Exception e){
-                    
-                }
-            }
+            this.socketIn = new ObjectInputStream(sock.getInputStream());
             return socketIn.readObject(); 
 	}
 

@@ -60,8 +60,9 @@ public class PingadorCliente extends Thread {
                         }
                         while(true){
                             try{
-                                this.socket = new Socket(this.hostIP, this.porta);
+                                this.socket = new Socket(this.hostIP, this.porta+100);
                                  System.out.println("CHUPA PORRA, ABRI!!!!");
+                                 break;
                             } catch (Exception e){
                                    System.out.println("AINDA TAVA FECHADO");
                             }

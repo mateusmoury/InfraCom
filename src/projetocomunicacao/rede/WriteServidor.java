@@ -1,5 +1,7 @@
 package projetocomunicacao.rede;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import projetocomunicacao.game.*;
 
 import java.io.IOException;

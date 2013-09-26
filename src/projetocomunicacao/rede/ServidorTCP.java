@@ -43,44 +43,13 @@ public class ServidorTCP implements Transporte {
 
 	@Override
 	public void enviar(Object object) throws IOException {
-            while(true){
-              try{
-                    this.socketOut = new ObjectOutputStream(sock.getOutputStream());
-                     break;
-                } catch(Exception e){
-                    System.out.println("NAO CONSEGUI ENVIAR");
-                    int p = this.socket.getLocalPort();
-                  //  System.out.println("TO TENTANDO ENVIAR PARA + " +p.toString());
-                    this.socket.close();
-                    this.sock.close();
-                    this.socket = new ServerSocket(this.porta);
-                    while(!this.socket.isClosed()&&!this.socket.isBound());
-                    this.sock = this.socket.accept();
-                }
-            }
-            System.out.println("CONSEGUI ENVIAR");
+            this.socketOut = new ObjectOutputStream(sock.getOutputStream());
             this.socketOut.writeObject(object);
 	}
 
 	@Override
 	public Object receber() throws IOException, ClassNotFoundException {
-            while(true){
-              try{
-                    this.socketIn = new ObjectInputStream(sock.getInputStream());
-                     break;
-                } catch(Exception e){
-                    System.out.println("NAO CONSEGUI RECEBER");
-                    int p = this.socket.getLocalPort();
-                    this.socket.close();
-                    this.sock.close();
-                    this.socket = new ServerSocket(this.porta);
-                    while(!this.socket.isClosed()&&!this.socket.isBound());
-                  //  this.socket.bind(this.sock.getLocalSocketAddress());
-                    this.sock = this.socket.accept();
-                }
-            }
-            //System.out.println("vou tentar receber de " +p.toString());
-             System.out.println("CONSEGUI RECEBER");
+            this.socketIn = new ObjectInputStream(sock.getInputStream()); 
             return socketIn.readObject();
 	}
 	
