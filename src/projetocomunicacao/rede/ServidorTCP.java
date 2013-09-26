@@ -44,7 +44,9 @@ public class ServidorTCP implements Transporte {
                      break;
                 } catch(Exception e){
                     this.socket.close();
+                    this.sock.close();
                     this.socket = new ServerSocket();
+                    this.socket.setReuseAddress(true);
                     this.sock = this.socket.accept();
                 }
             }
@@ -59,7 +61,9 @@ public class ServidorTCP implements Transporte {
                      break;
                 } catch(Exception e){
                     this.socket.close();
+                    this.sock.close();
                     this.socket = new ServerSocket();
+                    this.socket.setReuseAddress(true);
                     this.sock = this.socket.accept();
                 }
             }
