@@ -8,6 +8,8 @@ import java.awt.Dialog.ModalExclusionType;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.ConnectException;
+import java.net.UnknownHostException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
@@ -23,19 +25,21 @@ import projetocomunicacao.udp.ModuloEspecial;
  * @author Guilherme
  */
 public class TelaInicial extends javax.swing.JFrame {
+
     protected String name_sala_dialog;
     public TelaInicial ti;
     private Cliente cliente;
     private FachadaCliente fachada;
     private Game gui;
     private DesenhaGUI desenha;
+
     /**
      * Creates new form TelaInicial
      */
     public TelaInicial() throws IOException {
-        
+
         initComponents();
-        
+
     }
 
     /**
@@ -774,37 +778,37 @@ public class TelaInicial extends javax.swing.JFrame {
 
     private void criarjogo_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_criarjogo_buttonActionPerformed
         // TODO add your handling code here:
-	 if(salas_list.getSelectedIndex() < 0) {
-	    RoomDialog.setLocationRelativeTo(panel_inicial);
-	    RoomDialog.setModal(false);
-	    RoomDialog.setVisible(true);
-	 } else{
-	    if(!this.fachada.podeAdicionar(dupla_combobox.getSelectedIndex(),salas_list.getSelectedIndex())) {
-		GroupDialog.setLocationRelativeTo(null);
-		GroupDialog.setVisible(true);
-		GroupDialog.setModal(true);
-		return;
-	    }
-	    this.desenha = new DesenhaGUI(fachada, gui);
-	    this.desenha.start();
-	    this.fachada.adicionaJogador(nick_textfield.getText(), dupla_combobox.getSelectedIndex(), salas_list.getSelectedIndex());
-	    gui.setVisible(true);
-	    this.setVisible(false);
-	 }
+        if (salas_list.getSelectedIndex() < 0) {
+            RoomDialog.setLocationRelativeTo(panel_inicial);
+            RoomDialog.setModal(false);
+            RoomDialog.setVisible(true);
+        } else {
+            if (!this.fachada.podeAdicionar(dupla_combobox.getSelectedIndex(), salas_list.getSelectedIndex())) {
+                GroupDialog.setLocationRelativeTo(null);
+                GroupDialog.setVisible(true);
+                GroupDialog.setModal(true);
+                return;
+            }
+            this.desenha = new DesenhaGUI(fachada, gui);
+            this.desenha.start();
+            this.fachada.adicionaJogador(nick_textfield.getText(), dupla_combobox.getSelectedIndex(), salas_list.getSelectedIndex());
+            gui.setVisible(true);
+            this.setVisible(false);
+        }
     }//GEN-LAST:event_criarjogo_buttonActionPerformed
 
     private void regras_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regras_buttonActionPerformed
         // TODO add your handling code here:
-	RegrasDialog.setLocationRelativeTo(panel_inicial);
+        RegrasDialog.setLocationRelativeTo(panel_inicial);
         RegrasDialog.setVisible(true);
         RegrasDialog.setModal(true);
     }//GEN-LAST:event_regras_buttonActionPerformed
 
     private void criarnovasala_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_criarnovasala_buttonActionPerformed
         // TODO add your handling code here
-         int tam = this.fachada.mostraSalas().size();
-         this.fachada.criaSala(tam);
-       
+        int tam = this.fachada.mostraSalas().size();
+        this.fachada.criaSala(tam);
+
     }//GEN-LAST:event_criarnovasala_buttonActionPerformed
 
     private void nomesala_textfieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nomesala_textfieldActionPerformed
@@ -856,37 +860,39 @@ public class TelaInicial extends javax.swing.JFrame {
 
     private void conectarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_conectarActionPerformed
         // TODO add your handling code here:
-	//checar aqui se o endereço é válido, talvez
-	if (ip_textfield.getText().length() > 0){
+        //checar aqui se o endereço é válido, talvez
+        if (ip_textfield.getText().length() > 0) {
             try {
-                this.cliente = new Cliente(this.ip_textfield.getText()); 
+                this.cliente = new Cliente(this.ip_textfield.getText());
                 this.fachada = new FachadaCliente(cliente);
-                this.gui = new Game(fachada,this);
+                this.gui = new Game(fachada, this);
                 EscreveNomeSalas ens = new EscreveNomeSalas(this, fachada);
                 ens.start();
                 this.gui.setLocationRelativeTo(null);
-               
-                try{
+
+                try {
                     InputStream imgStream = this.gui.getClass().getResourceAsStream("/projetocomunicacao/resources/logotransparente2.png");
                     BufferedImage bi = ImageIO.read(imgStream);
                     ImageIcon myImg = new ImageIcon(bi);
                     gui.setIconImage(myImg.getImage());
-                } catch(Exception e){
+                } catch (Exception e) {
                     System.out.println(e);
                 }
+                conectar.setEnabled(false);
+                criarjogo_button.setEnabled(true);
+                criarnovasala_button.setEnabled(true);
+            } catch (ConnectException e) {
+                System.out.println("Nao conseguiu conectar fera.");
+            } catch (UnknownHostException e) {
+                System.out.println("Digita o ip direito boy.");
             } catch (Exception e) {
                 e.printStackTrace();
             }
-	    conectar.setEnabled(false);
-	    criarjogo_button.setEnabled(true);
-	    criarnovasala_button.setEnabled(true);
-	}
-	
-	else {
-	    ServerDialog.setLocationRelativeTo(panel_inicial);
-	    ServerDialog.setVisible(true);
-	    ServerDialog.setModal(true);
-	}
+        } else {
+            ServerDialog.setLocationRelativeTo(panel_inicial);
+            ServerDialog.setVisible(true);
+            ServerDialog.setModal(true);
+        }
     }//GEN-LAST:event_conectarActionPerformed
 
     private void OKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OKActionPerformed
@@ -897,8 +903,8 @@ public class TelaInicial extends javax.swing.JFrame {
 
     private void OKServerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OKServerActionPerformed
         // TODO add your handling code here:
-	ServerDialog.setVisible(false);
-	ServerDialog.setModal(false);
+        ServerDialog.setVisible(false);
+        ServerDialog.setModal(false);
     }//GEN-LAST:event_OKServerActionPerformed
 
     private void confirm_numberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirm_numberActionPerformed
@@ -938,7 +944,6 @@ public class TelaInicial extends javax.swing.JFrame {
         EspecialDialogInicial.setModal(false);
     }//GEN-LAST:event_especial_buttonActionPerformed
 
-    
     /**
      * @param args the command line arguments
      */
@@ -968,6 +973,7 @@ public class TelaInicial extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+
             public void run() {
                 try {
                     TelaInicial ti = new TelaInicial();
@@ -977,7 +983,7 @@ public class TelaInicial extends javax.swing.JFrame {
                 }
             }
         });
-        
+
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDialog EspecialDialogInicial;

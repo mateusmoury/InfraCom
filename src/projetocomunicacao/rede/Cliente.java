@@ -2,6 +2,7 @@ package projetocomunicacao.rede;
 
 import java.io.IOException;
 
+import java.net.ConnectException;
 import projetocomunicacao.core.PingadorCliente;
 import projetocomunicacao.udp.ClienteUDP;
 import projetocomunicacao.udp.ModuloEspecial;
@@ -19,7 +20,7 @@ public class Cliente {
 		return writeCliente;
 	}
 	
-	public void executa() throws IOException, ClassNotFoundException {
+	public void executa() throws IOException, ClassNotFoundException, ConnectException {
                // ModuloEspecial.setNumero(0);
 		System.out.println("oi, eu sou um cliente");
 		final int portNumber = 3030;
