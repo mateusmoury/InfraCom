@@ -28,6 +28,7 @@ public class ReadServidor extends Thread {
 				//System.out.println("ewo");
 				this.inFromClient = (Sala) protocolo.receber();
                                 
+                                
 				//System.out.println("opa");
 			} catch (IOException e) {
 				e.printStackTrace();
@@ -46,9 +47,11 @@ public class ReadServidor extends Thread {
                             if(salaID == this.servidor.getSalas().size()) { //sala nova. entao eu crio
                                 System.out.println("adicionar no arraylist");
                                 this.servidor.getSalas().add(inFromClient);
+                                this.servidor.setAlterou(true);
                             } else { //muda a sala
                                 System.out.println("mudando a sala");
                                 this.servidor.setSalas(salaID, inFromClient);
+                                this.servidor.setAlterou(true);
                             }
 
 

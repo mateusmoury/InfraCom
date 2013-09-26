@@ -4,6 +4,13 @@
  */
 package projetocomunicacao.core;
 
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JComboBox;
+import projetocomunicacao.fachada.FachadaServidor;
+import projetocomunicacao.game.Jogador;
+
 /**
  *
  * @author Guilherme
@@ -13,8 +20,21 @@ public class GUIServidor extends javax.swing.JFrame {
     /**
      * Creates new form GUIServidor
      */
-    public GUIServidor() {
+    private FachadaServidor fachada;
+    public GUIServidor() throws IOException, InterruptedException {
         initComponents();
+    }
+
+    public void setFachada(FachadaServidor fachada) {
+        this.fachada = fachada;
+    }
+    
+    public void desenhaComboBox(){
+        salas_combobox.removeAllItems();
+        for(int i = 0; i < this.fachada.getSalas().size(); ++i){
+            String texto = "Sala "+this.fachada.getSalas().get(i).getId();
+            salas_combobox.addItem(texto);
+        }
     }
 
     /**
@@ -45,6 +65,7 @@ public class GUIServidor extends javax.swing.JFrame {
         monitorar_sala = new javax.swing.JLabel();
         textfield_especial = new javax.swing.JTextField();
         button_especial = new javax.swing.JButton();
+        button_getitemcombo = new javax.swing.JButton();
         server_background = new javax.swing.JLabel();
 
         EspecialDialogServidor.setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
@@ -59,7 +80,7 @@ public class GUIServidor extends javax.swing.JFrame {
         especial_server_panel.setMinimumSize(new java.awt.Dimension(400, 175));
         especial_server_panel.setOpaque(false);
 
-        label_esp_server.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
+        label_esp_server.setFont(new java.awt.Font("Verdana", 0, 18));
         label_esp_server.setForeground(new java.awt.Color(255, 255, 255));
         label_esp_server.setText("Número especial alterado com sucesso!");
         label_esp_server.setToolTipText("");
@@ -111,7 +132,7 @@ public class GUIServidor extends javax.swing.JFrame {
         server_panel.setOpaque(false);
         server_panel.setLayout(null);
 
-        title_label.setFont(new java.awt.Font("Verdana", 0, 42)); // NOI18N
+        title_label.setFont(new java.awt.Font("Verdana", 0, 42));
         title_label.setForeground(new java.awt.Color(255, 255, 255));
         title_label.setText("DominoMania Server Management");
         server_panel.add(title_label);
@@ -128,13 +149,13 @@ public class GUIServidor extends javax.swing.JFrame {
         server_panel.add(salas_scrollpane);
         salas_scrollpane.setBounds(70, 220, 260, 260);
 
-        status_label.setFont(new java.awt.Font("Verdana", 0, 24)); // NOI18N
+        status_label.setFont(new java.awt.Font("Verdana", 0, 24));
         status_label.setForeground(new java.awt.Color(255, 255, 255));
         status_label.setText("Status:");
         server_panel.add(status_label);
         status_label.setBounds(460, 170, 87, 30);
 
-        especial_label.setFont(new java.awt.Font("Verdana", 0, 24)); // NOI18N
+        especial_label.setFont(new java.awt.Font("Verdana", 0, 24));
         especial_label.setForeground(new java.awt.Color(255, 255, 255));
         especial_label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetocomunicacao/resources/icon_especial.png"))); // NOI18N
         especial_label.setText("Módulo Especial:");
@@ -143,7 +164,11 @@ public class GUIServidor extends javax.swing.JFrame {
 
         salas_combobox.setFont(new java.awt.Font("Verdana", 0, 11)); // NOI18N
         salas_combobox.setMaximumRowCount(20);
-        salas_combobox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Sala 1", "Sala 2", "Sala 3", "Sala 4", "Sala 5", "Sala 6", "Sala 7", "Sala 8", "Sala 9", "Sala 10" }));
+        salas_combobox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                salas_comboboxActionPerformed(evt);
+            }
+        });
         server_panel.add(salas_combobox);
         salas_combobox.setBounds(70, 160, 167, 45);
 
@@ -157,7 +182,7 @@ public class GUIServidor extends javax.swing.JFrame {
         server_panel.add(jogadores_scrollpane);
         jogadores_scrollpane.setBounds(460, 220, 270, 260);
 
-        monitorar_jogador.setFont(new java.awt.Font("Verdana", 0, 24)); // NOI18N
+        monitorar_jogador.setFont(new java.awt.Font("Verdana", 0, 24));
         monitorar_jogador.setForeground(new java.awt.Color(255, 255, 255));
         monitorar_jogador.setText("Monitorar Jogador");
         server_panel.add(monitorar_jogador);
@@ -167,7 +192,7 @@ public class GUIServidor extends javax.swing.JFrame {
         server_panel.add(status_jogador);
         status_jogador.setBounds(570, 170, 30, 30);
 
-        monitorar_sala.setFont(new java.awt.Font("Verdana", 0, 24)); // NOI18N
+        monitorar_sala.setFont(new java.awt.Font("Verdana", 0, 24));
         monitorar_sala.setForeground(new java.awt.Color(255, 255, 255));
         monitorar_sala.setText("Monitorar Sala");
         server_panel.add(monitorar_sala);
@@ -189,6 +214,15 @@ public class GUIServidor extends javax.swing.JFrame {
         });
         server_panel.add(button_especial);
         button_especial.setBounds(460, 520, 90, 30);
+
+        button_getitemcombo.setText("Ver");
+        button_getitemcombo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_getitemcomboActionPerformed(evt);
+            }
+        });
+        server_panel.add(button_getitemcombo);
+        button_getitemcombo.setBounds(260, 163, 70, 40);
 
         getContentPane().add(server_panel);
         server_panel.setBounds(0, 0, 800, 600);
@@ -217,10 +251,29 @@ private void confirm_especial_serverActionPerformed(java.awt.event.ActionEvent e
     EspecialDialogServidor.setModal(false);
 }//GEN-LAST:event_confirm_especial_serverActionPerformed
 
+private void salas_comboboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salas_comboboxActionPerformed
+// TODO add your handling code here:
+}//GEN-LAST:event_salas_comboboxActionPerformed
+
+private void button_getitemcomboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_getitemcomboActionPerformed
+// TODO add your handling code here:
+    int ind = salas_combobox.getSelectedIndex();
+    String texto = "";
+    if(ind!=-1){
+        Jogador[] jogadores = this.fachada.mostraJogadores(ind);
+        for(int i = 0; i < 4; ++i){
+            if(jogadores[i]!=null){
+               texto = texto+jogadores[i].getNome()+"    "+jogadores[i].isStatus()+'\n'; 
+            }
+        }
+        salas_textarea.setText(texto);
+    }
+}//GEN-LAST:event_button_getitemcomboActionPerformed
+
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    public static void main(String args[]) throws IOException, InterruptedException {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -244,16 +297,17 @@ private void confirm_especial_serverActionPerformed(java.awt.event.ActionEvent e
         }
         //</editor-fold>
 
+        new GUIServidor().setVisible(true);
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new GUIServidor().setVisible(true);
+            public void run() {        
             }
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDialog EspecialDialogServidor;
     private javax.swing.JButton button_especial;
+    private javax.swing.JButton button_getitemcombo;
     private javax.swing.JButton confirm_especial_server;
     private javax.swing.JLabel especial_label;
     private javax.swing.JLabel especial_server_background;

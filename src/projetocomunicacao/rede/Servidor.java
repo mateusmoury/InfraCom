@@ -14,6 +14,7 @@ public class Servidor {
 	private Lock lock;
 	private Condition cv;
         private boolean[] caiu;
+        private boolean alterou;
 	
 	public Servidor(Lock lock, Condition cv){
 		this.lock = lock;
@@ -25,6 +26,14 @@ public class Servidor {
 		this.threads = new ThreadServidor[1000];
                 this.caiu = new boolean[25];
 	}
+
+        public boolean isAlterou() {
+            return alterou;
+        }
+
+        public void setAlterou(boolean alterou) {
+            this.alterou = alterou;
+        }     
 
         public boolean[] isCaiu() {
             return this.caiu;

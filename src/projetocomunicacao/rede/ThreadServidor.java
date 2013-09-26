@@ -14,6 +14,8 @@ public class ThreadServidor extends Thread {
 	private Lock lock;
 	private Condition cv;
 	private Transporte protocolo; //não tem mais o socket, e sim o protocolo de transporte
+        private ReadServidor r;
+        private WriteServidor w;
 	
 	public ThreadServidor(Lock lock, Condition cv, Servidor servidor, int id) throws IOException, InterruptedException {
 		this.lock = lock;
@@ -29,11 +31,15 @@ public class ThreadServidor extends Thread {
                 this.protocolo.enviar(this.servidor.getSalas());    
 	}
 
+        public ReadServidor getR() {
+            return r;
+        }
+        
 	public void run() {
 		System.out.println("hi");
 		try {
-			WriteServidor w = new WriteServidor(this.lock, this.cv, this.servidor, this.protocolo, this.id);
-			ReadServidor r = new ReadServidor(w, this.servidor, this.protocolo);
+			this.w = new WriteServidor(this.lock, this.cv, this.servidor, this.protocolo, this.id);
+			this.r = new ReadServidor(w, this.servidor, this.protocolo);
 			r.start();
 			w.start();
 		} catch (IOException e) {
