@@ -2508,7 +2508,7 @@ private void peca6jogador3MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIR
     }//GEN-LAST:event_sairActionPerformed
     
     public void mostraCloseDialog(){
-        Close.setLocationRelativeTo(game_panel);
+        CloseDialog.setLocationRelativeTo(game_panel);
         CloseDialog.setModal(true);
         CloseDialog.setVisible(true);
     }
