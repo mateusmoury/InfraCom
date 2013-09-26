@@ -602,9 +602,9 @@ public class TelaInicial extends javax.swing.JFrame {
         ip_panel.setOpaque(false);
         ip_panel.setLayout(null);
 
-        ip_icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetocomunicacao/resources/icon_disconnection.png"))); // NOI18N
+        ip_icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetocomunicacao/resources/ip32.png"))); // NOI18N
         ip_panel.add(ip_icon);
-        ip_icon.setBounds(10, 30, 120, 120);
+        ip_icon.setBounds(40, 40, 120, 120);
 
         formato.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
         formato.setText("IP digitado possui formato inválido!");
