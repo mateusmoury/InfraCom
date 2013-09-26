@@ -21,6 +21,8 @@ public class ProjetoComunicacaoServidor {
          GUIServidor gs = new GUIServidor();
          FachadaServidor fachada = new FachadaServidor();
          gs.setFachada(fachada);
+         fachada.executaMasterServer();
+         gs.mostraGambiDialog();
          DesenhaGUIServidor dgs = new DesenhaGUIServidor(fachada, gs);
          dgs.start();
          gs.setLocationRelativeTo(null);

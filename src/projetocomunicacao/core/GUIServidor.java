@@ -89,6 +89,7 @@ public class GUIServidor extends javax.swing.JFrame {
         label_esp_server = new javax.swing.JLabel();
         confirm_especial_server = new javax.swing.JButton();
         especial_server_background = new javax.swing.JLabel();
+        gambiDialog = new javax.swing.JDialog();
         server_panel = new javax.swing.JPanel();
         title_label = new javax.swing.JLabel();
         salas_scrollpane = new javax.swing.JScrollPane();
@@ -162,6 +163,17 @@ public class GUIServidor extends javax.swing.JFrame {
         EspecialDialogServidor.getContentPane().add(especial_server_background);
         especial_server_background.setBounds(0, 1, 400, 150);
 
+        javax.swing.GroupLayout gambiDialogLayout = new javax.swing.GroupLayout(gambiDialog.getContentPane());
+        gambiDialog.getContentPane().setLayout(gambiDialogLayout);
+        gambiDialogLayout.setHorizontalGroup(
+            gambiDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        gambiDialogLayout.setVerticalGroup(
+            gambiDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Server Management - DominoMania");
         setMinimumSize(new java.awt.Dimension(800, 600));
@@ -202,7 +214,7 @@ public class GUIServidor extends javax.swing.JFrame {
         server_panel.add(especial_label);
         especial_label.setBounds(180, 530, 240, 32);
 
-        salas_combobox.setFont(new java.awt.Font("Verdana", 0, 11)); // NOI18N
+        salas_combobox.setFont(new java.awt.Font("Verdana", 0, 11));
         salas_combobox.setMaximumRowCount(20);
         salas_combobox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -241,7 +253,7 @@ public class GUIServidor extends javax.swing.JFrame {
         server_panel.add(status_label1);
         status_label1.setBounds(490, 270, 60, 20);
 
-        status_label2.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        status_label2.setFont(new java.awt.Font("Verdana", 0, 14));
         status_label2.setForeground(new java.awt.Color(255, 255, 255));
         status_label2.setText("Status:");
         server_panel.add(status_label2);
@@ -309,6 +321,18 @@ private void salas_comboboxActionPerformed(java.awt.event.ActionEvent evt) {//GE
     this.fachada.setAlterou(true);
 }//GEN-LAST:event_salas_comboboxActionPerformed
 
+public void mostraGambiDialog(){
+    gambiDialog.setVisible(false);
+    gambiDialog.setModal(false);
+    Thread t = new Thread();
+        t.start();
+        try {
+            t.sleep(4000);
+        } catch (InterruptedException ex) {
+            ex.printStackTrace();
+        }
+}
+
     /**
      * @param args the command line arguments
      */
@@ -350,6 +374,7 @@ private void salas_comboboxActionPerformed(java.awt.event.ActionEvent evt) {//GE
     private javax.swing.JLabel especial_label;
     private javax.swing.JLabel especial_server_background;
     private javax.swing.JPanel especial_server_panel;
+    private javax.swing.JDialog gambiDialog;
     private javax.swing.JLabel icon_status_jogador1;
     private javax.swing.JLabel icon_status_jogador2;
     private javax.swing.JLabel icon_status_jogador3;

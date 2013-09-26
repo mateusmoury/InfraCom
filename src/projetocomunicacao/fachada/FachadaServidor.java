@@ -31,8 +31,11 @@ public class FachadaServidor {
         System.out.println("acabei tudo que eu tinha pra fazer");
     }
     
-    public void executa() throws IOException, InterruptedException{
+    public void executaMasterServer() {
         ms.start();
+    }
+    
+    public void executa() throws IOException, InterruptedException{
         pingador.start();
         this.servidor.inicia();
     }
