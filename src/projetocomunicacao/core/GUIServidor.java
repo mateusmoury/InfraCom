@@ -42,12 +42,30 @@ public class GUIServidor extends javax.swing.JFrame {
         String texto = "";
         if(ind!=-1){
             Jogador[] jogadores = this.fachada.mostraJogadores(ind);
-            for(int i = 0; i < 4; ++i){
-                if(jogadores[i]!=null){
-                   texto = texto+jogadores[i].getNome()+'\n';
-//                   status_jogador.setEnabled(jogadores[i].isStatus());
-                }
-            }
+            if(jogadores[0]!=null){
+                boolean b = jogadores[0].isStatus();
+                if(b) icon_status_jogador1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetocomunicacao/resources/icon_green_1616.png"))); // NOI18N
+                else icon_status_jogador1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetocomunicacao/resources/icon_red_1616.png"))); // NOI18N
+                texto = texto + jogadores[0].getNome() + '\n';
+            } else texto = texto +'\n';
+            if(jogadores[1] != null){
+                boolean b = jogadores[1].isStatus();
+                if(b) icon_status_jogador2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetocomunicacao/resources/icon_green_1616.png"))); // NOI18N
+                else icon_status_jogador2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetocomunicacao/resources/icon_red_1616.png"))); // NOI18N
+                texto = texto + jogadores[1].getNome() +'\n';
+            } else texto = texto +'\n';
+            if(jogadores[2] != null){
+                boolean b = jogadores[2].isStatus();
+                if(b) icon_status_jogador3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetocomunicacao/resources/icon_green_1616.png"))); // NOI18N
+                else icon_status_jogador3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetocomunicacao/resources/icon_red_1616.png"))); // NOI18N
+                texto = texto + jogadores[2].getNome() + '\n';
+            } else texto = texto +'\n';
+            if(jogadores[3]!=null){
+                boolean b = jogadores[3].isStatus();
+                if(b) icon_status_jogador4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetocomunicacao/resources/icon_green_1616.png"))); // NOI18N
+                else icon_status_jogador4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetocomunicacao/resources/icon_red_1616.png"))); // NOI18N
+                texto = texto + jogadores[3].getNome() + '\n';
+            } else texto = texto +'\n';
             salas_textarea.setText(texto);
         }
     }
