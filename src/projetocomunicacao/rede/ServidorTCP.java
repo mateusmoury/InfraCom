@@ -43,16 +43,8 @@ public class ServidorTCP implements Transporte {
 
 	@Override
 	public void enviar(Object object) throws IOException { 
-            try{
             this.socketOut = new ObjectOutputStream(sock.getOutputStream());
-            this.socketOut.writeObject(object);
-            } catch(Exception e) {
-                this.socket.close();
-                this.socket = new ServerSocket(this.porta);
-                this.sock = this.socket.accept();
-                this.socketOut = new ObjectOutputStream(sock.getOutputStream());
-                this.socketOut.writeObject(object);
-            }
+            this.socketOut.writeObject(object);            
 	}
 
 	@Override
