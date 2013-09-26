@@ -1,4 +1,4 @@
-package     projetocomunicacao.udp;
+package projetocomunicacao.udp;
 
 import java.io.IOException;
 import java.net.DatagramPacket;
@@ -19,10 +19,11 @@ public class WriteData extends Thread {
         this.reenviado = new AtomicInteger(0);
         this.naoConectou = new AtomicBoolean(false);
         this.isInit = new AtomicBoolean(iniciaConexao);
-        try {
-            this.cliente.socket.setSoTimeout(cliente.socketTimeout);
-        } catch (SocketException e) {
-            
+        if (this.isInit.get()) {
+            try {
+                this.cliente.socket.setSoTimeout(cliente.socketTimeout);
+            } catch (SocketException e) {
+            }
         }
     }
 

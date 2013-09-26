@@ -933,12 +933,12 @@ public class TelaInicial extends javax.swing.JFrame {
                 criarjogo_button.setEnabled(true);
                 criarnovasala_button.setEnabled(true);
             } catch (ConnectException e) {
-                System.out.println("Nao conseguiu conectar fera.");
+                //System.out.println("Nao conseguiu conectar fera.");
 		ServerDialog.setLocationRelativeTo(panel_inicial);
 		ServerDialog.setModal(true);
 		ServerDialog.setVisible(true);
             } catch (UnknownHostException e) {
-                System.out.println("Digita o ip direito boy.");
+               // System.out.println("Digita o ip direito boy.");
 		IPDialog.setLocationRelativeTo(panel_inicial);
 		IPDialog.setModal(true);
 		IPDialog.setVisible(true);
