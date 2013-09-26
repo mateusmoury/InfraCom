@@ -26,8 +26,8 @@ public abstract class HostUDP {
 	public int windowBase;
 	public int windowSize;
 
-	public final int socketTimeout = 1000;
-	public final int packetTimeout = 100;
+	public final int socketTimeout = 2000;
+	public final int packetTimeout = 125;
 
 	public Timer timer;
 

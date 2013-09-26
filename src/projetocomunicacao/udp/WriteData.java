@@ -89,8 +89,8 @@ public class WriteData extends Thread {
                     System.out.println(">>>>>> Vai reenviar o pacote num " + numSeq + " para " + this.ip + " " + this.pprta);
                     if (isInit.get()) {
                         reenviado.incrementAndGet();
-                        if (reenviado.get() >= 10) {
-                            cliente.socket.setSoTimeout(3000);
+                        if (reenviado.get() >= 25) {
+                            cliente.socket.setSoTimeout(cliente.socketTimeout);
                             naoConectou.set(true);
                             return;
                         }
