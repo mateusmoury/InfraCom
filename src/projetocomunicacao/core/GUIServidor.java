@@ -30,10 +30,11 @@ public class GUIServidor extends javax.swing.JFrame {
     }
     
     public void desenhaComboBox(){
-        salas_combobox.removeAllItems();
-        for(int i = 0; i < this.fachada.getSalas().size(); ++i){
-            String texto = "Sala "+this.fachada.getSalas().get(i).getId();
-            salas_combobox.addItem(texto);
+        //salas_combobox.removeAllItems();
+        if(this.fachada.getSalas().size()==1&&salas_combobox.getItemCount()<this.fachada.getSalas().size()) salas_combobox.addItem(this.fachada.getSalas().size()-1);
+        else {
+            if(salas_combobox.getItemCount()<this.fachada.getSalas().size()) 
+                salas_combobox.addItem(this.fachada.getSalas().size()-1);
         }
     }
     
@@ -43,29 +44,33 @@ public class GUIServidor extends javax.swing.JFrame {
         if(ind!=-1){
             Jogador[] jogadores = this.fachada.mostraJogadores(ind);
             if(jogadores[0]!=null){
-                boolean b = jogadores[0].isStatus();
-                if(b) icon_status_jogador1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetocomunicacao/resources/icon_green_1616.png"))); // NOI18N
-                else icon_status_jogador1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetocomunicacao/resources/icon_red_1616.png"))); // NOI18N
+                icon_status_jogador1.setEnabled(jogadores[0].isStatus());
                 texto = texto + jogadores[0].getNome() + '\n';
-            } else texto = texto +'\n';
+            } else {
+                icon_status_jogador1.setEnabled(false);
+                texto = texto +'\n';
+            }
             if(jogadores[1] != null){
-                boolean b = jogadores[1].isStatus();
-                if(b) icon_status_jogador2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetocomunicacao/resources/icon_green_1616.png"))); // NOI18N
-                else icon_status_jogador2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetocomunicacao/resources/icon_red_1616.png"))); // NOI18N
+                icon_status_jogador2.setEnabled(jogadores[1].isStatus());
                 texto = texto + jogadores[1].getNome() +'\n';
-            } else texto = texto +'\n';
+            } else {
+                icon_status_jogador2.setEnabled(false);
+                texto = texto +'\n';
+            }
             if(jogadores[2] != null){
-                boolean b = jogadores[2].isStatus();
-                if(b) icon_status_jogador3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetocomunicacao/resources/icon_green_1616.png"))); // NOI18N
-                else icon_status_jogador3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetocomunicacao/resources/icon_red_1616.png"))); // NOI18N
+               icon_status_jogador3.setEnabled(jogadores[2].isStatus());
                 texto = texto + jogadores[2].getNome() + '\n';
-            } else texto = texto +'\n';
+            } else {
+                icon_status_jogador3.setEnabled(false);
+                texto = texto +'\n';
+            }
             if(jogadores[3]!=null){
-                boolean b = jogadores[3].isStatus();
-                if(b) icon_status_jogador4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetocomunicacao/resources/icon_green_1616.png"))); // NOI18N
-                else icon_status_jogador4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetocomunicacao/resources/icon_red_1616.png"))); // NOI18N
+                icon_status_jogador4.setEnabled(jogadores[3].isStatus());
                 texto = texto + jogadores[3].getNome() + '\n';
-            } else texto = texto +'\n';
+            } else {
+                icon_status_jogador4.setEnabled(false);
+                texto = texto +'\n';
+            }
             salas_textarea.setText(texto);
         }
     }
@@ -167,7 +172,7 @@ public class GUIServidor extends javax.swing.JFrame {
         server_panel.setOpaque(false);
         server_panel.setLayout(null);
 
-        title_label.setFont(new java.awt.Font("Verdana", 0, 42)); // NOI18N
+        title_label.setFont(new java.awt.Font("Verdana", 0, 42));
         title_label.setForeground(new java.awt.Color(255, 255, 255));
         title_label.setText("DominoMania Server Management");
         server_panel.add(title_label);
@@ -184,7 +189,7 @@ public class GUIServidor extends javax.swing.JFrame {
         server_panel.add(salas_scrollpane);
         salas_scrollpane.setBounds(300, 210, 170, 260);
 
-        status_label.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        status_label.setFont(new java.awt.Font("Verdana", 0, 14));
         status_label.setForeground(new java.awt.Color(255, 255, 255));
         status_label.setText("Status:");
         server_panel.add(status_label);
@@ -197,7 +202,7 @@ public class GUIServidor extends javax.swing.JFrame {
         server_panel.add(especial_label);
         especial_label.setBounds(180, 530, 240, 32);
 
-        salas_combobox.setFont(new java.awt.Font("Verdana", 0, 11));
+        salas_combobox.setFont(new java.awt.Font("Verdana", 0, 11)); // NOI18N
         salas_combobox.setMaximumRowCount(20);
         salas_combobox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -230,7 +235,7 @@ public class GUIServidor extends javax.swing.JFrame {
         server_panel.add(button_especial);
         button_especial.setBounds(520, 530, 90, 30);
 
-        status_label1.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        status_label1.setFont(new java.awt.Font("Verdana", 0, 14));
         status_label1.setForeground(new java.awt.Color(255, 255, 255));
         status_label1.setText("Status:");
         server_panel.add(status_label1);
@@ -242,25 +247,33 @@ public class GUIServidor extends javax.swing.JFrame {
         server_panel.add(status_label2);
         status_label2.setBounds(490, 230, 60, 20);
 
-        status_label3.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        status_label3.setFont(new java.awt.Font("Verdana", 0, 14));
         status_label3.setForeground(new java.awt.Color(255, 255, 255));
         status_label3.setText("Status:");
         server_panel.add(status_label3);
         status_label3.setBounds(490, 250, 60, 20);
 
-        icon_status_jogador1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetocomunicacao/resources/icon_red_1616.png"))); // NOI18N
+        icon_status_jogador1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetocomunicacao/resources/icon_green_1616.png"))); // NOI18N
+        icon_status_jogador1.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/projetocomunicacao/resources/icon_red_1616.png"))); // NOI18N
+        icon_status_jogador1.setEnabled(false);
         server_panel.add(icon_status_jogador1);
         icon_status_jogador1.setBounds(550, 210, 20, 16);
 
-        icon_status_jogador2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetocomunicacao/resources/icon_red_1616.png"))); // NOI18N
+        icon_status_jogador2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetocomunicacao/resources/icon_green_1616.png"))); // NOI18N
+        icon_status_jogador2.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/projetocomunicacao/resources/icon_red_1616.png"))); // NOI18N
+        icon_status_jogador2.setEnabled(false);
         server_panel.add(icon_status_jogador2);
         icon_status_jogador2.setBounds(550, 230, 20, 16);
 
-        icon_status_jogador3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetocomunicacao/resources/icon_red_1616.png"))); // NOI18N
+        icon_status_jogador3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetocomunicacao/resources/icon_green_1616.png"))); // NOI18N
+        icon_status_jogador3.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/projetocomunicacao/resources/icon_red_1616.png"))); // NOI18N
+        icon_status_jogador3.setEnabled(false);
         server_panel.add(icon_status_jogador3);
         icon_status_jogador3.setBounds(550, 250, 20, 16);
 
-        icon_status_jogador4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetocomunicacao/resources/icon_red_1616.png"))); // NOI18N
+        icon_status_jogador4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetocomunicacao/resources/icon_green_1616.png"))); // NOI18N
+        icon_status_jogador4.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/projetocomunicacao/resources/icon_red_1616.png"))); // NOI18N
+        icon_status_jogador4.setEnabled(false);
         server_panel.add(icon_status_jogador4);
         icon_status_jogador4.setBounds(550, 270, 20, 16);
 
@@ -293,6 +306,7 @@ private void confirm_especial_serverActionPerformed(java.awt.event.ActionEvent e
 
 private void salas_comboboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salas_comboboxActionPerformed
 // TODO add your handling code here:
+    this.fachada.setAlterou(true);
 }//GEN-LAST:event_salas_comboboxActionPerformed
 
     /**
