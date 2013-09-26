@@ -321,19 +321,7 @@ private void salas_comboboxActionPerformed(java.awt.event.ActionEvent evt) {//GE
     this.fachada.setAlterou(true);
 }//GEN-LAST:event_salas_comboboxActionPerformed
 
-public void mostraGambiDialog(){
-    gambiDialog.setVisible(false);
-    gambiDialog.setModal(false);
-    Thread t = new Thread();
-        t.start();
-        try {
-            t.sleep(4000);
-        } catch (InterruptedException ex) {
-            ex.printStackTrace();
-        }
-}
-
-    /**
+   /**
      * @param args the command line arguments
      */
     public static void main(String args[]) throws IOException, InterruptedException {
