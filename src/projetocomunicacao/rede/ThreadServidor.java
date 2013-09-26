@@ -24,8 +24,12 @@ public class ThreadServidor extends Thread {
 		//welcomeSocket = new ServerSocket(3010+id); //TCP only
 		//System.out.println("Numero porta " + (3010+id));
                 sleep(100);
-		this.protocolo = new ServidorTCP(3030);
-		this.protocolo.iniciarConexao(); 
+                if(TipoDoProtocolo.TCP) {
+                    this.protocolo = new ServidorTCP(3030);
+                } else {
+                    this.protocolo = new ServidorUDP(3030);
+                }
+                this.protocolo.iniciarConexao(); 
 		this.servidor = servidor;
                 System.out.println("ENVIADO A UMA LISTA DE TAMANHO " + this.servidor.getSalas().size());
                 this.protocolo.enviar(this.servidor.getSalas());    

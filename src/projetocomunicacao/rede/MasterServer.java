@@ -11,7 +11,11 @@ public class MasterServer extends Thread {
 	Transporte protocolo;
 	
 	public MasterServer() throws IOException{
-		this.protocolo = new ServidorTCP(this.portNumber);
+                if(TipoDoProtocolo.TCP) {
+                    this.protocolo = new ServidorTCP(this.portNumber);
+                } else {
+                    this.protocolo = new ServidorUDP(this.portNumber);
+                }
 	}
 	
 	public void run(){
@@ -22,29 +26,56 @@ public class MasterServer extends Thread {
 				e.printStackTrace();
 			}
 			int id = 1;
-			ServerSocket aux;
-			while(true){
-				try {
-					aux = new ServerSocket(this.portNumber+id);
-					System.out.println("PORTA DISPONIVEL EH " + (this.portNumber+id));
-					break;
-				} catch (Exception e) {
-					++id;
-				}
-			}
-			try {
-				aux.close();
-			} catch (Exception e) {
-				System.out.println("NAO CONSEGUIU ENCERRAR CONEXAO");
-			}
-			try {
-				this.protocolo.enviar(id);
-                                System.out.println("ENVIANDO " + id);
-				//this.protocolo.encerrarConexao();
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			
+                        if(TipoDoProtocolo.TCP) {
+                            ServerSocket aux;
+                            while(true){
+                                    try {
+                                            aux = new ServerSocket(this.portNumber+id);
+                                            System.out.println("PORTA DISPONIVEL EH " + (this.portNumber+id));
+                                            break;
+                                    } catch (Exception e) {
+                                            ++id;
+                                    }
+                            }
+                            try {
+                                    aux.close();
+                            } catch (Exception e) {
+                                    System.out.println("NAO CONSEGUIU ENCERRAR CONEXAO");
+                            }
+                            try {
+                                    this.protocolo.enviar(id);
+                                    System.out.println("ENVIANDO " + id);
+                                    //this.protocolo.encerrarConexao();
+                            } catch (IOException e) {
+                                    // TODO Auto-generated catch block
+                                    e.printStackTrace();
+                            }
+                         } else {
+                            DatagramSocket aux;
+                            while(true){
+                                    try {
+                                            aux = new DatagramSocket(this.portNumber+id);
+                                            System.out.println("PORTA DISPONIVEL EH " + (this.portNumber+id));
+                                            break;
+                                    } catch (Exception e) {
+                                            ++id;
+                                    }
+                            }
+                            try {
+                                    aux.close();
+                            } catch (Exception e) {
+                                    System.out.println("NAO CONSEGUIU ENCERRAR CONEXAO");
+                            }
+                            try {
+                                    this.protocolo.enviar(id);
+                                    System.out.println("ENVIANDO " + id);
+                                    //this.protocolo.encerrarConexao();
+                            } catch (IOException e) {
+                                    // TODO Auto-generated catch block
+                                    e.printStackTrace();
+                            }
+                        }
 		}
 	}
 }
