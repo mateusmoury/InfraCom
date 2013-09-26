@@ -26,109 +26,196 @@ public class GUIServidor extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jogadores_combobox = new javax.swing.JComboBox();
+        EspecialDialogServidor = new javax.swing.JDialog();
+        especial_server_panel = new javax.swing.JPanel();
+        label_esp_server = new javax.swing.JLabel();
+        confirm_especial_server = new javax.swing.JButton();
+        especial_server_background = new javax.swing.JLabel();
+        server_panel = new javax.swing.JPanel();
+        title_label = new javax.swing.JLabel();
         salas_scrollpane = new javax.swing.JScrollPane();
         salas_textarea = new javax.swing.JTextArea();
-        jLabel2 = new javax.swing.JLabel();
-        jogadores_scrollpane = new javax.swing.JScrollPane();
-        jogadores_textarea = new javax.swing.JTextArea();
-        jLabel4 = new javax.swing.JLabel();
+        status_label = new javax.swing.JLabel();
+        especial_label = new javax.swing.JLabel();
         salas_combobox = new javax.swing.JComboBox();
-        jLabel3 = new javax.swing.JLabel();
+        jogadores_scrollpane = new javax.swing.JScrollPane();
+        list_jogadores = new javax.swing.JList();
+        monitorar_jogador = new javax.swing.JLabel();
+        status_jogador = new javax.swing.JLabel();
+        monitorar_sala = new javax.swing.JLabel();
+        textfield_especial = new javax.swing.JTextField();
+        button_especial = new javax.swing.JButton();
+        server_background = new javax.swing.JLabel();
+
+        EspecialDialogServidor.setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        EspecialDialogServidor.setTitle("Módulo Especial");
+        EspecialDialogServidor.setLocationByPlatform(true);
+        EspecialDialogServidor.setMinimumSize(new java.awt.Dimension(400, 150));
+        EspecialDialogServidor.setModalExclusionType(java.awt.Dialog.ModalExclusionType.APPLICATION_EXCLUDE);
+        EspecialDialogServidor.setModalityType(java.awt.Dialog.ModalityType.APPLICATION_MODAL);
+        EspecialDialogServidor.setResizable(false);
+        EspecialDialogServidor.getContentPane().setLayout(null);
+
+        especial_server_panel.setMinimumSize(new java.awt.Dimension(400, 175));
+        especial_server_panel.setOpaque(false);
+
+        label_esp_server.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
+        label_esp_server.setForeground(new java.awt.Color(255, 255, 255));
+        label_esp_server.setText("Número especial alterado com sucesso!");
+        label_esp_server.setToolTipText("");
+
+        confirm_especial_server.setText("Continuar");
+        confirm_especial_server.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                confirm_especial_serverActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout especial_server_panelLayout = new javax.swing.GroupLayout(especial_server_panel);
+        especial_server_panel.setLayout(especial_server_panelLayout);
+        especial_server_panelLayout.setHorizontalGroup(
+            especial_server_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, especial_server_panelLayout.createSequentialGroup()
+                .addContainerGap(25, Short.MAX_VALUE)
+                .addComponent(label_esp_server)
+                .addGap(18, 18, 18))
+            .addGroup(especial_server_panelLayout.createSequentialGroup()
+                .addGap(156, 156, 156)
+                .addComponent(confirm_especial_server)
+                .addContainerGap(165, Short.MAX_VALUE))
+        );
+        especial_server_panelLayout.setVerticalGroup(
+            especial_server_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(especial_server_panelLayout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(label_esp_server)
+                .addGap(18, 18, 18)
+                .addComponent(confirm_especial_server)
+                .addContainerGap(56, Short.MAX_VALUE))
+        );
+
+        EspecialDialogServidor.getContentPane().add(especial_server_panel);
+        especial_server_panel.setBounds(0, 0, 400, 150);
+
+        especial_server_background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetocomunicacao/resources/woodenBackgroundSmall.png"))); // NOI18N
+        EspecialDialogServidor.getContentPane().add(especial_server_background);
+        especial_server_background.setBounds(0, 1, 400, 150);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(500, 400));
-        setMinimumSize(new java.awt.Dimension(500, 400));
-        setPreferredSize(new java.awt.Dimension(800, 600));
+        setTitle("Server Management - DominoMania");
+        setMinimumSize(new java.awt.Dimension(800, 600));
         setResizable(false);
         getContentPane().setLayout(null);
 
-        jPanel1.setBackground(new java.awt.Color(51, 102, 0));
-        jPanel1.setOpaque(false);
+        server_panel.setBackground(new java.awt.Color(51, 102, 0));
+        server_panel.setOpaque(false);
+        server_panel.setLayout(null);
 
-        jLabel1.setFont(new java.awt.Font("Verdana", 0, 42)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("DominoMania Server Management");
+        title_label.setFont(new java.awt.Font("Verdana", 0, 42)); // NOI18N
+        title_label.setForeground(new java.awt.Color(255, 255, 255));
+        title_label.setText("DominoMania Server Management");
+        server_panel.add(title_label);
+        title_label.setBounds(40, 30, 729, 52);
 
-        jogadores_combobox.setFont(new java.awt.Font("Verdana", 0, 11)); // NOI18N
-        jogadores_combobox.setMaximumRowCount(20);
-        jogadores_combobox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Jogador 1", "Jogador 2", "Jogador 3", "Jogador 4", "Jogador 5", "Jogador 6", "Jogador 7", "Jogador 8" }));
+        salas_scrollpane.setFocusable(false);
 
         salas_textarea.setColumns(20);
         salas_textarea.setRows(5);
         salas_textarea.setFocusable(false);
+        salas_textarea.setPreferredSize(new java.awt.Dimension(140, 140));
         salas_scrollpane.setViewportView(salas_textarea);
 
-        jLabel2.setFont(new java.awt.Font("Verdana", 0, 24)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Monitorar Jogador");
+        server_panel.add(salas_scrollpane);
+        salas_scrollpane.setBounds(70, 220, 260, 260);
 
-        jogadores_textarea.setColumns(20);
-        jogadores_textarea.setRows(5);
-        jogadores_textarea.setFocusable(false);
-        jogadores_scrollpane.setViewportView(jogadores_textarea);
+        status_label.setFont(new java.awt.Font("Verdana", 0, 24)); // NOI18N
+        status_label.setForeground(new java.awt.Color(255, 255, 255));
+        status_label.setText("Status:");
+        server_panel.add(status_label);
+        status_label.setBounds(460, 170, 87, 30);
 
-        jLabel4.setFont(new java.awt.Font("Verdana", 0, 24)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("Monitorar Sala");
+        especial_label.setFont(new java.awt.Font("Verdana", 0, 24)); // NOI18N
+        especial_label.setForeground(new java.awt.Color(255, 255, 255));
+        especial_label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetocomunicacao/resources/icon_especial.png"))); // NOI18N
+        especial_label.setText("Módulo Especial:");
+        server_panel.add(especial_label);
+        especial_label.setBounds(30, 520, 240, 32);
 
         salas_combobox.setFont(new java.awt.Font("Verdana", 0, 11)); // NOI18N
         salas_combobox.setMaximumRowCount(20);
         salas_combobox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Sala 1", "Sala 2", "Sala 3", "Sala 4", "Sala 5", "Sala 6", "Sala 7", "Sala 8", "Sala 9", "Sala 10" }));
+        server_panel.add(salas_combobox);
+        salas_combobox.setBounds(70, 160, 167, 45);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(22, 22, 22)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(salas_scrollpane, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel4)
-                            .addComponent(salas_combobox, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(31, 31, 31)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(jogadores_scrollpane, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jogadores_combobox, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(34, 34, 34)
-                        .addComponent(jLabel1)))
-                .addContainerGap(27, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(49, 49, 49)
-                .addComponent(jLabel1)
-                .addGap(72, 72, 72)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jogadores_combobox, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(salas_combobox, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jogadores_scrollpane, javax.swing.GroupLayout.DEFAULT_SIZE, 281, Short.MAX_VALUE)
-                    .addComponent(salas_scrollpane))
-                .addGap(49, 49, 49))
-        );
+        list_jogadores.setModel(new javax.swing.AbstractListModel() {
+            String[] strings = { "Jogador 1", "Jogador 2", "Jogador 3" };
+            public int getSize() { return strings.length; }
+            public Object getElementAt(int i) { return strings[i]; }
+        });
+        jogadores_scrollpane.setViewportView(list_jogadores);
 
-        getContentPane().add(jPanel1);
-        jPanel1.setBounds(0, 0, 800, 600);
+        server_panel.add(jogadores_scrollpane);
+        jogadores_scrollpane.setBounds(460, 220, 270, 260);
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetocomunicacao/resources/background_guiservidor.jpg"))); // NOI18N
-        getContentPane().add(jLabel3);
-        jLabel3.setBounds(0, 0, 800, 600);
+        monitorar_jogador.setFont(new java.awt.Font("Verdana", 0, 24)); // NOI18N
+        monitorar_jogador.setForeground(new java.awt.Color(255, 255, 255));
+        monitorar_jogador.setText("Monitorar Jogador");
+        server_panel.add(monitorar_jogador);
+        monitorar_jogador.setBounds(460, 120, 217, 30);
+
+        status_jogador.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetocomunicacao/resources/redball32.png"))); // NOI18N
+        server_panel.add(status_jogador);
+        status_jogador.setBounds(570, 170, 30, 30);
+
+        monitorar_sala.setFont(new java.awt.Font("Verdana", 0, 24)); // NOI18N
+        monitorar_sala.setForeground(new java.awt.Color(255, 255, 255));
+        monitorar_sala.setText("Monitorar Sala");
+        server_panel.add(monitorar_sala);
+        monitorar_sala.setBounds(70, 120, 172, 30);
+
+        textfield_especial.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textfield_especialActionPerformed(evt);
+            }
+        });
+        server_panel.add(textfield_especial);
+        textfield_especial.setBounds(280, 520, 80, 30);
+
+        button_especial.setText("OK");
+        button_especial.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_especialActionPerformed(evt);
+            }
+        });
+        server_panel.add(button_especial);
+        button_especial.setBounds(460, 520, 90, 30);
+
+        getContentPane().add(server_panel);
+        server_panel.setBounds(0, 0, 800, 600);
+
+        server_background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetocomunicacao/resources/background_guiservidor.jpg"))); // NOI18N
+        getContentPane().add(server_background);
+        server_background.setBounds(0, 0, 800, 600);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+private void textfield_especialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textfield_especialActionPerformed
+// TODO add your handling code here:
+}//GEN-LAST:event_textfield_especialActionPerformed
+
+private void button_especialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_especialActionPerformed
+// TODO add your handling code here:
+    EspecialDialogServidor.setLocationRelativeTo(server_panel);
+    EspecialDialogServidor.setVisible(true);
+    EspecialDialogServidor.setModal(false);
+}//GEN-LAST:event_button_especialActionPerformed
+
+private void confirm_especial_serverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirm_especial_serverActionPerformed
+// TODO add your handling code here:
+    EspecialDialogServidor.setVisible(false);
+    EspecialDialogServidor.setModal(false);
+}//GEN-LAST:event_confirm_especial_serverActionPerformed
 
     /**
      * @param args the command line arguments
@@ -165,16 +252,25 @@ public class GUIServidor extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JComboBox jogadores_combobox;
+    private javax.swing.JDialog EspecialDialogServidor;
+    private javax.swing.JButton button_especial;
+    private javax.swing.JButton confirm_especial_server;
+    private javax.swing.JLabel especial_label;
+    private javax.swing.JLabel especial_server_background;
+    private javax.swing.JPanel especial_server_panel;
     private javax.swing.JScrollPane jogadores_scrollpane;
-    private javax.swing.JTextArea jogadores_textarea;
+    private javax.swing.JLabel label_esp_server;
+    private javax.swing.JList list_jogadores;
+    private javax.swing.JLabel monitorar_jogador;
+    private javax.swing.JLabel monitorar_sala;
     private javax.swing.JComboBox salas_combobox;
     private javax.swing.JScrollPane salas_scrollpane;
     private javax.swing.JTextArea salas_textarea;
+    private javax.swing.JLabel server_background;
+    private javax.swing.JPanel server_panel;
+    private javax.swing.JLabel status_jogador;
+    private javax.swing.JLabel status_label;
+    private javax.swing.JTextField textfield_especial;
+    private javax.swing.JLabel title_label;
     // End of variables declaration//GEN-END:variables
 }

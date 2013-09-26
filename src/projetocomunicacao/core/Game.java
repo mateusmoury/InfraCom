@@ -58,7 +58,6 @@ public class Game extends javax.swing.JFrame {
         this.fachada = fachada;
         this.lastPath = "";
         this.tela = tela;
-        ChatDialog.setLocationRelativeTo(null);
     }
 
     /**
@@ -71,11 +70,6 @@ public class Game extends javax.swing.JFrame {
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
-        ChatDialog = new javax.swing.JDialog();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        jTextArea3 = new javax.swing.JTextArea();
-        jScrollPane4 = new javax.swing.JScrollPane();
-        jTextArea4 = new javax.swing.JTextArea();
         WinnerDialog = new javax.swing.JDialog();
         winner_panel = new javax.swing.JPanel();
         medal_label = new javax.swing.JLabel();
@@ -83,15 +77,6 @@ public class Game extends javax.swing.JFrame {
         duplavencedora = new javax.swing.JLabel();
         rodadaganha = new javax.swing.JLabel();
         winner_background = new javax.swing.JLabel();
-        PauseDialog = new javax.swing.JDialog();
-        pause_panel = new javax.swing.JPanel();
-        jogopausado = new javax.swing.JLabel();
-        pausasdupla1 = new javax.swing.JLabel();
-        pausasdupla2 = new javax.swing.JLabel();
-        chat = new javax.swing.JButton();
-        resume = new javax.swing.JButton();
-        exit_pause = new javax.swing.JButton();
-        pause_background = new javax.swing.JLabel();
         ChampionDialog = new javax.swing.JDialog();
         champion_panel = new javax.swing.JPanel();
         trophy_label = new javax.swing.JLabel();
@@ -123,12 +108,42 @@ public class Game extends javax.swing.JFrame {
         rodadaperdida = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         loser_background = new javax.swing.JLabel();
+        ContagemVitoriaDialog = new javax.swing.JDialog();
+        win_count_panel = new javax.swing.JPanel();
+        winner_count_icon = new javax.swing.JLabel();
+        win_count = new javax.swing.JLabel();
+        dupla1contagemv = new javax.swing.JLabel();
+        dupla2contagemv = new javax.swing.JLabel();
+        label_pontosdupla1v = new javax.swing.JLabel();
+        label_pontosdupla2v = new javax.swing.JLabel();
+        winner_count_background = new javax.swing.JLabel();
+        ContagemDerrotaDialog = new javax.swing.JDialog();
+        lose_count_panel = new javax.swing.JPanel();
+        loser_count_icon = new javax.swing.JLabel();
+        derrota_count = new javax.swing.JLabel();
+        dupla1contagemd = new javax.swing.JLabel();
+        dupla2contagemd = new javax.swing.JLabel();
+        label_pontosdupla1d = new javax.swing.JLabel();
+        label_pontosdupla2d = new javax.swing.JLabel();
+        loser_count_background = new javax.swing.JLabel();
+        DisconnectDialog = new javax.swing.JDialog();
+        disconnect_panel = new javax.swing.JPanel();
+        jogador_desconectado = new javax.swing.JLabel();
+        exit_disconnect = new javax.swing.JButton();
+        espere = new javax.swing.JLabel();
+        disconnect_icon = new javax.swing.JLabel();
+        espere1 = new javax.swing.JLabel();
+        disconnect_background = new javax.swing.JLabel();
+        CloseDialog = new javax.swing.JDialog();
+        close_panel = new javax.swing.JPanel();
+        alert_label = new javax.swing.JLabel();
+        closed = new javax.swing.JLabel();
+        sendo = new javax.swing.JLabel();
+        finalizado = new javax.swing.JLabel();
+        sair_button = new javax.swing.JButton();
+        close_background = new javax.swing.JLabel();
         game_panel = new javax.swing.JPanel();
         ExitGameButton = new javax.swing.JButton();
-        PauseGameButton = new javax.swing.JButton();
-        OpenChatButton = new javax.swing.JButton();
-        ClockTurno = new javax.swing.JLabel();
-        ClockTimeout = new javax.swing.JLabel();
         peca1jogador4 = new javax.swing.JButton();
         peca2jogador4 = new javax.swing.JButton();
         peca3jogador4 = new javax.swing.JButton();
@@ -206,41 +221,6 @@ public class Game extends javax.swing.JFrame {
         posicao_20l = new javax.swing.JLabel();
         Background = new javax.swing.JLabel();
 
-        ChatDialog.setTitle("Chat");
-        ChatDialog.setMinimumSize(new java.awt.Dimension(275, 389));
-        ChatDialog.setModalExclusionType(java.awt.Dialog.ModalExclusionType.APPLICATION_EXCLUDE);
-        ChatDialog.setModalityType(java.awt.Dialog.ModalityType.APPLICATION_MODAL);
-        ChatDialog.setResizable(false);
-
-        jTextArea3.setColumns(20);
-        jTextArea3.setLineWrap(true);
-        jTextArea3.setRows(5);
-        jTextArea3.setFocusable(false);
-        jScrollPane3.setViewportView(jTextArea3);
-
-        jTextArea4.setColumns(20);
-        jTextArea4.setLineWrap(true);
-        jTextArea4.setRows(5);
-        jScrollPane4.setViewportView(jTextArea4);
-
-        javax.swing.GroupLayout ChatDialogLayout = new javax.swing.GroupLayout(ChatDialog.getContentPane());
-        ChatDialog.getContentPane().setLayout(ChatDialogLayout);
-        ChatDialogLayout.setHorizontalGroup(
-            ChatDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 275, Short.MAX_VALUE)
-            .addComponent(jScrollPane4)
-        );
-        ChatDialogLayout.setVerticalGroup(
-            ChatDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ChatDialogLayout.createSequentialGroup()
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-
-        ChatDialog.getAccessibleContext().setAccessibleParent(OpenChatButton);
-
         WinnerDialog.setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         WinnerDialog.setTitle("Vitória!");
         WinnerDialog.setLocationByPlatform(true);
@@ -260,15 +240,15 @@ public class Game extends javax.swing.JFrame {
 
         medal_label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetocomunicacao/resources/medal-icon.png"))); // NOI18N
 
-        vitoria.setFont(new java.awt.Font("Verdana", 0, 24));
+        vitoria.setFont(new java.awt.Font("Verdana", 0, 24)); // NOI18N
         vitoria.setForeground(new java.awt.Color(0, 153, 0));
         vitoria.setText("Vitória!");
 
-        duplavencedora.setFont(new java.awt.Font("Verdana", 0, 22));
+        duplavencedora.setFont(new java.awt.Font("Verdana", 0, 22)); // NOI18N
         duplavencedora.setForeground(new java.awt.Color(255, 255, 255));
         duplavencedora.setText("Sua dupla ganhou");
 
-        rodadaganha.setFont(new java.awt.Font("Verdana", 0, 22));
+        rodadaganha.setFont(new java.awt.Font("Verdana", 0, 22)); // NOI18N
         rodadaganha.setForeground(new java.awt.Color(255, 255, 255));
         rodadaganha.setText("essa rodada.");
 
@@ -315,89 +295,6 @@ public class Game extends javax.swing.JFrame {
         WinnerDialog.getContentPane().add(winner_background);
         winner_background.setBounds(0, 1, 400, 175);
 
-        PauseDialog.setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
-        PauseDialog.setTitle("Jogo Pausado");
-        PauseDialog.setMinimumSize(new java.awt.Dimension(400, 175));
-        PauseDialog.setModalExclusionType(java.awt.Dialog.ModalExclusionType.APPLICATION_EXCLUDE);
-        PauseDialog.setModalityType(java.awt.Dialog.ModalityType.APPLICATION_MODAL);
-        PauseDialog.setResizable(false);
-        PauseDialog.getContentPane().setLayout(null);
-
-        pause_panel.setMinimumSize(new java.awt.Dimension(400, 175));
-        pause_panel.setOpaque(false);
-        pause_panel.setLayout(null);
-
-        jogopausado.setFont(new java.awt.Font("Verdana", 0, 24));
-        jogopausado.setForeground(new java.awt.Color(255, 255, 255));
-        jogopausado.setText("Jogo pausado");
-        pause_panel.add(jogopausado);
-        jogopausado.setBounds(109, 11, 165, 30);
-
-        pausasdupla1.setFont(new java.awt.Font("Verdana", 0, 18));
-        pausasdupla1.setForeground(new java.awt.Color(255, 255, 255));
-        pausasdupla1.setText("Pausas restantes (Dupla 1):");
-        pause_panel.add(pausasdupla1);
-        pausasdupla1.setBounds(23, 51, 280, 23);
-
-        pausasdupla2.setFont(new java.awt.Font("Verdana", 0, 18));
-        pausasdupla2.setForeground(new java.awt.Color(255, 255, 255));
-        pausasdupla2.setText("Pausas restantes (Dupla 2):");
-        pause_panel.add(pausasdupla2);
-        pausasdupla2.setBounds(23, 80, 280, 23);
-
-        chat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetocomunicacao/resources/chatpessoaoff32.png"))); // NOI18N
-        chat.setToolTipText("");
-        chat.setBorder(null);
-        chat.setContentAreaFilled(false);
-        chat.setFocusPainted(false);
-        chat.setFocusable(false);
-        chat.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/projetocomunicacao/resources/chatpessoa32.png"))); // NOI18N
-        chat.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                chatActionPerformed(evt);
-            }
-        });
-        pause_panel.add(chat);
-        chat.setBounds(10, 109, 32, 32);
-
-        resume.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetocomunicacao/resources/play232.png"))); // NOI18N
-        resume.setToolTipText("");
-        resume.setBorder(null);
-        resume.setBorderPainted(false);
-        resume.setContentAreaFilled(false);
-        resume.setFocusPainted(false);
-        resume.setFocusable(false);
-        resume.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/projetocomunicacao/resources/glowingplay32.png"))); // NOI18N
-        resume.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                resumeActionPerformed(evt);
-            }
-        });
-        pause_panel.add(resume);
-        resume.setBounds(360, 110, 32, 32);
-
-        exit_pause.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetocomunicacao/resources/door32.png"))); // NOI18N
-        exit_pause.setBorder(null);
-        exit_pause.setBorderPainted(false);
-        exit_pause.setContentAreaFilled(false);
-        exit_pause.setFocusPainted(false);
-        exit_pause.setFocusable(false);
-        exit_pause.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/projetocomunicacao/resources/dooropen32.png"))); // NOI18N
-        exit_pause.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                exit_pauseActionPerformed(evt);
-            }
-        });
-        pause_panel.add(exit_pause);
-        exit_pause.setBounds(360, 10, 32, 32);
-
-        PauseDialog.getContentPane().add(pause_panel);
-        pause_panel.setBounds(0, 0, 400, 175);
-
-        pause_background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetocomunicacao/resources/woodenBackgroundSmall.png"))); // NOI18N
-        PauseDialog.getContentPane().add(pause_background);
-        pause_background.setBounds(0, 1, 400, 175);
-
         ChampionDialog.setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         ChampionDialog.setTitle("Campeão!");
         ChampionDialog.setLocationByPlatform(true);
@@ -420,15 +317,15 @@ public class Game extends javax.swing.JFrame {
 
         trophy_label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetocomunicacao/resources/icon_trophy.png"))); // NOI18N
 
-        campeao.setFont(new java.awt.Font("Verdana", 0, 42));
+        campeao.setFont(new java.awt.Font("Verdana", 0, 42)); // NOI18N
         campeao.setForeground(new java.awt.Color(0, 153, 0));
         campeao.setText("Campeão!");
 
-        duplacampea.setFont(new java.awt.Font("Verdana", 0, 22));
+        duplacampea.setFont(new java.awt.Font("Verdana", 0, 22)); // NOI18N
         duplacampea.setForeground(new java.awt.Color(255, 255, 255));
         duplacampea.setText("Parabéns! Sua dupla foi ");
 
-        duplacampea1.setFont(new java.awt.Font("Verdana", 0, 22));
+        duplacampea1.setFont(new java.awt.Font("Verdana", 0, 22)); // NOI18N
         duplacampea1.setForeground(new java.awt.Color(255, 255, 255));
         duplacampea1.setText("a campeã da partida!");
 
@@ -489,11 +386,11 @@ public class Game extends javax.swing.JFrame {
 
         cry_label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetocomunicacao/resources/icon_perde.png"))); // NOI18N
 
-        perdedor_label.setFont(new java.awt.Font("Verdana", 0, 24));
+        perdedor_label.setFont(new java.awt.Font("Verdana", 0, 24)); // NOI18N
         perdedor_label.setForeground(new java.awt.Color(255, 0, 51));
         perdedor_label.setText("Você perdeu O Jogo.");
 
-        perdedor_label1.setFont(new java.awt.Font("Verdana", 0, 22));
+        perdedor_label1.setFont(new java.awt.Font("Verdana", 0, 22)); // NOI18N
         perdedor_label1.setForeground(new java.awt.Color(255, 255, 255));
         perdedor_label1.setText("Sua dupla perdeu a partida!");
 
@@ -543,7 +440,7 @@ public class Game extends javax.swing.JFrame {
         quit_panel.setMinimumSize(new java.awt.Dimension(400, 175));
         quit_panel.setOpaque(false);
 
-        pergunta.setFont(new java.awt.Font("Verdana", 0, 18));
+        pergunta.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
         pergunta.setForeground(new java.awt.Color(255, 255, 255));
         pergunta.setText("Você deseja realmente sair da partida?");
         pergunta.setToolTipText("");
@@ -616,11 +513,11 @@ public class Game extends javax.swing.JFrame {
         toque_panel.setMinimumSize(new java.awt.Dimension(400, 175));
         toque_panel.setOpaque(false);
 
-        jogadas.setFont(new java.awt.Font("Verdana", 0, 24));
+        jogadas.setFont(new java.awt.Font("Verdana", 0, 24)); // NOI18N
         jogadas.setForeground(new java.awt.Color(255, 255, 255));
         jogadas.setText("Não há jogadas disponíveis!");
 
-        mudar.setFont(new java.awt.Font("Verdana", 0, 22));
+        mudar.setFont(new java.awt.Font("Verdana", 0, 22)); // NOI18N
         mudar.setForeground(new java.awt.Color(255, 255, 255));
         mudar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetocomunicacao/resources/toqueicon90.png"))); // NOI18N
 
@@ -670,19 +567,19 @@ public class Game extends javax.swing.JFrame {
         loser_panel.setMinimumSize(new java.awt.Dimension(400, 175));
         loser_panel.setOpaque(false);
 
-        derrota.setFont(new java.awt.Font("Verdana", 0, 24));
+        derrota.setFont(new java.awt.Font("Verdana", 0, 24)); // NOI18N
         derrota.setForeground(new java.awt.Color(255, 0, 0));
         derrota.setText("Derrota!");
 
-        duplaperdedora.setFont(new java.awt.Font("Verdana", 0, 22));
+        duplaperdedora.setFont(new java.awt.Font("Verdana", 0, 22)); // NOI18N
         duplaperdedora.setForeground(new java.awt.Color(255, 255, 255));
         duplaperdedora.setText("Sua dupla perdeu");
 
-        rodadaperdida.setFont(new java.awt.Font("Verdana", 0, 22));
+        rodadaperdida.setFont(new java.awt.Font("Verdana", 0, 22)); // NOI18N
         rodadaperdida.setForeground(new java.awt.Color(255, 255, 255));
         rodadaperdida.setText("essa rodada. Boa");
 
-        jLabel1.setFont(new java.awt.Font("Verdana", 0, 22));
+        jLabel1.setFont(new java.awt.Font("Verdana", 0, 22)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("sorte na próxima!");
 
@@ -721,6 +618,263 @@ public class Game extends javax.swing.JFrame {
         loser_background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetocomunicacao/resources/woodenBackgroundSmall.png"))); // NOI18N
         LoserDialog.getContentPane().add(loser_background);
         loser_background.setBounds(0, 5, 400, 175);
+
+        ContagemVitoriaDialog.setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        ContagemVitoriaDialog.setTitle("Vitória na contagem!");
+        ContagemVitoriaDialog.setLocationByPlatform(true);
+        ContagemVitoriaDialog.setMinimumSize(new java.awt.Dimension(400, 175));
+        ContagemVitoriaDialog.setModalExclusionType(java.awt.Dialog.ModalExclusionType.APPLICATION_EXCLUDE);
+        ContagemVitoriaDialog.setModalityType(java.awt.Dialog.ModalityType.APPLICATION_MODAL);
+        ContagemVitoriaDialog.setResizable(false);
+        ContagemVitoriaDialog.addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                ContagemVitoriaDialogWindowActivated(evt);
+            }
+        });
+        ContagemVitoriaDialog.getContentPane().setLayout(null);
+
+        win_count_panel.setMinimumSize(new java.awt.Dimension(400, 175));
+        win_count_panel.setOpaque(false);
+
+        winner_count_icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetocomunicacao/resources/draw_victory128.png"))); // NOI18N
+
+        win_count.setFont(new java.awt.Font("Verdana", 0, 24)); // NOI18N
+        win_count.setForeground(new java.awt.Color(0, 153, 0));
+        win_count.setText("Vitória na contagem!");
+
+        dupla1contagemv.setFont(new java.awt.Font("Verdana", 0, 22)); // NOI18N
+        dupla1contagemv.setForeground(new java.awt.Color(255, 255, 255));
+        dupla1contagemv.setText("Pontos Dupla 1:");
+
+        dupla2contagemv.setFont(new java.awt.Font("Verdana", 0, 22)); // NOI18N
+        dupla2contagemv.setForeground(new java.awt.Color(255, 255, 255));
+        dupla2contagemv.setText("Pontos Dupla 2:");
+
+        label_pontosdupla1v.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
+        label_pontosdupla1v.setForeground(new java.awt.Color(255, 255, 255));
+        label_pontosdupla1v.setText("pt1");
+
+        label_pontosdupla2v.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
+        label_pontosdupla2v.setForeground(new java.awt.Color(255, 255, 255));
+        label_pontosdupla2v.setText("pt2");
+
+        javax.swing.GroupLayout win_count_panelLayout = new javax.swing.GroupLayout(win_count_panel);
+        win_count_panel.setLayout(win_count_panelLayout);
+        win_count_panelLayout.setHorizontalGroup(
+            win_count_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(win_count_panelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(winner_count_icon)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(win_count_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(win_count_panelLayout.createSequentialGroup()
+                        .addComponent(dupla2contagemv)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(label_pontosdupla2v))
+                    .addGroup(win_count_panelLayout.createSequentialGroup()
+                        .addComponent(dupla1contagemv)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(label_pontosdupla1v))
+                    .addComponent(win_count))
+                .addGap(8, 8, 8))
+        );
+        win_count_panelLayout.setVerticalGroup(
+            win_count_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(win_count_panelLayout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addGroup(win_count_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(winner_count_icon)
+                    .addGroup(win_count_panelLayout.createSequentialGroup()
+                        .addComponent(win_count)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(win_count_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(dupla1contagemv)
+                            .addComponent(label_pontosdupla1v))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(win_count_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(dupla2contagemv)
+                            .addComponent(label_pontosdupla2v))))
+                .addContainerGap(24, Short.MAX_VALUE))
+        );
+
+        ContagemVitoriaDialog.getContentPane().add(win_count_panel);
+        win_count_panel.setBounds(0, 0, 400, 175);
+
+        winner_count_background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetocomunicacao/resources/woodenBackgroundSmall.png"))); // NOI18N
+        ContagemVitoriaDialog.getContentPane().add(winner_count_background);
+        winner_count_background.setBounds(0, 1, 400, 175);
+
+        ContagemDerrotaDialog.setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        ContagemDerrotaDialog.setTitle("Derrota na contagem!");
+        ContagemDerrotaDialog.setLocationByPlatform(true);
+        ContagemDerrotaDialog.setMinimumSize(new java.awt.Dimension(400, 175));
+        ContagemDerrotaDialog.setModalExclusionType(java.awt.Dialog.ModalExclusionType.APPLICATION_EXCLUDE);
+        ContagemDerrotaDialog.setModalityType(java.awt.Dialog.ModalityType.APPLICATION_MODAL);
+        ContagemDerrotaDialog.setResizable(false);
+        ContagemDerrotaDialog.addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                ContagemDerrotaDialogWindowActivated(evt);
+            }
+        });
+        ContagemDerrotaDialog.getContentPane().setLayout(null);
+
+        lose_count_panel.setMinimumSize(new java.awt.Dimension(400, 175));
+        lose_count_panel.setOpaque(false);
+        lose_count_panel.setLayout(null);
+
+        loser_count_icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetocomunicacao/resources/draw_lose128.png"))); // NOI18N
+        lose_count_panel.add(loser_count_icon);
+        loser_count_icon.setBounds(0, 20, 110, 128);
+
+        derrota_count.setFont(new java.awt.Font("Verdana", 0, 24)); // NOI18N
+        derrota_count.setForeground(new java.awt.Color(255, 0, 0));
+        derrota_count.setText("Derrota na contagem!");
+        lose_count_panel.add(derrota_count);
+        derrota_count.setBounds(120, 30, 263, 30);
+
+        dupla1contagemd.setFont(new java.awt.Font("Verdana", 0, 22)); // NOI18N
+        dupla1contagemd.setForeground(new java.awt.Color(255, 255, 255));
+        dupla1contagemd.setText("Pontos Dupla 1:");
+        lose_count_panel.add(dupla1contagemd);
+        dupla1contagemd.setBounds(144, 59, 177, 28);
+
+        dupla2contagemd.setFont(new java.awt.Font("Verdana", 0, 22)); // NOI18N
+        dupla2contagemd.setForeground(new java.awt.Color(255, 255, 255));
+        dupla2contagemd.setText("Pontos Dupla 2:");
+        lose_count_panel.add(dupla2contagemd);
+        dupla2contagemd.setBounds(144, 98, 177, 28);
+
+        label_pontosdupla1d.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
+        label_pontosdupla1d.setForeground(new java.awt.Color(255, 255, 255));
+        label_pontosdupla1d.setText("pt1");
+        lose_count_panel.add(label_pontosdupla1d);
+        label_pontosdupla1d.setBounds(327, 63, 29, 23);
+
+        label_pontosdupla2d.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
+        label_pontosdupla2d.setForeground(new java.awt.Color(255, 255, 255));
+        label_pontosdupla2d.setText("pt2");
+        lose_count_panel.add(label_pontosdupla2d);
+        label_pontosdupla2d.setBounds(327, 102, 29, 23);
+
+        ContagemDerrotaDialog.getContentPane().add(lose_count_panel);
+        lose_count_panel.setBounds(0, 0, 400, 175);
+
+        loser_count_background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetocomunicacao/resources/woodenBackgroundSmall.png"))); // NOI18N
+        ContagemDerrotaDialog.getContentPane().add(loser_count_background);
+        loser_count_background.setBounds(0, 1, 400, 175);
+
+        DisconnectDialog.setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        DisconnectDialog.setTitle("Jogador desconectado");
+        DisconnectDialog.setMinimumSize(new java.awt.Dimension(400, 175));
+        DisconnectDialog.setModalExclusionType(java.awt.Dialog.ModalExclusionType.APPLICATION_EXCLUDE);
+        DisconnectDialog.setModalityType(java.awt.Dialog.ModalityType.APPLICATION_MODAL);
+        DisconnectDialog.setResizable(false);
+        DisconnectDialog.getContentPane().setLayout(null);
+
+        disconnect_panel.setMinimumSize(new java.awt.Dimension(400, 175));
+        disconnect_panel.setOpaque(false);
+        disconnect_panel.setLayout(null);
+
+        jogador_desconectado.setFont(new java.awt.Font("Verdana", 0, 24)); // NOI18N
+        jogador_desconectado.setForeground(new java.awt.Color(255, 0, 0));
+        jogador_desconectado.setText("Jogador(es) Desconetado(s)!");
+        disconnect_panel.add(jogador_desconectado);
+        jogador_desconectado.setBounds(20, 10, 360, 30);
+
+        exit_disconnect.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetocomunicacao/resources/door32.png"))); // NOI18N
+        exit_disconnect.setBorder(null);
+        exit_disconnect.setBorderPainted(false);
+        exit_disconnect.setContentAreaFilled(false);
+        exit_disconnect.setFocusPainted(false);
+        exit_disconnect.setFocusable(false);
+        exit_disconnect.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/projetocomunicacao/resources/dooropen32.png"))); // NOI18N
+        exit_disconnect.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                exit_disconnectActionPerformed(evt);
+            }
+        });
+        disconnect_panel.add(exit_disconnect);
+        exit_disconnect.setBounds(360, 110, 32, 32);
+
+        espere.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
+        espere.setForeground(new java.awt.Color(255, 255, 255));
+        espere.setText("ou saia do jogo.");
+        disconnect_panel.add(espere);
+        espere.setBounds(120, 70, 200, 23);
+
+        disconnect_icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetocomunicacao/resources/Disconnect_internet.png"))); // NOI18N
+        disconnect_panel.add(disconnect_icon);
+        disconnect_icon.setBounds(20, 50, 80, 80);
+
+        espere1.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
+        espere1.setForeground(new java.awt.Color(255, 255, 255));
+        espere1.setText("Espere por reconexão");
+        disconnect_panel.add(espere1);
+        espere1.setBounds(120, 50, 200, 23);
+
+        DisconnectDialog.getContentPane().add(disconnect_panel);
+        disconnect_panel.setBounds(0, 0, 400, 175);
+
+        disconnect_background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetocomunicacao/resources/woodenBackgroundSmall.png"))); // NOI18N
+        DisconnectDialog.getContentPane().add(disconnect_background);
+        disconnect_background.setBounds(0, 1, 400, 175);
+
+        CloseDialog.setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        CloseDialog.setTitle("Aplicativo finalizado");
+        CloseDialog.setLocationByPlatform(true);
+        CloseDialog.setMinimumSize(new java.awt.Dimension(400, 175));
+        CloseDialog.setModalExclusionType(java.awt.Dialog.ModalExclusionType.APPLICATION_EXCLUDE);
+        CloseDialog.setModalityType(java.awt.Dialog.ModalityType.APPLICATION_MODAL);
+        CloseDialog.setResizable(false);
+        CloseDialog.addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                CloseDialogWindowActivated(evt);
+            }
+        });
+        CloseDialog.getContentPane().setLayout(null);
+
+        close_panel.setMinimumSize(new java.awt.Dimension(400, 175));
+        close_panel.setOpaque(false);
+        close_panel.setLayout(null);
+
+        alert_label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetocomunicacao/resources/alert64.png"))); // NOI18N
+        close_panel.add(alert_label);
+        alert_label.setBounds(30, 20, 128, 128);
+
+        closed.setFont(new java.awt.Font("Verdana", 0, 24)); // NOI18N
+        closed.setForeground(new java.awt.Color(255, 0, 0));
+        closed.setText("Algum jogador fechou o app!");
+        close_panel.add(closed);
+        closed.setBounds(30, 10, 350, 30);
+
+        sendo.setFont(new java.awt.Font("Verdana", 0, 22)); // NOI18N
+        sendo.setForeground(new java.awt.Color(255, 255, 255));
+        sendo.setText("O jogo está sendo");
+        close_panel.add(sendo);
+        sendo.setBounds(150, 50, 200, 28);
+
+        finalizado.setFont(new java.awt.Font("Verdana", 0, 22)); // NOI18N
+        finalizado.setForeground(new java.awt.Color(255, 255, 255));
+        finalizado.setText("finalizado.");
+        close_panel.add(finalizado);
+        finalizado.setBounds(150, 80, 140, 28);
+
+        sair_button.setText("Sair");
+        sair_button.setToolTipText("");
+        sair_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sair_buttonActionPerformed(evt);
+            }
+        });
+        close_panel.add(sair_button);
+        sair_button.setBounds(300, 110, 73, 23);
+
+        CloseDialog.getContentPane().add(close_panel);
+        close_panel.setBounds(0, 0, 400, 175);
+
+        close_background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetocomunicacao/resources/woodenBackgroundSmall.png"))); // NOI18N
+        CloseDialog.getContentPane().add(close_background);
+        close_background.setBounds(0, 1, 400, 175);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Domino Mania");
@@ -773,58 +927,6 @@ public class Game extends javax.swing.JFrame {
         });
         game_panel.add(ExitGameButton);
         ExitGameButton.setBounds(10, 11, 24, 40);
-
-        PauseGameButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetocomunicacao/resources/pause232.png"))); // NOI18N
-        PauseGameButton.setBorderPainted(false);
-        PauseGameButton.setContentAreaFilled(false);
-        PauseGameButton.setDefaultCapable(false);
-        PauseGameButton.setFocusPainted(false);
-        PauseGameButton.setFocusable(false);
-        PauseGameButton.setMaximumSize(new java.awt.Dimension(24, 40));
-        PauseGameButton.setMinimumSize(new java.awt.Dimension(24, 40));
-        PauseGameButton.setPreferredSize(new java.awt.Dimension(24, 40));
-        PauseGameButton.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/projetocomunicacao/resources/glowingpause32.png"))); // NOI18N
-        PauseGameButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                PauseGameButtonActionPerformed(evt);
-            }
-        });
-        game_panel.add(PauseGameButton);
-        PauseGameButton.setBounds(40, 11, 24, 40);
-
-        OpenChatButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetocomunicacao/resources/chatpessoaoff32.png"))); // NOI18N
-        OpenChatButton.setBorderPainted(false);
-        OpenChatButton.setContentAreaFilled(false);
-        OpenChatButton.setFocusPainted(false);
-        OpenChatButton.setFocusable(false);
-        OpenChatButton.setMaximumSize(new java.awt.Dimension(34, 40));
-        OpenChatButton.setMinimumSize(new java.awt.Dimension(34, 40));
-        OpenChatButton.setPreferredSize(new java.awt.Dimension(34, 40));
-        OpenChatButton.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/projetocomunicacao/resources/chatpessoa32.png"))); // NOI18N
-        OpenChatButton.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/projetocomunicacao/resources/chatpessoa32.png"))); // NOI18N
-        OpenChatButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                OpenChatButtonActionPerformed(evt);
-            }
-        });
-        game_panel.add(OpenChatButton);
-        OpenChatButton.setBounds(70, 10, 34, 40);
-
-        ClockTurno.setFont(new java.awt.Font("Verdana", 1, 14));
-        ClockTurno.setForeground(new java.awt.Color(255, 255, 255));
-        ClockTurno.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetocomunicacao/resources/clock32.png"))); // NOI18N
-        ClockTurno.setText("-- : --");
-        ClockTurno.setToolTipText("Tempo restante no turno atual");
-        game_panel.add(ClockTurno);
-        ClockTurno.setBounds(134, 509, 80, 32);
-
-        ClockTimeout.setFont(new java.awt.Font("Verdana", 1, 14));
-        ClockTimeout.setForeground(new java.awt.Color(255, 255, 255));
-        ClockTimeout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetocomunicacao/resources/redclock32.png"))); // NOI18N
-        ClockTimeout.setText("-- : --");
-        ClockTimeout.setToolTipText("Tempo de espera restante até timeout");
-        game_panel.add(ClockTimeout);
-        ClockTimeout.setBounds(134, 547, 80, 32);
 
         peca1jogador4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetocomunicacao/resources/pvirada.png"))); // NOI18N
         peca1jogador4.setBorderPainted(false);
@@ -1189,7 +1291,7 @@ public class Game extends javax.swing.JFrame {
         game_panel.add(peca6jogador1);
         peca6jogador1.setBounds(501, 21, 35, 70);
 
-        NomeJogador1.setFont(new java.awt.Font("Verdana", 1, 12));
+        NomeJogador1.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         NomeJogador1.setForeground(new java.awt.Color(255, 255, 255));
         NomeJogador1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetocomunicacao/resources/greenball16.png"))); // NOI18N
         NomeJogador1.setText("Pedro");
@@ -1200,7 +1302,7 @@ public class Game extends javax.swing.JFrame {
         game_panel.add(NomeJogador1);
         NomeJogador1.setBounds(554, 21, 100, 16);
 
-        DuplaJogador1.setFont(new java.awt.Font("Verdana", 1, 12));
+        DuplaJogador1.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         DuplaJogador1.setForeground(new java.awt.Color(255, 255, 255));
         DuplaJogador1.setText("Dupla 1");
         DuplaJogador1.setFocusable(false);
@@ -1209,7 +1311,7 @@ public class Game extends javax.swing.JFrame {
         game_panel.add(DuplaJogador1);
         DuplaJogador1.setBounds(554, 43, 51, 16);
 
-        NomeJogador2.setFont(new java.awt.Font("Verdana", 1, 12));
+        NomeJogador2.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         NomeJogador2.setForeground(new java.awt.Color(255, 255, 255));
         NomeJogador2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetocomunicacao/resources/greenball16.png"))); // NOI18N
         NomeJogador2.setText("Aquitério");
@@ -1220,7 +1322,7 @@ public class Game extends javax.swing.JFrame {
         game_panel.add(NomeJogador2);
         NomeJogador2.setBounds(710, 105, 80, 16);
 
-        DuplaJogador2.setFont(new java.awt.Font("Verdana", 1, 12));
+        DuplaJogador2.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         DuplaJogador2.setForeground(new java.awt.Color(255, 255, 255));
         DuplaJogador2.setText("Dupla 2");
         DuplaJogador2.setFocusable(false);
@@ -1229,7 +1331,7 @@ public class Game extends javax.swing.JFrame {
         game_panel.add(DuplaJogador2);
         DuplaJogador2.setBounds(710, 127, 51, 16);
 
-        NomeJogador3.setFont(new java.awt.Font("Verdana", 1, 12));
+        NomeJogador3.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         NomeJogador3.setForeground(new java.awt.Color(255, 255, 255));
         NomeJogador3.setText("Vini");
         NomeJogador3.setFocusable(false);
@@ -1238,7 +1340,7 @@ public class Game extends javax.swing.JFrame {
         game_panel.add(NomeJogador3);
         NomeJogador3.setBounds(554, 509, 120, 16);
 
-        DuplaJogador3.setFont(new java.awt.Font("Verdana", 1, 12));
+        DuplaJogador3.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         DuplaJogador3.setForeground(new java.awt.Color(255, 255, 255));
         DuplaJogador3.setText("Dupla 1");
         DuplaJogador3.setToolTipText("");
@@ -1248,7 +1350,7 @@ public class Game extends javax.swing.JFrame {
         game_panel.add(DuplaJogador3);
         DuplaJogador3.setBounds(554, 531, 51, 16);
 
-        NomeJogador4.setFont(new java.awt.Font("Verdana", 1, 12));
+        NomeJogador4.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         NomeJogador4.setForeground(new java.awt.Color(255, 255, 255));
         NomeJogador4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetocomunicacao/resources/greenball16.png"))); // NOI18N
         NomeJogador4.setText("Jacilda");
@@ -1259,7 +1361,7 @@ public class Game extends javax.swing.JFrame {
         game_panel.add(NomeJogador4);
         NomeJogador4.setBounds(9, 105, 80, 16);
 
-        DuplaJogador4.setFont(new java.awt.Font("Verdana", 1, 12));
+        DuplaJogador4.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         DuplaJogador4.setForeground(new java.awt.Color(255, 255, 255));
         DuplaJogador4.setText("Dupla 2");
         DuplaJogador4.setFocusable(false);
@@ -1268,7 +1370,7 @@ public class Game extends javax.swing.JFrame {
         game_panel.add(DuplaJogador4);
         DuplaJogador4.setBounds(22, 127, 51, 16);
 
-        ScoreDupla1.setFont(new java.awt.Font("Verdana", 1, 12));
+        ScoreDupla1.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         ScoreDupla1.setForeground(new java.awt.Color(255, 0, 0));
         ScoreDupla1.setText("0");
         ScoreDupla1.setFocusable(false);
@@ -1277,7 +1379,7 @@ public class Game extends javax.swing.JFrame {
         game_panel.add(ScoreDupla1);
         ScoreDupla1.setBounds(688, 52, 9, 16);
 
-        ScoreDupla2.setFont(new java.awt.Font("Verdana", 1, 12));
+        ScoreDupla2.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         ScoreDupla2.setForeground(new java.awt.Color(46, 180, 243));
         ScoreDupla2.setText("0");
         ScoreDupla2.setFocusable(false);
@@ -2106,28 +2208,6 @@ public class Game extends javax.swing.JFrame {
         ScoreDupla2.setText(new Integer(this.fachada.mostraPlacar2()).toString());
     }
 
-    private void OpenChatButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OpenChatButtonActionPerformed
-        // TODO add your handling code here:
-        //ChatDialog.setLocationRelativeTo(game_panel);
-        ChatDialog.setVisible(true);
-        ChatDialog.setModal(true);
-    }//GEN-LAST:event_OpenChatButtonActionPerformed
-
-    private void PauseGameButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PauseGameButtonActionPerformed
-        //precisa checar o time
-        //int dupla = fachada.getDupla() <- algo assim
-
-        if (pausas_restantes_d1 > 0) {
-            PauseDialog.setLocationRelativeTo(game_panel);
-            PauseDialog.setVisible(true);
-            PauseDialog.setModal(true);
-            pausas_restantes_d1--;
-            pausas_restantes_d2--;
-            pausasdupla1.setText("Pausas restantes (Dupla 1): " + pausas_restantes_d1);
-            pausasdupla2.setText("Pausas restantes (Dupla 2): " + pausas_restantes_d2);
-        }
-    }//GEN-LAST:event_PauseGameButtonActionPerformed
-
     private void ExitGameButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExitGameButtonActionPerformed
         // TODO add your handling code here:
         QuitDialog.setLocationRelativeTo(game_panel);
@@ -2421,24 +2501,6 @@ private void peca6jogador3MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIR
     }
 }//GEN-LAST:event_peca6jogador3MouseDragged
 
-    private void exit_pauseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exit_pauseActionPerformed
-        // TODO add your handling code here:
-        QuitDialog.setLocationRelativeTo(game_panel);
-        QuitDialog.setVisible(true);
-        QuitDialog.setModal(true);
-    }//GEN-LAST:event_exit_pauseActionPerformed
-
-    private void resumeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resumeActionPerformed
-        // TODO add your handling code here:
-        PauseDialog.setModal(false);
-        PauseDialog.setVisible(false);
-    }//GEN-LAST:event_resumeActionPerformed
-
-    private void chatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chatActionPerformed
-        // TODO add your handling code here:
-        ChatDialog.setVisible(true);
-    }//GEN-LAST:event_chatActionPerformed
-
     private void sairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sairActionPerformed
         // TODO add your handling code here:
         System.exit(0);
@@ -2545,6 +2607,28 @@ private void PerdedorDialogWindowOpened(java.awt.event.WindowEvent evt) {//GEN-F
     }
     tiraPerdedorDialog();
 }//GEN-LAST:event_PerdedorDialogWindowOpened
+
+    private void ContagemVitoriaDialogWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_ContagemVitoriaDialogWindowActivated
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ContagemVitoriaDialogWindowActivated
+
+    private void ContagemDerrotaDialogWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_ContagemDerrotaDialogWindowActivated
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ContagemDerrotaDialogWindowActivated
+
+    private void exit_disconnectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exit_disconnectActionPerformed
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_exit_disconnectActionPerformed
+
+    private void sair_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sair_buttonActionPerformed
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_sair_buttonActionPerformed
+
+    private void CloseDialogWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_CloseDialogWindowActivated
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CloseDialogWindowActivated
 
     public void mostraToqueDialog() {
         ToqueDialog.setLocationRelativeTo(game_panel);
@@ -2969,9 +3053,10 @@ private void PerdedorDialogWindowOpened(java.awt.event.WindowEvent evt) {//GEN-F
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Background;
     private javax.swing.JDialog ChampionDialog;
-    private javax.swing.JDialog ChatDialog;
-    private javax.swing.JLabel ClockTimeout;
-    private javax.swing.JLabel ClockTurno;
+    private javax.swing.JDialog CloseDialog;
+    private javax.swing.JDialog ContagemDerrotaDialog;
+    private javax.swing.JDialog ContagemVitoriaDialog;
+    private javax.swing.JDialog DisconnectDialog;
     private javax.swing.JLabel DuplaJogador1;
     private javax.swing.JLabel DuplaJogador2;
     private javax.swing.JLabel DuplaJogador3;
@@ -2982,43 +3067,53 @@ private void PerdedorDialogWindowOpened(java.awt.event.WindowEvent evt) {//GEN-F
     private javax.swing.JLabel NomeJogador2;
     private javax.swing.JLabel NomeJogador3;
     private javax.swing.JLabel NomeJogador4;
-    private javax.swing.JButton OpenChatButton;
-    private javax.swing.JDialog PauseDialog;
-    private javax.swing.JButton PauseGameButton;
     private javax.swing.JDialog PerdedorDialog;
     private javax.swing.JDialog QuitDialog;
     private javax.swing.JLabel ScoreDupla1;
     private javax.swing.JLabel ScoreDupla2;
     private javax.swing.JDialog ToqueDialog;
     private javax.swing.JDialog WinnerDialog;
+    private javax.swing.JLabel alert_label;
     private javax.swing.JLabel campeao;
     private javax.swing.JButton cancelar;
     private javax.swing.JLabel champion_background;
     private javax.swing.JPanel champion_panel;
-    private javax.swing.JButton chat;
+    private javax.swing.JLabel close_background;
+    private javax.swing.JPanel close_panel;
+    private javax.swing.JLabel closed;
     private javax.swing.JLabel cry_label;
     private javax.swing.JLabel derrota;
+    private javax.swing.JLabel derrota_count;
+    private javax.swing.JLabel disconnect_background;
+    private javax.swing.JLabel disconnect_icon;
+    private javax.swing.JPanel disconnect_panel;
+    private javax.swing.JLabel dupla1contagemd;
+    private javax.swing.JLabel dupla1contagemv;
+    private javax.swing.JLabel dupla2contagemd;
+    private javax.swing.JLabel dupla2contagemv;
     private javax.swing.JLabel duplacampea;
     private javax.swing.JLabel duplacampea1;
     private javax.swing.JLabel duplaperdedora;
     private javax.swing.JLabel duplavencedora;
-    private javax.swing.JButton exit_pause;
+    private javax.swing.JLabel espere;
+    private javax.swing.JLabel espere1;
+    private javax.swing.JButton exit_disconnect;
+    private javax.swing.JLabel finalizado;
     private javax.swing.JPanel game_panel;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JTextArea jTextArea3;
-    private javax.swing.JTextArea jTextArea4;
     private javax.swing.JLabel jogadas;
-    private javax.swing.JLabel jogopausado;
+    private javax.swing.JLabel jogador_desconectado;
+    private javax.swing.JLabel label_pontosdupla1d;
+    private javax.swing.JLabel label_pontosdupla1v;
+    private javax.swing.JLabel label_pontosdupla2d;
+    private javax.swing.JLabel label_pontosdupla2v;
+    private javax.swing.JPanel lose_count_panel;
     private javax.swing.JLabel loser_background;
+    private javax.swing.JLabel loser_count_background;
+    private javax.swing.JLabel loser_count_icon;
     private javax.swing.JPanel loser_panel;
     private javax.swing.JLabel medal_label;
     private javax.swing.JLabel mudar;
-    private javax.swing.JLabel pausasdupla1;
-    private javax.swing.JLabel pausasdupla2;
-    private javax.swing.JLabel pause_background;
-    private javax.swing.JPanel pause_panel;
     private javax.swing.JButton peca1jogador1;
     private javax.swing.JButton peca1jogador2;
     private javax.swing.JButton peca1jogador3;
@@ -3091,15 +3186,20 @@ private void PerdedorDialogWindowOpened(java.awt.event.WindowEvent evt) {//GEN-F
     private javax.swing.JLabel posicao_9r;
     private javax.swing.JLabel quit_background;
     private javax.swing.JPanel quit_panel;
-    private javax.swing.JButton resume;
     private javax.swing.JLabel rodadaganha;
     private javax.swing.JLabel rodadaperdida;
     private javax.swing.JButton sair;
+    private javax.swing.JButton sair_button;
+    private javax.swing.JLabel sendo;
     private javax.swing.JLabel toque_background;
     private javax.swing.JPanel toque_panel;
     private javax.swing.JLabel trophy_label;
     private javax.swing.JLabel vitoria;
+    private javax.swing.JLabel win_count;
+    private javax.swing.JPanel win_count_panel;
     private javax.swing.JLabel winner_background;
+    private javax.swing.JLabel winner_count_background;
+    private javax.swing.JLabel winner_count_icon;
     private javax.swing.JPanel winner_panel;
     // End of variables declaration//GEN-END:variables
 }
