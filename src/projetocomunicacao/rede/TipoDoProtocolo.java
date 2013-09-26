@@ -9,5 +9,5 @@ package projetocomunicacao.rede;
  * @author mmfrb
  */
 public class TipoDoProtocolo {
-    public static final boolean TCP = true;
+    public static final boolean TCP = false;
 }

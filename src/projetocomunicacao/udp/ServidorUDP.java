@@ -20,6 +20,7 @@ import projetocomunicacao.rede.Transporte;
 public class ServidorUDP extends HostUDP implements Transporte {	
 	
 	public ServidorUDP(int porta) {
+            
                 while(true){
                         try{
                                 this.socketReceber = new DatagramSocket(porta);
@@ -32,6 +33,7 @@ public class ServidorUDP extends HostUDP implements Transporte {
                 }
                 enviando = new AtomicBoolean(false);
                 recebendo = new AtomicBoolean(false);
+                System.out.println("acabou o construtor do servidor");
 	}
 	
 	private void reset() throws Exception{
@@ -84,6 +86,7 @@ public class ServidorUDP extends HostUDP implements Transporte {
 
 	@Override
 	public void iniciarConexao() throws IOException {
+                System.out.println("entrei no iniciar conexao");
 		try {
 			this.receber();
 		} catch (ClassNotFoundException e) {

@@ -105,7 +105,7 @@ public class GUIServidor extends javax.swing.JFrame {
         icon_status_jogador4 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        textfield_especial = new javax.swing.JFormattedTextField();
+        textfield_especial = new javax.swing.JTextField();
         server_background = new javax.swing.JLabel();
 
         EspecialDialogServidor.setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
@@ -300,19 +300,6 @@ public class GUIServidor extends javax.swing.JFrame {
         });
         server_panel.add(jButton2);
         jButton2.setBounds(300, 480, 170, 40);
-
-        try {
-            textfield_especial.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
-        textfield_especial.setText("0");
-        textfield_especial.setToolTipText("");
-        textfield_especial.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                textfield_especialMouseClicked(evt);
-            }
-        });
         server_panel.add(textfield_especial);
         textfield_especial.setBounds(420, 530, 90, 30);
 
@@ -328,7 +315,7 @@ public class GUIServidor extends javax.swing.JFrame {
 
 private void button_especialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_especialActionPerformed
 // TODO add your handling code here:
-    int num = Integer.parseInt(textfield_especial.getText());
+    int num = Integer.parseInt((textfield_especial.getText()).trim());
     ModuloEspecial.setNumero(num);
     EspecialDialogServidor.setLocationRelativeTo(server_panel);
     EspecialDialogServidor.setVisible(true);
@@ -355,11 +342,6 @@ private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
 // TODO add your handling code here:
     escreveJogadores();
 }//GEN-LAST:event_jButton2ActionPerformed
-
-private void textfield_especialMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_textfield_especialMouseClicked
-// TODO add your handling code here:
-    textfield_especial.setText("");
-}//GEN-LAST:event_textfield_especialMouseClicked
 
    /**
      * @param args the command line arguments
@@ -420,7 +402,7 @@ private void textfield_especialMouseClicked(java.awt.event.MouseEvent evt) {//GE
     private javax.swing.JLabel status_label1;
     private javax.swing.JLabel status_label2;
     private javax.swing.JLabel status_label3;
-    private javax.swing.JFormattedTextField textfield_especial;
+    private javax.swing.JTextField textfield_especial;
     private javax.swing.JLabel title_label;
     // End of variables declaration//GEN-END:variables
 }

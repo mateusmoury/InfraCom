@@ -14,6 +14,7 @@ public class MasterServer extends Thread {
                 if(TipoDoProtocolo.TCP) {
                     this.protocolo = new ServidorTCP(this.portNumber);
                 } else {
+                    System.out.println("vou criar novo");
                     this.protocolo = new ServidorUDP(this.portNumber);
                 }
 	}

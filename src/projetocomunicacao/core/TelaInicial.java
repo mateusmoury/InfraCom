@@ -91,7 +91,7 @@ public class TelaInicial extends javax.swing.JFrame {
         especial_panel = new javax.swing.JPanel();
         alterar_label = new javax.swing.JLabel();
         confirm_number = new javax.swing.JButton();
-        textfield_especial = new javax.swing.JFormattedTextField();
+        textfield_especial = new javax.swing.JTextField();
         especial_background = new javax.swing.JLabel();
         RoomDialog = new javax.swing.JDialog();
         room_panel = new javax.swing.JPanel();
@@ -498,18 +498,7 @@ public class TelaInicial extends javax.swing.JFrame {
             }
         });
 
-        try {
-            textfield_especial.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
         textfield_especial.setText("0");
-        textfield_especial.setToolTipText("");
-        textfield_especial.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                textfield_especialMouseClicked(evt);
-            }
-        });
 
         javax.swing.GroupLayout especial_panelLayout = new javax.swing.GroupLayout(especial_panel);
         especial_panel.setLayout(especial_panelLayout);
@@ -519,7 +508,7 @@ public class TelaInicial extends javax.swing.JFrame {
                 .addGap(35, 35, 35)
                 .addGroup(especial_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(especial_panelLayout.createSequentialGroup()
-                        .addComponent(textfield_especial, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(textfield_especial, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(confirm_number))
                     .addComponent(alterar_label, javax.swing.GroupLayout.Alignment.LEADING))
@@ -914,7 +903,7 @@ public class TelaInicial extends javax.swing.JFrame {
 
     private void confirm_numberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirm_numberActionPerformed
         // TODO add your handling code here:
-        int num = Integer.parseInt(textfield_especial.getText());
+        int num = Integer.parseInt(textfield_especial.getText().trim());
         ModuloEspecial.setNumero(num);
         EspecialDialogInicial.setVisible(false);
         EspecialDialogInicial.setModal(false);
@@ -948,11 +937,6 @@ public class TelaInicial extends javax.swing.JFrame {
         EspecialDialogInicial.setVisible(true);
         EspecialDialogInicial.setModal(false);
     }//GEN-LAST:event_especial_buttonActionPerformed
-
-private void textfield_especialMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_textfield_especialMouseClicked
-// TODO add your handling code here:
-    textfield_especial.setText("");
-}//GEN-LAST:event_textfield_especialMouseClicked
 
     
     /**
@@ -1065,6 +1049,6 @@ private void textfield_especialMouseClicked(java.awt.event.MouseEvent evt) {//GE
     private javax.swing.JLabel serverlabel1;
     private javax.swing.JLabel serverlabel2;
     private javax.swing.JLabel serverlabel3;
-    private javax.swing.JFormattedTextField textfield_especial;
+    private javax.swing.JTextField textfield_especial;
     // End of variables declaration//GEN-END:variables
 }
