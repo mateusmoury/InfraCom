@@ -24,8 +24,18 @@ public class WaitACK extends Thread {
                     cliente.socket.receive(p);
                 } catch (IOException e) {
                    // cliente.socket.close();
+                    System.out.println(">>>>>> Timeoutsocket");
                     cliente.enviando.set(false);
+                    if (write.isInit.get()) {
+                        write.naoConectou.set(true);
+                    }
                     break;
+                }
+                
+                if (write.isInit.get()) {
+                    cliente.socket.setSoTimeout(0);
+                    write.naoConectou.set(false);
+                    write.reenviado.set(-1000000000);
                 }
 
                 if (!ModuloEspecial.descarta()) {

@@ -2,6 +2,7 @@ package projetocomunicacao.fachada;
 
 import java.io.IOException;
 import java.net.ConnectException;
+import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
@@ -11,7 +12,7 @@ import projetocomunicacao.game.*;
 public class FachadaCliente {
 	private Cliente cliente;
 	
-	public FachadaCliente(Cliente cliente) throws IOException, ClassNotFoundException, ConnectException {
+	public FachadaCliente(Cliente cliente) throws IOException, ClassNotFoundException, ConnectException, UnknownHostException {
 		this.cliente = cliente;
 		this.cliente.executa();
 	}

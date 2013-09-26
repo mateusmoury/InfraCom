@@ -1,16 +1,29 @@
-package projetocomunicacao.udp;
+package     projetocomunicacao.udp;
 
 import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.InetAddress;
+import java.net.SocketException;
 import java.util.TimerTask;
+import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class WriteData extends Thread {
 
     private HostUDP cliente;
+    public AtomicInteger reenviado;
+    public AtomicBoolean naoConectou, isInit;
 
-    public WriteData(HostUDP cliente) {
+    public WriteData(HostUDP cliente, boolean iniciaConexao) {
         this.cliente = cliente;
+        this.reenviado = new AtomicInteger(0);
+        this.naoConectou = new AtomicBoolean(false);
+        this.isInit = new AtomicBoolean(iniciaConexao);
+        try {
+            this.cliente.socket.setSoTimeout(cliente.socketTimeout);
+        } catch (SocketException e) {
+            
+        }
     }
 
     public void run() {
@@ -70,13 +83,20 @@ public class WriteData extends Thread {
         public void run() {
             cliente.mutex.lock();
             try {
-               // synchronized (cliente.bufferDado) {
-                    PacketData pacote = cliente.bufferDado.get(numSeq);
-                    if (pacote != null) {
-                        System.out.println(">>>>>> Vai reenviar o pacote num " + numSeq + " para " + this.ip + " " + this.pprta);
-                        envia(pacote);
+                PacketData pacote = cliente.bufferDado.get(numSeq);
+                if (pacote != null) {
+                    System.out.println(">>>>>> Vai reenviar o pacote num " + numSeq + " para " + this.ip + " " + this.pprta);
+                    if (isInit.get()) {
+                        reenviado.incrementAndGet();
+                        if (reenviado.get() >= 10) {
+                            cliente.socket.setSoTimeout(3000);
+                            naoConectou.set(true);
+                            return;
+                        }
                     }
-               // }
+                    envia(pacote);
+                }
+            } catch (SocketException e) {
             } finally {
                 cliente.mutex.unlock();
             }

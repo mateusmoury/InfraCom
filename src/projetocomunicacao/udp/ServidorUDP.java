@@ -104,7 +104,7 @@ public class ServidorUDP extends HostUDP implements Transporte {
 		while (enviando.get());
 		enviando.set(true);
 		this.reset(objeto);
-		WriteData wd = new WriteData(this);
+		WriteData wd = new WriteData(this, false);
 		WaitACK wa = new WaitACK(this, wd);
 		wd.start();
 		wa.start();
