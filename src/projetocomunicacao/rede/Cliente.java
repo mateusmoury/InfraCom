@@ -20,7 +20,7 @@ public class Cliente {
 	}
 	
 	public void executa() throws IOException, ClassNotFoundException {
-                //ModuloEspecial.setNumero(0);
+                ModuloEspecial.setNumero(0);
 		System.out.println("oi, eu sou um cliente");
 		final int portNumber = 3030;
 		Transporte protocolo = new ClienteUDP(this.IP,portNumber);

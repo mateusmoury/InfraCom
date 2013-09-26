@@ -10,7 +10,7 @@ import java.io.Serializable;
 public class PacketData extends Packet implements Serializable{
 	private static final long serialVersionUID = 2645036630731217827L;
 	
-	public static int tamanhoPacote = 1 << 8;
+	public static int tamanhoPacote = 1 << 10;
 	public static int tamanhoDados = tamanhoPacote - 9;
 	
 	private byte[] data;

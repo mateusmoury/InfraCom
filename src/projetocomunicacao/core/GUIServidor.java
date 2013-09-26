@@ -36,6 +36,21 @@ public class GUIServidor extends javax.swing.JFrame {
             salas_combobox.addItem(texto);
         }
     }
+    
+    public void escreveJogadores() {
+        int ind = salas_combobox.getSelectedIndex();
+        String texto = "";
+        if(ind!=-1){
+            Jogador[] jogadores = this.fachada.mostraJogadores(ind);
+            for(int i = 0; i < 4; ++i){
+                if(jogadores[i]!=null){
+                   texto = texto+jogadores[i].getNome()+'\n';
+                   status_jogador.setEnabled(jogadores[i].isStatus());
+                }
+            }
+            salas_textarea.setText(texto);
+        }
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -263,7 +278,7 @@ private void button_getitemcomboActionPerformed(java.awt.event.ActionEvent evt) 
         Jogador[] jogadores = this.fachada.mostraJogadores(ind);
         for(int i = 0; i < 4; ++i){
             if(jogadores[i]!=null){
-               texto = texto+jogadores[i].getNome()+"    "+jogadores[i].isStatus()+'\n'; 
+               texto = texto+jogadores[i].getNome()+'\n';
             }
         }
         salas_textarea.setText(texto);

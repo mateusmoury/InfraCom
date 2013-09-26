@@ -24,6 +24,7 @@ public class DesenhaGUIServidor extends Thread {
             }
             if(this.fachada.isAlterou()){
                 this.gs.desenhaComboBox();
+                this.gs.escreveJogadores();
                 this.fachada.setAlterou(false);
             }
         }
