@@ -1,10 +1,11 @@
 package projetocomunicacao.rede;
 
 import java.io.IOException;
+import java.net.ConnectException;
 import java.net.Socket;
 
 public interface Transporte {
-	void iniciarConexao() throws IOException;
+	void iniciarConexao() throws IOException, ConnectException;
 	
 	void encerrarConexao() throws IOException;
 	

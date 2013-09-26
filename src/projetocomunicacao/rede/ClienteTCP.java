@@ -3,6 +3,7 @@ package projetocomunicacao.rede;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.net.ConnectException;
 import java.net.Socket;
 import java.net.UnknownHostException;
 import projetocomunicacao.core.PingadorCliente;
@@ -20,7 +21,7 @@ public class ClienteTCP implements Transporte {
 	}
 	
 	@Override
-	public void iniciarConexao() throws UnknownHostException, IOException{
+	public void iniciarConexao() throws UnknownHostException, IOException, ConnectException {
 		this.sock = new Socket(this.ip, this.portNumber);
 	}
 

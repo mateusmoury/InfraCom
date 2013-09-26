@@ -3,7 +3,7 @@ import java.util.Random;
 
 
 public class ModuloEspecial {
-	private static int numero;
+	private static int numero = 0;
 	private static Random random = new Random();
 	
 	public static void setNumero(int num) {
