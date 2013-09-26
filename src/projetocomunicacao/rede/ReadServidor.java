@@ -13,6 +13,8 @@ public class ReadServidor extends Thread {
 	private Transporte protocolo;
 	private Servidor servidor;
         private WriteServidor WS;
+
+       
         
 	public ReadServidor(WriteServidor WS, Servidor servidor, Transporte protocolo) throws IOException {
 		this.WS=WS;
@@ -34,7 +36,16 @@ public class ReadServidor extends Thread {
 			} catch (IOException e) {
 				//e.printStackTrace();
                                  System.out.println("CLIENTE SAIU");
-                                 break;
+                                 try {
+                                    sleep(100);
+                                    continue;
+                                    //this.cv.notifyAll();
+                                } catch (InterruptedException e1) {
+                                    // TODO Auto-generated catch block
+                                    e1.printStackTrace();
+                                }
+                                continue;
+                                // break;
 			} catch (ClassNotFoundException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

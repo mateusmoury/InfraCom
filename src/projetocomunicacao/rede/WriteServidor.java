@@ -18,6 +18,7 @@ public class WriteServidor extends Thread {
     private Servidor servidor;
     private Lock lock;
     private Condition cv;
+    private boolean saiu;
 
     public WriteServidor(Lock lock, Condition cv, Servidor servidor, Transporte protocolo, int id) throws IOException {
         this.lock = lock;
@@ -25,6 +26,7 @@ public class WriteServidor extends Thread {
         this.protocolo = protocolo;
         this.servidor = servidor;
         this.id=id;
+        this.saiu=false;
          System.out.println("ficou com id inicial "+this.id);
     }
 
@@ -54,6 +56,16 @@ public class WriteServidor extends Thread {
                     e1.printStackTrace();
                 }
             } else if (this.servidor.getMudou()[aux]) {
+                if(this.saiu) {
+                     try {
+                        this.cv.awaitNanos(1000000);
+                        continue;
+                        //this.cv.notifyAll();
+                    } catch (InterruptedException e1) {
+                        // TODO Auto-generated catch block
+                        e1.printStackTrace();
+                    }
+                }
                 System.out.println("houve mudanças id "+aux);
 
                 this.outToClient = this.servidor.getSalas();
@@ -68,8 +80,9 @@ public class WriteServidor extends Thread {
                 } catch (IOException e) {
                     // TODO Auto-generated catch block
                     System.out.println("CRIENTE QUE EU TENTEI MANDAR AGORA JA TA FORA JA");
+                    this.servidor.getMudou()[aux] = false;
                     //e.printStackTrace();
-                    break;
+                    //break;
                 }
                 this.servidor.getMudou()[aux] = false;
             }

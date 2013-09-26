@@ -876,7 +876,7 @@ public class Game extends javax.swing.JFrame {
         CloseDialog.getContentPane().add(close_background);
         close_background.setBounds(0, 1, 400, 175);
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Domino Mania");
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setIconImages(null);
