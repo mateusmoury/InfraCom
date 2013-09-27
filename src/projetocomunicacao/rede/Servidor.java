@@ -15,6 +15,7 @@ public class Servidor {
 	private Condition cv;
         private boolean[] caiu;
         private boolean alterou;
+        static public int lastPortNumber;
 	
 	public Servidor(Lock lock, Condition cv){
 		this.lock = lock;
@@ -25,6 +26,7 @@ public class Servidor {
                 this.alocado = new boolean[100];
 		this.threads = new ThreadServidor[1000];
                 this.caiu = new boolean[25];
+                this.lastPortNumber = 3030;
 	}
 
         public boolean isAlterou() {

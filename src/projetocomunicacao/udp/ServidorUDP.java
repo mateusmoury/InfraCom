@@ -15,6 +15,7 @@ import java.util.concurrent.locks.ReentrantLock;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import projetocomunicacao.rede.Servidor;
 import projetocomunicacao.rede.Transporte;
 
 public class ServidorUDP extends HostUDP implements Transporte {	
@@ -29,6 +30,7 @@ public class ServidorUDP extends HostUDP implements Transporte {
                                 break;
                         } catch(Exception e){
                                 ++porta;
+                                ++Servidor.lastPortNumber;
                         }
                 }
                 enviando = new AtomicBoolean(false);

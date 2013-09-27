@@ -27,7 +27,8 @@ public class ThreadServidor extends Thread {
                 if(TipoDoProtocolo.TCP) {
                     this.protocolo = new ServidorTCP(3030);
                 } else {
-                    this.protocolo = new ServidorUDP(3030);
+                    System.out.println(Servidor.lastPortNumber);
+                    this.protocolo = new ServidorUDP(Servidor.lastPortNumber+1);
                 }
                 this.protocolo.iniciarConexao(); 
 		this.servidor = servidor;
