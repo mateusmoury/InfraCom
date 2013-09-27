@@ -27,6 +27,7 @@ public class ServidorUDP extends HostUDP implements Transporte {
                                 this.socketReceber = new DatagramSocket(porta);
                                 this.porta = porta;
                                 this.portaEnviar = porta;
+                                ++Servidor.lastPortNumber;
                                 break;
                         } catch(Exception e){
                                 ++porta;
